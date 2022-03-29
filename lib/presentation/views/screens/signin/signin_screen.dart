@@ -1,7 +1,9 @@
-import 'package:educator/presentation/views/components/custom_text_form_field.dart';
-import 'package:educator/presentation/views/screens/signup/signup_screen.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';
+
+import '../../../router/app_router.gr.dart';
 
 class SigninScreen extends StatefulWidget {
   SigninScreen({Key? key}) : super(key: key);
@@ -11,114 +13,152 @@ class SigninScreen extends StatefulWidget {
 }
 
 class _SigninScreenState extends State<SigninScreen> {
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  TextEditingController? emailController = TextEditingController();
-  TextEditingController? passwordController = TextEditingController();
-  submit() async {
-    if (_formKey.currentState!.validate()) {
-      _formKey.currentState!.save();
-    }
-  }
+  final _formKey = GlobalKey<FormState>();
 
+  String? _email;
+
+  String? _password;
+  bool _isobscore = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+      ),
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(30),
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                //margin: EdgeInsets.all(16.0),
-                color: Colors.white70,
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Form(
-                    key: _formKey,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Welcome',
-                          style: Theme.of(context).textTheme.titleLarge,
-                        ),
-                        const SizedBox(height: 30.0),
-                        CustomTextFormField(
-                          keyType: TextInputType.emailAddress,
-                          label: 'Email',
-                          hint: 'Email Address',
-                          formController: emailController,
-                          vald: qValidator([
-                            IsEmail(),
-                            //MaxLength(50),
-                          ]),
-                          onsaved: (val) => {
-                            emailController!.text = val!,
+          child: Center(
+            child: Container(
+              //margin: EdgeInsets.all(16.0),
+              color: Colors.white70,
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Welcome',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      const SizedBox(height: 20.0),
+                      CustomTextFormField(
+                        action: TextInputAction.next,
+                        keyType: TextInputType.emailAddress,
+                        label: 'Email',
+                        hint: 'Email Address',
+                        obscure: false,
+                        suffixicon: Icon(Icons.email_outlined),
+                        vald: qValidator([
+                          IsEmail(),
+                          //MaxLength(50),
+                        ]),
+                        onsaved: (val) => {
+                          _email = val,
+                        },
+                      ),
+                      const SizedBox(height: 20.0),
+                      CustomTextFormField(
+                        action: TextInputAction.done,
+                        keyType: TextInputType.text,
+                        label: 'Password',
+                        hint: 'Password',
+                        vald: qValidator([
+                          //IsNotEmpty('Rrquired'),
+                          const IsRequired(),
+                          const MinLength(8, 'Password is to short'),
+                          const MaxLength(20),
+                        ]),
+                        onsaved: (val) => {
+                          _password = val,
+                        },
+                        obscure: _isobscore,
+                        suffixicon: IconButton(
+                          icon: Icon(
+                            _isobscore
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                          ),
+                          onPressed: () {
+                            setState:
+                            (() {
+                              _isobscore = !_isobscore;
+                            });
                           },
                         ),
-                        const SizedBox(height: 30.0),
-                        CustomTextFormField(
-                          keyType: TextInputType.text,
-                          label: 'Password',
-                          hint: 'Password',
-                          formController: passwordController,
-                          vald: qValidator([
-                            //IsNotEmpty('Rrquired'),
-                            IsRequired(),
-                            MinLength(8, 'Password is to short'),
-                            MaxLength(20),
-                          ]),
-                          onsaved: (val) => {
-                            passwordController!.text = val!,
-                          },
-                        ),
-                        const SizedBox(height: 30.0),
-                        const Text(
+                      ),
+                      const SizedBox(height: 20.0),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
                           'Forget Password?',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 15,
-                            //decoration: hide1 ?? nullو
-                            //fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: TextAlign.end,
+                          textAlign: TextAlign.start,
                         ),
-                        const SizedBox(height: 30.0),
-                        ElevatedButton(
-                          onPressed: submit(),
-                          child: const Text(
-                            'SIGN IN',
-                          ),
+                      ),
+                      const SizedBox(height: 20.0),
+                      ElevatedButton(
+                        onPressed: () {
+                          if (FocusScope.of(context).hasFocus) {
+                            FocusScope.of(context).unfocus();
+                          }
+                          _formKey.currentState!.save();
+                          if (_formKey.currentState!.validate()) {
+                            //context.read<AuthCubit>().login(_username!, _password!);
+
+                            print(_password);
+                            print(_email);
+                            print(_formKey);
+                          }
+                        },
+                        child: const Text(
+                          'SIGN IN',
                         ),
-                      ],
-                    ),
+                      ),
+                      const SizedBox(height: 20.0),
+                      Text(
+                        '-OR-',
+                        style: Theme.of(context).textTheme.titleLarge,
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 20.0),
+                      CustomMaterialButton(
+                        assetName: 'assets/images/google.jpg',
+                        borderColor: Colors.grey,
+                        color: Colors.white,
+                        onpressed: () {},
+                        text: 'Sign In with Google',
+                        txtColor: Colors.black,
+                      ),
+                      const SizedBox(height: 20.0),
+                      Row(
+                        children: [
+                          const Text(
+                            'Dont have an account?',
+                          ),
+                          const SizedBox(height: 20.0),
+                          TextButton(
+                            onPressed: () {
+                              context.pushRoute(
+                                SignupScreen(),
+                              );
+                            },
+                            child: const Text(
+                              'SIGN UP',
+
+                              //textAlign: TextAlign.start,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),
-              const SizedBox(height: 20.0),
-              Text(
-                '-OR-',
-                style: Theme.of(context).textTheme.titleLarge,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SignupScreen(),
-                    ),
-                  );
-                },
-                child: const Text(
-                  'SIGN UP',
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),

@@ -5,20 +5,23 @@ class CustomTextFormField extends StatefulWidget {
     this.keyType,
     this.label,
     this.hint,
-    this.formController,
+    //this.formController,
     this.vald,
     this.onsaved,
-    //this.obscure,
+    this.action,
+    this.suffixicon,
+    this.obscure,
     Key? key,
   }) : super(key: key);
   final TextInputType? keyType;
   final String? label;
   final String? hint;
-
-  TextEditingController? formController = TextEditingController();
+  //TextEditingController? formController;
   final String? Function(String?)? vald;
   final void Function(String?)? onsaved;
-  //bool? obscure;
+  final TextInputAction? action;
+  final Widget? suffixicon;
+  final bool? obscure;
   @override
   _CustomTextFormFieldState createState() => _CustomTextFormFieldState();
 }
@@ -27,16 +30,19 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textInputAction: widget.action,
       keyboardType: widget.keyType,
-      controller: widget.formController,
+
       decoration: InputDecoration(
         labelText: widget.label,
         //labelStyle: TextStyle(fontSize: 14),
         hintText: widget.hint,
+        suffixIcon: widget.suffixicon,
       ),
       validator: widget.vald,
       onSaved: widget.onsaved,
-      //obscureText: widget.obscure!,
+
+      obscureText: widget.obscure!,
       //(val)
       // {
       //   widget.formController!.text = val!;
