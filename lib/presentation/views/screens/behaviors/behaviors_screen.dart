@@ -1,3 +1,4 @@
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class BehaviorsScreen extends StatelessWidget {
@@ -5,6 +6,12 @@ class BehaviorsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: CustomAppBar(
+        text: 'Behaviors of your children',
+        icon: Icons.priority_high_outlined,
+        onpreased: () {},
+      ),
+    );
   }
 }

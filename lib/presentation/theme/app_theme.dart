@@ -1,3 +1,4 @@
+import 'package:educator/presentation/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppTheme {
@@ -5,7 +6,7 @@ abstract class AppTheme {
     return ThemeData(
       //primaryColor: const Color(0xff0D1724),
       //scaffoldBackgroundColor: Colors.grey[300],
-      primarySwatch: Colors.deepPurple,
+      primarySwatch: AppColors.primary,
       // appBarTheme: const AppBarTheme(
       //   elevation: 6.0,
       // ),

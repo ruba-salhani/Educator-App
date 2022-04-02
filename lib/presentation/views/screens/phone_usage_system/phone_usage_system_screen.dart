@@ -1,3 +1,4 @@
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class PhoneUsageSeystemScreen extends StatelessWidget {
@@ -6,7 +7,11 @@ class PhoneUsageSeystemScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: CustomAppBar(
+        text: 'Phone usage seystem',
+        icon: Icons.priority_high_outlined,
+        onpreased: () {},
+      ),
     );
   }
 }

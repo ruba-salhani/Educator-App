@@ -28,11 +28,11 @@ class _CustomCurvedNavigationBarState extends State<CustomCurvedNavigationBar> {
     BehaviorsScreen(),
   ];
   final itemes = const <Widget>[
-    Icon(Icons.add, size: 30),
-    Icon(Icons.list, size: 30),
-    Icon(Icons.compare_arrows, size: 30),
+    Icon(Icons.description_outlined, size: 30),
+    Icon(Icons.phone_android_outlined, size: 30),
     Icon(Icons.home_outlined, size: 30),
-    Icon(Icons.social_distance_outlined, size: 30),
+    Icon(Icons.family_restroom_outlined, size: 30),
+    Icon(Icons.child_care_outlined, size: 30),
   ];
   @override
   Widget build(BuildContext context) {

@@ -1,3 +1,4 @@
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class FamilyDayScreen extends StatelessWidget {
@@ -5,6 +6,12 @@ class FamilyDayScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: CustomAppBar(
+        text: 'Family day',
+        icon: Icons.priority_high_outlined,
+        onpreased: () {},
+      ),
+    );
   }
 }

@@ -3,8 +3,6 @@ import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';
 
-import '../../../router/app_router.gr.dart';
-
 class SigninScreen extends StatefulWidget {
   SigninScreen({Key? key}) : super(key: key);
 
@@ -142,9 +140,9 @@ class _SigninScreenState extends State<SigninScreen> {
                           const SizedBox(height: 20.0),
                           TextButton(
                             onPressed: () {
-                              context.pushRoute(
-                                SignupScreen(),
-                              );
+                              // context.pushRoute(
+                              //   SignupScreen(),
+                              // );
                             },
                             child: const Text(
                               'SIGN UP',
