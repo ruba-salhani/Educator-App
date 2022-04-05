@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:educator/presentation/views/screens/consultation/consultation_screen.dart';
+import 'package:educator/presentation/views/screens/consultation/messaging_screen.dart';
 import 'package:educator/presentation/views/screens/custom_curved_navigation_bar.dart';
 import 'package:educator/presentation/views/screens/behaviors/behaviors_screen.dart';
 import 'package:educator/presentation/views/screens/demands/adolescence.dart';
@@ -9,12 +10,14 @@ import 'package:educator/presentation/views/screens/demands/childhood.dart';
 import 'package:educator/presentation/views/screens/demands/demands_screen.dart';
 import 'package:educator/presentation/views/screens/demands/early_childhood.dart';
 import 'package:educator/presentation/views/screens/demands/majority.dart';
-import 'package:educator/presentation/views/screens/evaluate_of_yourself/evaluated_of_yourself_screen.dart';
-import 'package:educator/presentation/views/screens/evaluate_your_child/evaluate_your_child_screen.dart';
+import 'package:educator/presentation/views/screens/evaluate/evaluate_your_child_screen.dart';
+import 'package:educator/presentation/views/screens/evaluate/evaluated_of_yourself_screen.dart';
 import 'package:educator/presentation/views/screens/family_day/family_day_screen.dart';
 import 'package:educator/presentation/views/screens/home/home_screen.dart';
 import 'package:educator/presentation/views/screens/phone_usage_system/phone_usage_system_screen.dart';
+import 'package:educator/presentation/views/screens/posts/comments_screen.dart';
 import 'package:educator/presentation/views/screens/posts/posts_screen.dart';
+import 'package:educator/presentation/views/screens/posts/reactions_screen.dart';
 import 'package:educator/presentation/views/screens/responsibilities/ethics.dart';
 import 'package:educator/presentation/views/screens/responsibilities/faith.dart';
 import 'package:educator/presentation/views/screens/responsibilities/mental.dart';
@@ -56,6 +59,9 @@ import 'package:educator/presentation/views/screens/tips_screen/tips_screen.dart
     AutoRoute(page: EvaluatedOfYourSelfScreen),
     AutoRoute(page: TipsScreen),
     AutoRoute(page: ConsultationScreen),
+    AutoRoute(page: MessagingScreen),
+    AutoRoute(page: ReactionsScreen),
+    AutoRoute(page: CommentsScreen)
   ],
 )
 class $AppRouter {}

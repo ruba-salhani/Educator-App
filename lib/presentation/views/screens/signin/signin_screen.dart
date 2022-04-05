@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:educator/presentation/router/app_router.gr.dart';
 import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';

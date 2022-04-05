@@ -15,7 +15,9 @@ class HomeScreen extends StatelessWidget {
         text: 'Home',
         icon: Icons.question_answer_outlined,
         onpreased: () {
-          context.pushRoute(const ConsultationScreen());
+          context.pushRoute(
+            const ConsultationScreen(),
+          );
         },
       ),
       drawer: const DrawerBuilder(),
