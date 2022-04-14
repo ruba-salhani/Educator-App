@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:educator/presentation/views/screens/behaviors/children_screen.dart';
 import 'package:educator/presentation/views/screens/consultation/consultation_screen.dart';
 import 'package:educator/presentation/views/screens/consultation/messaging_screen.dart';
 import 'package:educator/presentation/views/screens/custom_curved_navigation_bar.dart';
@@ -15,6 +16,7 @@ import 'package:educator/presentation/views/screens/evaluate/evaluated_of_yourse
 import 'package:educator/presentation/views/screens/family_day/family_day_screen.dart';
 import 'package:educator/presentation/views/screens/home/home_screen.dart';
 import 'package:educator/presentation/views/screens/phone_usage_system/phone_usage_system_screen.dart';
+import 'package:educator/presentation/views/screens/phone_usage_system/recommendations_screen.dart';
 import 'package:educator/presentation/views/screens/posts/comments_screen.dart';
 import 'package:educator/presentation/views/screens/posts/posts_screen.dart';
 import 'package:educator/presentation/views/screens/posts/reactions_screen.dart';
@@ -61,7 +63,9 @@ import 'package:educator/presentation/views/screens/tips_screen/tips_screen.dart
     AutoRoute(page: ConsultationScreen),
     AutoRoute(page: MessagingScreen),
     AutoRoute(page: ReactionsScreen),
-    AutoRoute(page: CommentsScreen)
+    AutoRoute(page: CommentsScreen),
+    AutoRoute(page: RecommendationsScreen),
+    AutoRoute(page: ChildrenScreen),
   ],
 )
 class $AppRouter {}

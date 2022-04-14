@@ -1,7 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 import 'package:educator/presentation/theme/app_theme.dart';
-import 'package:educator/presentation/views/screens/behaviors/behaviors_screen.dart';
+import 'package:educator/presentation/views/screens/behaviors/children_screen.dart';
 import 'package:educator/presentation/views/screens/family_day/family_day_screen.dart';
 import 'package:educator/presentation/views/screens/home/home_screen.dart';
 import 'package:educator/presentation/views/screens/phone_usage_system/phone_usage_system_screen.dart';
@@ -25,7 +25,7 @@ class _CustomCurvedNavigationBarState extends State<CustomCurvedNavigationBar> {
     PhoneUsageSeystemScreen(),
     HomeScreen(),
     FamilyDayScreen(),
-    BehaviorsScreen(),
+    ChildrenScreen(),
   ];
   final itemes = const <Widget>[
     Icon(Icons.description_outlined, size: 30),

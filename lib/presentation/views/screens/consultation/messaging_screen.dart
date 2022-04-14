@@ -1,3 +1,4 @@
+import 'package:educator/presentation/theme/app_colors.dart';
 import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
@@ -11,8 +12,14 @@ class MessagingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(counselorName),
-      ),
+          title: Text(
+            counselorName,
+            //style:  TextStyle(color: AppColors.primary),
+          ),
+          backgroundColor: AppColors.secondary
+          //backgroundColor: Colors.transparent,
+          //elevation: 0.0,
+          ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: ListView(children: const <Widget>[

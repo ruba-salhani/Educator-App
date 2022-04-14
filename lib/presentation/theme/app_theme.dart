@@ -11,6 +11,10 @@ abstract class AppTheme {
       //   elevation: 6.0,
       // ),
       iconTheme: const IconThemeData(color: Colors.white),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        splashColor: Colors.white.withOpacity(0.25),
+        backgroundColor: AppColors.secondary,
+      ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           minimumSize: const Size(315, 56),

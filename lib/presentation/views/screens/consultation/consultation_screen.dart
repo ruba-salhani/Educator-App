@@ -21,7 +21,6 @@ class ConsultationScreen extends StatelessWidget {
           children: [
             const Text('Start contacting a counselor'),
             const SizedBox(height: 20.0),
-
             SizedBox(
               height: 150,
               child: ListView.builder(
@@ -42,7 +41,6 @@ class ConsultationScreen extends StatelessWidget {
                 ),
               ),
             ),
-
             Expanded(
               child: ListView.builder(
                 scrollDirection: Axis.vertical,
@@ -61,59 +59,6 @@ class ConsultationScreen extends StatelessWidget {
                 },
               ),
             ),
-            // ListView.separated(
-            //   shrinkWrap: true,
-            //   scrollDirection: Axis.horizontal,
-            //   itemBuilder: (context, index) {
-            //     return Counselor(
-            //       counselorImage: 'assets/images/1.jpg',
-            //       counselorName: 'Counselor Name',
-            //       ontap: () {
-            //         context.pushRoute(
-            //             MessagingScreen(counselorName: 'Counselor Name'));
-            //       },
-            //     );
-            //   },
-            //   separatorBuilder: (context, index) =>
-            //       const SizedBox(height: 20.0),
-            //   itemCount: 2,
-            // ),
-            // const SizedBox(height: 20.0),
-            // ListView.separated(
-            //   scrollDirection: Axis.vertical,
-            //   shrinkWrap: true,
-            //   itemBuilder: (context, index) {
-            //     return Message(
-            //       image: 'assets/images/1.jpg',
-            //       name: 'Counselor Name',
-            //       message: 'hello',
-            //       ontap: () {
-            //         context.pushRoute(
-            //             MessagingScreen(counselorName: 'Counselor Name'));
-            //       },
-            //     );
-            //   },
-            //   separatorBuilder: (context, index) =>
-            //       const SizedBox(height: 20.0),
-            //   itemCount: 3,
-            // ),
-            // Counselor(
-            //   counselorImage: 'assets/images/1.jpg',
-            //   counselorName: 'Counselor Name',
-            //   ontap: () {
-            //     context.pushRoute(
-            //         MessagingScreen(counselorName: 'Counselor Name'));
-            //   },
-            // ),
-            // Message(
-            //   image: 'assets/images/1.jpg',
-            //   name: 'Counselor Name',
-            //   message: 'hello',
-            //   ontap: () {
-            //     context.pushRoute(
-            //         MessagingScreen(counselorName: 'Counselor Name'));
-            //   },
-            // ),
           ],
         ),
       ),
