@@ -73,8 +73,10 @@ class AppRouter extends _i32.RootStackRouter {
           routeData: routeData, child: _i3.SignupScreen(key: args.key));
     },
     BehaviorsScreen.name: (routeData) {
+      final args = routeData.argsAs<BehaviorsScreenArgs>();
       return _i32.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i4.BehaviorsScreen());
+          routeData: routeData,
+          child: _i4.BehaviorsScreen(key: args.key, childName: args.childName));
     },
     FamilyDayScreen.name: (routeData) {
       return _i32.MaterialPageX<dynamic>(
@@ -298,11 +300,26 @@ class SignupScreenArgs {
 
 /// generated route for
 /// [_i4.BehaviorsScreen]
-class BehaviorsScreen extends _i32.PageRouteInfo<void> {
-  const BehaviorsScreen()
-      : super(BehaviorsScreen.name, path: '/behaviors-screen');
+class BehaviorsScreen extends _i32.PageRouteInfo<BehaviorsScreenArgs> {
+  BehaviorsScreen({_i33.Key? key, required String childName})
+      : super(BehaviorsScreen.name,
+            path: '/behaviors-screen',
+            args: BehaviorsScreenArgs(key: key, childName: childName));
 
   static const String name = 'BehaviorsScreen';
+}
+
+class BehaviorsScreenArgs {
+  const BehaviorsScreenArgs({this.key, required this.childName});
+
+  final _i33.Key? key;
+
+  final String childName;
+
+  @override
+  String toString() {
+    return 'BehaviorsScreenArgs{key: $key, childName: $childName}';
+  }
 }
 
 /// generated route for

@@ -65,7 +65,7 @@ class ChildrenScreen extends StatelessWidget {
                   childImage: 'assets/images/1.jpg',
                   childName: 'Child Name',
                   ontap: () {
-                    context.pushRoute(BehaviorsScreen());
+                    context.pushRoute(BehaviorsScreen(childName: 'child name'));
                   },
                 );
               },
