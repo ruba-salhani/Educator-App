@@ -17,7 +17,7 @@ abstract class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          minimumSize: const Size(315, 56),
+          minimumSize: const Size(100, 55),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         ),

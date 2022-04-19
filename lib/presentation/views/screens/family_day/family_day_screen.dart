@@ -1,6 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:educator/presentation/theme/app_colors.dart';
 import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
+
+import '../../../router/app_router.gr.dart';
 
 class FamilyDayScreen extends StatefulWidget {
   const FamilyDayScreen({Key? key}) : super(key: key);
@@ -28,18 +31,23 @@ class _FamilyDayScreenState extends State<FamilyDayScreen> {
       appBar: CustomAppBar(
         text: 'Family day',
         icon: Icons.priority_high_outlined,
-        onpreased: () {},
+        onpreased: () {
+          context.pushRoute(SigninScreen());
+        },
       ),
       floatingActionButton: FloatingActionButton(
-        
         //backgroundColor: Theme.of(context).primaryColor,
         child: const Icon(Icons.add),
-        onPressed: () async => {
-          // await Navigator.of(context)
-          //     .push(MaterialPageRoute(builder: (context) => NewTask()))
-          //     .then((value) => setState(() {
-          //           getAllTasks();
-          //         })),
+        onPressed: () {
+          showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return FieldDialog(
+                  label: 'Note',
+                  hint: 'Write your note',
+                  firstButtonOnpressd: () {},
+                );
+              });
         },
       ),
       body: Padding(

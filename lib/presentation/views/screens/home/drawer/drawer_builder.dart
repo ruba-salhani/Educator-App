@@ -1,6 +1,5 @@
-import 'package:educator/presentation/views/screens/home/drawer/custom_dialog.dart';
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:educator/presentation/views/screens/home/drawer/drawer_item.dart';
-import 'package:educator/presentation/views/screens/home/drawer/profile_image.dart';
 import 'package:flutter/material.dart';
 
 class DrawerBuilder extends StatefulWidget {
@@ -23,16 +22,19 @@ class _DrawerBuilderState extends State<DrawerBuilder> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                const SizedBox(
+                  height: 30.0,
+                ),
                 const ProfileImage(),
                 const SizedBox(
-                  height: 20.0,
+                  height: 30.0,
                 ),
-                const Divider(
-                    //color: Color(0xff514BC3),
-                    ),
-                const SizedBox(
-                  height: 20.0,
-                ),
+                // const Divider(
+                //     //color: Color(0xff514BC3),
+                //     ),
+                // const SizedBox(
+                //   height: 20.0,
+                //),
                 DrawerItem(
                   icon: Icons.person,
                   text: 'Ruba Salhani',
@@ -49,6 +51,14 @@ class _DrawerBuilderState extends State<DrawerBuilder> {
                 const SizedBox(
                   height: 20.0,
                 ),
+                // const Divider(
+                //   indent: 50,
+                //   endIndent: 50,
+                //   //color: Color(0xff514BC3),
+                // ),
+                // const SizedBox(
+                //   height: 10.0,
+                // ),
                 DrawerItem(
                   icon: Icons.language_outlined,
                   text: 'Language',
@@ -57,8 +67,7 @@ class _DrawerBuilderState extends State<DrawerBuilder> {
                       context: context,
                       builder: (BuildContext context) {
                         return CustomDialog(
-                          title: "Language",
-                          content: "Choose the language",
+                          content: "Choose the language:",
                           firstButtonChild: "العربية",
                           firstButtonOnpressd: () {},
                           secondButtonChild: "English",
@@ -89,8 +98,8 @@ class _DrawerBuilderState extends State<DrawerBuilder> {
                       context: context,
                       builder: (BuildContext context) {
                         return CustomDialog(
-                          title: "Log out",
-                          content: "Are you sure you wany to log out?",
+                          //title: "Log out",
+                          content: "Are you sure you want to log out?",
                           firstButtonChild: "Cancel",
                           firstButtonOnpressd: () {
                             Navigator.of(context).pop();

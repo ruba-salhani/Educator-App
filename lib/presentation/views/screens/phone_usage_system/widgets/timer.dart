@@ -47,22 +47,22 @@ class _TimerState extends State<Timer> {
           },
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             // const SizedBox(
             //   width: 10,
             // ),
             _button(title: "Start", onPressed: () => _controller.start()),
             const SizedBox(
-              width: 4,
+              width: 2,
             ),
             _button(title: "Pause", onPressed: () => _controller.pause()),
             const SizedBox(
-              width: 4,
+              width: 2,
             ),
             _button(title: "Resume", onPressed: () => _controller.resume()),
             const SizedBox(
-              width: 4,
+              width: 2,
             ),
             _button(
                 title: "Restart",

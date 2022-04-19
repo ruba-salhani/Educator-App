@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:educator/presentation/router/app_router.gr.dart';
+import 'package:educator/presentation/theme/app_colors.dart';
 import 'package:educator/presentation/views/screens/evaluate/widget/question.dart';
 import 'package:flutter/material.dart';
 
@@ -84,8 +85,8 @@ class _EvaluateYourChildScreenState extends State<EvaluateYourChildScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Evaluate your child'),
-      ),
+          title: Text('Evaluate your child'),
+          backgroundColor: AppColors.secondary),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
@@ -127,11 +128,21 @@ class _EvaluateYourChildScreenState extends State<EvaluateYourChildScreen> {
                 );
               },
             ),
-            const Text(
-                "'ملاحظة: هذا الاختبار من كتاب كيف تربي أبناءك لأحمد الطيار'",
-                textAlign: TextAlign.right),
+            const Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                  "'ملاحظة: هذا الاختبار من كتاب كيف تربي أبناءك لأحمد الطيار'",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.right),
+            ),
             ElevatedButton(
               child: Text("النتيجة"),
+              style: ElevatedButton.styleFrom(
+                primary: AppColors.secondary,
+              ),
               onPressed: () {
                 print(noVal);
                 print(sometimesVal);

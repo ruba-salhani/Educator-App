@@ -13,7 +13,7 @@ class Counselor extends StatelessWidget {
       child: Column(
         children: [
           CircleAvatar(
-            radius: 50.0,
+            radius: 55.0,
             backgroundImage: AssetImage(counselorImage!),
           ),
           Text(counselorName!),

@@ -1,6 +1,7 @@
 import 'package:educator/presentation/theme/app_colors.dart';
 import 'package:educator/presentation/views/components/components.dart';
 import 'package:educator/presentation/views/screens/behaviors/widgets/behavior.dart';
+import 'package:educator/presentation/views/screens/behaviors/widgets/behavior_dialog.dart';
 
 import 'package:flutter/material.dart';
 
@@ -34,11 +35,11 @@ class BehaviorsScreen extends StatelessWidget {
             ],
           ),
           onPressed: () {
-            // await Navigator.of(context)
-            //     .push(MaterialPageRoute(builder: (context) => NewTask()))
-            //     .then((value) => setState(() {
-            //           getAllTasks();
-            //         })),
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return BehaviorDialog();
+                });
           },
         ),
       ),

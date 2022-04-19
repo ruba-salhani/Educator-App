@@ -1,5 +1,6 @@
 import 'dart:io';
-import 'package:educator/presentation/views/screens/home/drawer/custom_dialog.dart';
+import 'package:educator/presentation/theme/app_colors.dart';
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -35,7 +36,7 @@ class _ProfileImageState extends State<ProfileImage> {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: CircleAvatar(
-          //backgroundColor: Color(0xff514BC3),
+          backgroundColor: AppColors.secondary,
           radius: 55.0,
           child: _image != null
               ? ClipRRect(
@@ -58,7 +59,6 @@ class _ProfileImageState extends State<ProfileImage> {
           context: context,
           builder: (BuildContext context) {
             return CustomDialog(
-              title: "",
               content: "From where do you want to take the photo?",
               firstButtonChild: "Gallery",
               firstButtonOnpressd: () {

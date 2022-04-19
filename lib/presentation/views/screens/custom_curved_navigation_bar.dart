@@ -29,7 +29,7 @@ class _CustomCurvedNavigationBarState extends State<CustomCurvedNavigationBar> {
   ];
   final itemes = const <Widget>[
     Icon(Icons.description_outlined, size: 30),
-    Icon(Icons.phone_android_outlined, size: 30),
+    Icon(Icons.important_devices_outlined, size: 30),
     Icon(Icons.home_outlined, size: 30),
     Icon(Icons.family_restroom_outlined, size: 30),
     Icon(Icons.child_care_outlined, size: 30),

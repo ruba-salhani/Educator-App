@@ -55,7 +55,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       hint: 'Name',
                       vald: qValidator([
                         const IsRequired(),
-                        const MinLength(4, 'Name is to short'),
+                        const MinLength(4, 'Name is too short'),
                         const MaxLength(20),
                       ]),
                       onsaved: (val) => {

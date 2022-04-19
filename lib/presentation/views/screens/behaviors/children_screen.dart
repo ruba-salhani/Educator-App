@@ -6,8 +6,8 @@ import 'package:educator/presentation/views/screens/behaviors/widgets/child.dart
 import 'package:flutter/material.dart';
 
 class ChildrenScreen extends StatelessWidget {
-  const ChildrenScreen({Key? key}) : super(key: key);
-
+  ChildrenScreen({Key? key}) : super(key: key);
+  String _childName = 'child name';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,17 +26,21 @@ class ChildrenScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
-                Icon(Icons.person_add_alt_1_outlined),
+                Icon(Icons.add_reaction_outlined),
                 SizedBox(width: 10),
                 Text('Add child')
               ],
             ),
             onPressed: () {
-              // await Navigator.of(context)
-              //     .push(MaterialPageRoute(builder: (context) => NewTask()))
-              //     .then((value) => setState(() {
-              //           getAllTasks();
-              //         })),
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return FieldDialog(
+                      label: 'Child',
+                      hint: "Enter your child's name",
+                      firstButtonOnpressd: () {},
+                    );
+                  });
             },
           ),
         ),
@@ -61,11 +65,34 @@ class ChildrenScreen extends StatelessWidget {
               3,
               (index) {
                 //print('_buildGridView $index');
-                return Child(
-                  childImage: 'assets/images/1.jpg',
-                  childName: 'Child Name',
-                  ontap: () {
-                    context.pushRoute(BehaviorsScreen(childName: 'child name'));
+                return GestureDetector(
+                  child: Card(
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Column(
+                        children: [
+                          Container(
+                            // height: 150,
+                            // width: 150,
+                            child: const ProfileImage(),
+
+                            // ImageAndName(
+                            //   image: 'assets/images/1.jpg',
+                            //   name: 'Counselor Name',
+                            //   ontap: () {
+                            //     context.pushRoute(
+                            //         BehaviorsScreen(childName: 'child name'));
+                            //   },
+                            // ),
+                          ),
+                          SizedBox(height: 10),
+                          Text(_childName),
+                        ],
+                      ),
+                    ),
+                  ),
+                  onTap: () {
+                    context.pushRoute(BehaviorsScreen(childName: _childName));
                   },
                 );
               },

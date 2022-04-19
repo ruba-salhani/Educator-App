@@ -189,7 +189,7 @@ class AppRouter extends _i32.RootStackRouter {
     },
     ChildrenScreen.name: (routeData) {
       return _i32.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i31.ChildrenScreen());
+          routeData: routeData, child: _i31.ChildrenScreen());
     }
   };
 

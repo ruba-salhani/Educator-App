@@ -88,6 +88,9 @@ class _PhoneUsageSeystemScreenState extends State<PhoneUsageSeystemScreen> {
               ),
             ),
             Timer(timer: timer),
+            const SizedBox(
+              height: 5,
+            )
           ],
         ),
       ),

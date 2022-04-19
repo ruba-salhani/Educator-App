@@ -1,3 +1,6 @@
+import 'package:educator/presentation/theme/app_colors.dart';
+import 'package:educator/presentation/views/components/components.dart';
+import 'package:educator/presentation/views/screens/evaluate/widget/elevate_dialog.dart';
 import 'package:educator/presentation/views/screens/evaluate/widget/question.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +13,12 @@ class EvaluatedOfYourSelfScreen extends StatefulWidget {
 }
 
 class _EvaluatedOfYourSelfScreenState extends State<EvaluatedOfYourSelfScreen> {
+  int noCount = 0;
+  int sometimesCount = 0;
+  int yesCount = 0;
+  int count = 0;
+  late String _result;
+  bool screen = true;
   List<bool> noVal = [
     false,
     false,
@@ -61,10 +70,7 @@ class _EvaluatedOfYourSelfScreenState extends State<EvaluatedOfYourSelfScreen> {
     false,
     false
   ];
-  int noCount = 0;
-  int sometimesCount = 0;
-  int yesCount = 0;
-  int count = 0;
+
   List questions = [
     "هل أنت تحب الأطفال؟",
     "هل يحبك الأطفال؟",
@@ -86,8 +92,8 @@ class _EvaluatedOfYourSelfScreenState extends State<EvaluatedOfYourSelfScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Evaluate of yourself'),
-      ),
+          title: const Text('Evaluate of yourself'),
+          backgroundColor: AppColors.secondary),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
@@ -129,42 +135,48 @@ class _EvaluatedOfYourSelfScreenState extends State<EvaluatedOfYourSelfScreen> {
                 );
               },
             ),
-            const Text(
-                "'ملاحظة: هذا الاختبار من كتاب كيف تربي أبناءك لأحمد الطيار'",
-                textAlign: TextAlign.right),
+            const Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                  "'ملاحظة: هذا الاختبار من كتاب كيف تربي أبناءك لأحمد الطيار'",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.right),
+            ),
             ElevatedButton(
               child: Text("النتيجة"),
+              style: ElevatedButton.styleFrom(
+                primary: AppColors.secondary,
+              ),
               onPressed: () {
-                print(noVal);
-                print(sometimesVal);
-                print(yesVal);
-                for (bool i in noVal) {
-                  if (i == true) {
-                    noCount++;
-                  }
-                }
-                for (bool i in sometimesVal) {
-                  if (i == true) {
-                    sometimesCount += 2;
-                  }
-                }
-                for (bool i in yesVal) {
-                  if (i == true) {
-                    yesCount += 3;
-                  }
-                }
-                count = noCount + sometimesCount + yesCount;
-                print(count);
-                if (count < 20) {
-                  print("راجع نفسك");
-                }
-                if (count >= 20 && count <= 35) {
-                  print("اهتم بنفسك أكثر");
-                }
-                if (count > 35) {
-                  print("أنت مرب ممتاز فهنبئا لك");
-                }
-                count = 0;
+                // result(noVal, sometimesVal, yesVal);
+                // print(_result);
+
+                // showDialog(
+                //   context: result(noVal, sometimesVal, yesVal),
+                //   builder: (BuildContext context) {
+                //     return CustomDialog(
+                //       content: _result,
+                //       firstButtonChild: "العربية",
+                //       firstButtonOnpressd: () {},
+                //       secondButtonChild: "English",
+                //       secondButtonOnpressd: () {},
+                //     );
+                //   },
+                // );
+
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return ElevateDialog(
+                        screen: true,
+                        noVal: noVal,
+                        sometimesVal: sometimesVal,
+                        yesVal: yesVal,
+                      );
+                    });
               },
             ),
           ],
@@ -172,4 +184,43 @@ class _EvaluatedOfYourSelfScreenState extends State<EvaluatedOfYourSelfScreen> {
       ),
     );
   }
+
+  // result(noVal, sometimesVal, yesVal) async {
+  //   print(noVal);
+  //   print(sometimesVal);
+  //   print(yesVal);
+  //   for (bool i in noVal) {
+  //     if (i == true) {
+  //       noCount++;
+  //     }
+  //   }
+  //   for (bool i in sometimesVal) {
+  //     if (i == true) {
+  //       sometimesCount += 2;
+  //     }
+  //   }
+  //   for (bool i in yesVal) {
+  //     if (i == true) {
+  //       yesCount += 3;
+  //     }
+  //   }
+  //   count = noCount + sometimesCount + yesCount;
+  //   print(count);
+  //   if (count < 20) {
+  //     screen ? _result = "راجع نفسك" : _result = "";
+
+  //     //print("راجع نفسك");
+  //   }
+  //   if (count >= 20 && count <= 35) {
+  //     screen ? _result = "اهتم بنفسك أكثر" : _result = "";
+  //     //print("اهتم بنفسك أكثر");
+  //   }
+  //   if (count > 35) {
+  //     screen ? _result = "أنت مرب ممتاز فهنبئا لك" : _result = "";
+  //     //print("أنت مرب ممتاز فهنبئا لك");
+  //   }
+  //   count = 0;
+
+  //   return _result;
+  // }
 }

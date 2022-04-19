@@ -141,9 +141,9 @@ class _SigninScreenState extends State<SigninScreen> {
                           const SizedBox(height: 20.0),
                           TextButton(
                             onPressed: () {
-                              // context.pushRoute(
-                              //   SignupScreen(),
-                              // );
+                              context.pushRoute(
+                                SignupScreen(),
+                              );
                             },
                             child: const Text(
                               'SIGN UP',

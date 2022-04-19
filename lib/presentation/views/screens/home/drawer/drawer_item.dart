@@ -20,7 +20,7 @@ class DrawerItem extends StatelessWidget {
         height: 40,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: AppColors.primary,
+          color: AppColors.secondary,
         ),
         child: Icon(icon),
       ),
