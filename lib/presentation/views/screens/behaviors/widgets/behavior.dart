@@ -2,22 +2,14 @@ import 'package:educator/presentation/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:intl/intl.dart';
-
 class Behavior extends StatefulWidget {
-  Behavior({Key? key}) : super(key: key);
+  const Behavior({Key? key}) : super(key: key);
 
   @override
   State<Behavior> createState() => _BehaviorState();
 }
 
 class _BehaviorState extends State<Behavior> {
-  // TextEditingController _behaviorController = TextEditingController();
-  // TextEditingController _startingDateController = TextEditingController();
-  // TextEditingController _endDateController = TextEditingController();
-
-  // DateTime _date = DateTime.now();
-  // final DateFormat _dateFormatter = DateFormat.yMd();
   int _trueCounter = 0;
   int _falseCounter = 0;
   void falseCounter() {
@@ -94,7 +86,7 @@ class _BehaviorState extends State<Behavior> {
                           onPressed: () {
                             falseCounter();
                           },
-                          icon: Icon(Icons.highlight_off),
+                          icon: const Icon(Icons.highlight_off),
                           color: Colors.red,
                         ),
                         Text(
@@ -112,12 +104,12 @@ class _BehaviorState extends State<Behavior> {
                     //color: Colors.pinkAccent,
                     //height: Get.height / 10,
                     width: Get.width / 4,
-                    child: Center(child: Text('Starting Date'))),
+                    child: const Center(child: Text('Starting Date'))),
                 SizedBox(
                     //color: Colors.pinkAccent,
                     //height: Get.height / 10,
                     width: Get.width / 4,
-                    child: Center(child: Text('End Date'))),
+                    child: const Center(child: Text('End Date'))),
               ],
             ),
           ),

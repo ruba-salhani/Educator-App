@@ -3,83 +3,77 @@ import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';
 
-class FieldDialog extends StatefulWidget {
+class FieldDialog extends StatelessWidget {
   FieldDialog({
     Key? key,
     required this.firstButtonOnpressd,
-    //required this.secondButtonOnpressd,
     required this.hint,
     required this.label,
+    required this.icon,
   }) : super(key: key);
   final void Function() firstButtonOnpressd;
-  //final void Function() secondButtonOnpressd;
   String hint;
   String label;
+  IconData icon;
 
-  @override
-  State<FieldDialog> createState() => _FieldDialogState();
-}
-
-class _FieldDialogState extends State<FieldDialog> {
   final _formKey = GlobalKey<FormState>();
-  String? _note;
+  String? value;
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      elevation: 30,
-      content: Form(
-          key: _formKey,
-          child: Expanded(
-              flex: 3,
-              child: CustomTextFormField(
-                keyType: TextInputType.text,
-                action: TextInputAction.done,
-                obscure: false,
-                suffixicon: const Icon(Icons.note_add_outlined),
-                label: widget.label,
-                hint: widget.hint,
-                // label: 'Note',
-                // hint: 'Write your note',
-                vald: qValidator([
-                  const IsRequired(),
-                  // const MinLength(4, 'Note is too short'),
-                  // const MaxLength(20),
-                ]),
-                onsaved: (val) => {
-                  _note = val,
-                },
-              ))),
-      actions: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            ElevatedButton(
-              onPressed: widget.firstButtonOnpressd,
-              // () {
-              //   if (FocusScope.of(context).hasFocus) {
-              //     FocusScope.of(context).unfocus();
-              //   }
-              //   _formKey.currentState!.save();
-              //   if (_formKey.currentState!.validate()) {
-              //     context.popRoute();
-              //     //context.read<AuthCubit>().signUp(_image, _username!, _password!, _type!);
-              //     print(_note);
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: AlertDialog(
+        elevation: 30,
+        content: Form(
+            key: _formKey,
+            child: Expanded(
+                flex: 3,
+                child: CustomTextFormField(
+                  keyType: TextInputType.text,
+                  action: TextInputAction.done,
+                  obscure: false,
+                  suffixicon: Icon(icon),
+                  label: label,
+                  hint: hint,
+                  vald: qValidator([
+                    const IsRequired(),
+                  ]),
+                  onsaved: (val) => {
+                    value = val,
+                  },
+                ))),
+        actions: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                onPressed: firstButtonOnpressd,
+                // () {
+                //   if (FocusScope.of(context).hasFocus) {
+                //     FocusScope.of(context).unfocus();
+                //   }
+                //   _formKey.currentState!.save();
+                //   if (_formKey.currentState!.validate()) {
+                //     context.popRoute();
+                //     //context.read<AuthCubit>().signUp(_image, _username!, _password!, _type!);
+                //     print(_note);
 
-              //     print(_formKey);
-              //   }
-              // },
-              child: const Text('Save'),
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  context.popRoute();
-                },
-                child: const Text(
-                  'Cancel',
-                )),
-          ],
-        ),
-      ],
+                //     print(_formKey);
+                //   }
+                // },
+                child: const Text('Save'),
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    context.popRoute();
+                  },
+                  child: const Text(
+                    'Cancel',
+                  )),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

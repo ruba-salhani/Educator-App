@@ -10,74 +10,77 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(
-        text: 'Home',
-        icon: Icons.question_answer_outlined,
-        onpreased: () {
-          context.pushRoute(
-            const ConsultationScreen(),
-          );
-        },
-      ),
-      drawer: const DrawerBuilder(),
-      body: Padding(
-        padding: const EdgeInsets.all(30.0),
-        child: SingleChildScrollView(
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    context.pushRoute(EvaluatedOfYourSelfScreen());
-                  },
-                  child: const Text('Evaluate of yourself'),
-                  style: ElevatedButton.styleFrom(
-                    primary: AppColors.secondary,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: CustomAppBar(
+          text: 'Home',
+          icon: Icons.question_answer_outlined,
+          onpreased: () {
+            context.pushRoute(
+              const ConsultationScreen(),
+            );
+          },
+        ),
+        drawer: const DrawerBuilder(),
+        body: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: SingleChildScrollView(
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      context.pushRoute(const EvaluatedOfYourSelfScreen());
+                    },
+                    child: const Text('Evaluate of yourself'),
+                    style: ElevatedButton.styleFrom(
+                      primary: AppColors.secondary,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 20.0),
-                ElevatedButton(
-                  onPressed: () {
-                    context.pushRoute(EvaluateYourChildScreen());
-                  },
-                  child: const Text('Evaluate your child'),
-                  style: ElevatedButton.styleFrom(
-                    primary: AppColors.secondary,
+                  const SizedBox(height: 20.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      context.pushRoute(const EvaluateYourChildScreen());
+                    },
+                    child: const Text('Evaluate your child'),
+                    style: ElevatedButton.styleFrom(
+                      primary: AppColors.secondary,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 20.0),
-                ElevatedButton(
-                  onPressed: () {
-                    context.pushRoute(TipsScreen());
-                  },
-                  child: const Text('Tips for you'),
-                  style: ElevatedButton.styleFrom(
-                    primary: AppColors.secondary,
+                  const SizedBox(height: 20.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      context.pushRoute(const TipsScreen());
+                    },
+                    child: const Text('Tips for you'),
+                    style: ElevatedButton.styleFrom(
+                      primary: AppColors.secondary,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 20.0),
-                ElevatedButton(
-                  onPressed: () {
-                    context.pushRoute(ResponsibilitiesScreen());
-                  },
-                  child: const Text('Responsibilities of education'),
-                  style: ElevatedButton.styleFrom(
-                    primary: AppColors.secondary,
+                  const SizedBox(height: 20.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      context.pushRoute(const ResponsibilitiesScreen());
+                    },
+                    child: const Text('Responsibilities of education'),
+                    style: ElevatedButton.styleFrom(
+                      primary: AppColors.secondary,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 20.0),
-                ElevatedButton(
-                  onPressed: () {
-                    context.pushRoute(DemandsScreen());
-                  },
-                  child: const Text('Demands of growth'),
-                  style: ElevatedButton.styleFrom(
-                    primary: AppColors.secondary,
-                  ),
-                )
-              ]),
+                  const SizedBox(height: 20.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      context.pushRoute(const DemandsScreen());
+                    },
+                    child: const Text('Demands of growth'),
+                    style: ElevatedButton.styleFrom(
+                      primary: AppColors.secondary,
+                    ),
+                  )
+                ]),
+          ),
         ),
       ),
     );

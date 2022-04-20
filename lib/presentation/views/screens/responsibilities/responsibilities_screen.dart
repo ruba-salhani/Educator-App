@@ -9,87 +9,90 @@ class ResponsibilitiesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Responsibilities of education'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(30.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  context.pushRoute(const Faith());
-                },
-                child: const Text('Faith'),
-                style: ElevatedButton.styleFrom(
-                  primary: AppColors.secondary,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Responsibilities of education'),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    context.pushRoute(const Faith());
+                  },
+                  child: const Text('Faith'),
+                  style: ElevatedButton.styleFrom(
+                    primary: AppColors.secondary,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {
-                  context.pushRoute(const Ethics());
-                },
-                child: const Text('Ethics'),
-                style: ElevatedButton.styleFrom(
-                  primary: AppColors.secondary,
+                const SizedBox(height: 20.0),
+                ElevatedButton(
+                  onPressed: () {
+                    context.pushRoute(const Ethics());
+                  },
+                  child: const Text('Ethics'),
+                  style: ElevatedButton.styleFrom(
+                    primary: AppColors.secondary,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {
-                  context.pushRoute(const Physical());
-                },
-                child: const Text('Physical'),
-                style: ElevatedButton.styleFrom(
-                  primary: AppColors.secondary,
+                const SizedBox(height: 20.0),
+                ElevatedButton(
+                  onPressed: () {
+                    context.pushRoute(const Physical());
+                  },
+                  child: const Text('Physical'),
+                  style: ElevatedButton.styleFrom(
+                    primary: AppColors.secondary,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {
-                  context.pushRoute(const Mental());
-                },
-                child: const Text('Mental'),
-                style: ElevatedButton.styleFrom(
-                  primary: AppColors.secondary,
+                const SizedBox(height: 20.0),
+                ElevatedButton(
+                  onPressed: () {
+                    context.pushRoute(const Mental());
+                  },
+                  child: const Text('Mental'),
+                  style: ElevatedButton.styleFrom(
+                    primary: AppColors.secondary,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {
-                  context.pushRoute(const Sexual());
-                },
-                child: const Text('Sexual'),
-                style: ElevatedButton.styleFrom(
-                  primary: AppColors.secondary,
+                const SizedBox(height: 20.0),
+                ElevatedButton(
+                  onPressed: () {
+                    context.pushRoute(const Sexual());
+                  },
+                  child: const Text('Sexual'),
+                  style: ElevatedButton.styleFrom(
+                    primary: AppColors.secondary,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {
-                  context.pushRoute(const Psychological());
-                },
-                child: const Text('Psychological'),
-                style: ElevatedButton.styleFrom(
-                  primary: AppColors.secondary,
+                const SizedBox(height: 20.0),
+                ElevatedButton(
+                  onPressed: () {
+                    context.pushRoute(const Psychological());
+                  },
+                  child: const Text('Psychological'),
+                  style: ElevatedButton.styleFrom(
+                    primary: AppColors.secondary,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {
-                  context.pushRoute(const Social());
-                },
-                child: const Text('Social'),
-                style: ElevatedButton.styleFrom(
-                  primary: AppColors.secondary,
+                const SizedBox(height: 20.0),
+                ElevatedButton(
+                  onPressed: () {
+                    context.pushRoute(const Social());
+                  },
+                  child: const Text('Social'),
+                  style: ElevatedButton.styleFrom(
+                    primary: AppColors.secondary,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

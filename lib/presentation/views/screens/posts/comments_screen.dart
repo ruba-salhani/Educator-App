@@ -12,44 +12,47 @@ class CommentsScreen extends StatefulWidget {
 class _CommentsScreenState extends State<CommentsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          title: const Text(
-            'Comments',
-            //style:  TextStyle(color: AppColors.primary),
-          ),
-          backgroundColor: AppColors.secondary
-          //backgroundColor: Colors.transparent,
-          //elevation: 0.0,
-          ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: ListView.separated(
-          itemBuilder: (context, index) {
-            return CustomListTile(
-              image: 'assets/images/1.jpg',
-              name: 'name',
-              message: 'comment',
-              ontap: () {},
-            );
-          },
-          separatorBuilder: (context, index) => const SizedBox(height: 20.0),
-          itemCount: 15,
-        ),
-      ),
-      bottomNavigationBar: const Padding(
-        padding: EdgeInsets.all(20.0),
-        child: TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(10),
-              ),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+            title: const Text(
+              'Comments',
+              //style:  TextStyle(color: AppColors.primary),
             ),
-            //labelText: 'Enter Name Here',
-            hintText: 'Write a comment',
+            backgroundColor: AppColors.secondary
+            //backgroundColor: Colors.transparent,
+            //elevation: 0.0,
+            ),
+        body: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: ListView.separated(
+            itemBuilder: (context, index) {
+              return CustomListTile(
+                image: 'assets/images/1.jpg',
+                name: 'name',
+                message: 'comment',
+                ontap: () {},
+              );
+            },
+            separatorBuilder: (context, index) => const SizedBox(height: 20.0),
+            itemCount: 15,
           ),
-          //autofocus: false,
+        ),
+        bottomNavigationBar: const Padding(
+          padding: EdgeInsets.all(20.0),
+          child: TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
+                ),
+              ),
+              //labelText: 'Enter Name Here',
+              hintText: 'Write a comment',
+            ),
+            //autofocus: false,
+          ),
         ),
       ),
     );

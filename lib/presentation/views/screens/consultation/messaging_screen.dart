@@ -10,44 +10,47 @@ class MessagingScreen extends StatelessWidget {
   final String counselorName;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          title: Text(
-            counselorName,
-            //style:  TextStyle(color: AppColors.primary),
-          ),
-          backgroundColor: AppColors.secondary
-          //backgroundColor: Colors.transparent,
-          //elevation: 0.0,
-          ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: ListView(children: const <Widget>[
-          CustomListTile(
-            image: 'assets/images/1.jpg',
-            name: 'Counselor Name',
-            message: 'hello',
-          ),
-          CustomListTile(
-            image: 'assets/images/1.jpg',
-            name: 'Educator Name',
-            message: 'hello',
-          ),
-        ]),
-      ),
-      bottomNavigationBar: const Padding(
-        padding: EdgeInsets.all(20.0),
-        child: TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(10),
-              ),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+            title: Text(
+              counselorName,
+              //style:  TextStyle(color: AppColors.primary),
             ),
-            //labelText: 'Enter Name Here',
-            hintText: 'Write a message',
+            backgroundColor: AppColors.secondary
+            //backgroundColor: Colors.transparent,
+            //elevation: 0.0,
+            ),
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: ListView(children: const <Widget>[
+            CustomListTile(
+              image: 'assets/images/1.jpg',
+              name: 'Counselor Name',
+              message: 'hello',
+            ),
+            CustomListTile(
+              image: 'assets/images/1.jpg',
+              name: 'Educator Name',
+              message: 'hello',
+            ),
+          ]),
+        ),
+        bottomNavigationBar: const Padding(
+          padding: EdgeInsets.all(20.0),
+          child: TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
+                ),
+              ),
+              //labelText: 'Enter Name Here',
+              hintText: 'Write a message',
+            ),
+            //autofocus: false,
           ),
-          //autofocus: false,
         ),
       ),
     );

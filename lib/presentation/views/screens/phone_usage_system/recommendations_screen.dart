@@ -6,39 +6,34 @@ class RecommendationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          title: const Text(
-            'Recommendations',
-            //style:  TextStyle(color: AppColors.primary),
-          ),
-          backgroundColor: AppColors.secondary
-          //backgroundColor: Colors.transparent,
-          //elevation: 0.0,
-          ),
-      body: Padding(
-        padding: const EdgeInsets.all(30),
-        child: SingleChildScrollView(
-          child: Container(
-            height: 400,
-            width: 400,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/recommendations.jpg'),
-                fit: BoxFit.cover,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+            title: const Text(
+              'Recommendations',
+              //style:  TextStyle(color: AppColors.primary),
+            ),
+            backgroundColor: AppColors.secondary
+            //backgroundColor: Colors.transparent,
+            //elevation: 0.0,
+            ),
+        body: Padding(
+          padding: const EdgeInsets.all(30),
+          child: SingleChildScrollView(
+            child: Container(
+              height: 400,
+              width: 400,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/recommendations.jpg'),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
         ),
       ),
     );
-
-    // Container(
-    //   decoration: const BoxDecoration(
-    //     image: DecorationImage(
-    //         image: AssetImage('assets/images/recommendations.jpg'),
-    //         fit: BoxFit.cover),
-    //   ),
-    // );
   }
 }

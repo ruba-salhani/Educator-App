@@ -14,8 +14,8 @@ class FamilyDayScreen extends StatefulWidget {
 
 class _FamilyDayScreenState extends State<FamilyDayScreen> {
   String? _chosenValue;
-  TimeOfDay _time = TimeOfDay.now();
-  TextEditingController _timeController = TextEditingController();
+  final TimeOfDay _time = TimeOfDay.now();
+  final TextEditingController _timeController = TextEditingController();
   List<String> days = [
     'Sat',
     'Sun',
@@ -27,138 +27,136 @@ class _FamilyDayScreenState extends State<FamilyDayScreen> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(
-        text: 'Family day',
-        icon: Icons.priority_high_outlined,
-        onpreased: () {
-          context.pushRoute(SigninScreen());
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        //backgroundColor: Theme.of(context).primaryColor,
-        child: const Icon(Icons.add),
-        onPressed: () {
-          showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return FieldDialog(
-                  label: 'Note',
-                  hint: 'Write your note',
-                  firstButtonOnpressd: () {},
-                );
-              });
-        },
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch,
-            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Schedule a weekly meeting in which the family gathers:',
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              const SizedBox(height: 20.0),
-              DropdownButton<String>(
-                value: _chosenValue,
-                items: days.map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(
-                      value,
-                      style: const TextStyle(
-                        color: AppColors.secondary,
-                        //fontWeight: FontWeight.bold,
-                      ),
-                    ),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: CustomAppBar(
+          text: 'Family day',
+          icon: Icons.priority_high_outlined,
+          onpreased: () {
+            context.pushRoute(SigninScreen());
+          },
+        ),
+        floatingActionButton: FloatingActionButton(
+          //backgroundColor: Theme.of(context).primaryColor,
+          child: const Icon(Icons.add),
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return FieldDialog(
+                    icon: Icons.note_add_outlined,
+                    label: 'Note',
+                    hint: 'Write your note',
+                    firstButtonOnpressd: () {},
                   );
-                }).toList(),
-                hint: const Text(
-                  "Choose day",
-                  // style: TextStyle(
-                  //   color: AppColors.secondary,
-                  //   //fontWeight: FontWeight.bold,
-                  // ),
+                });
+          },
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.stretch,
+              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Schedule a weekly meeting in which the family gathers:',
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
-                onChanged: (String? value) {
-                  setState(() {
-                    _chosenValue = value;
-                  });
-                },
-              ),
-              const SizedBox(height: 20.0),
-              TextFormField(
-                // style: const TextStyle(
-                //   fontFamily: "Hacen",
-                //   fontSize: 18,
-                // ),
-                style: const TextStyle(
-                  color: AppColors.secondary,
-                  //fontWeight: FontWeight.bold,
-                ),
-                controller: _timeController,
-                onTap: timePicker,
-                //validator: (val) => val!.isEmpty ? 'أدخل الوقت' : null,
-                onSaved: (val) => _timeController.text = val!,
-                decoration: const InputDecoration(
-                  hintText: "Choose time",
-                  //labelText: "Choose time",
-                  // border: OutlineInputBorder(
-                  //   borderRadius: BorderRadius.all(
-                  //     Radius.circular(15),
-                  //   ),
-                  // ),
-                ),
-              ),
-              const SizedBox(height: 20.0),
-              Text(
-                'Write down important things:',
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              const SizedBox(height: 20.0),
-              Expanded(
-                child: ListView.builder(
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  itemCount: 4,
-                  itemBuilder: (context, i) {
-                    return Card(
-                      child: ListTile(
-                        trailing: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            IconButton(
-                              icon: Icon(
-                                Icons.delete,
-                                color: AppColors.secondary,
-                              ),
-                              onPressed: () {},
-                            ),
-                            IconButton(
-                              icon: Icon(
-                                Icons.create,
-                                color: AppColors.secondary,
-                              ),
-                              onPressed: () {},
-                            ),
-                          ],
-                        ),
-                        title: Text(
-                          '.................',
-                          // style: TextStyle(
-                          //   color: Theme.of(this.context).primaryColor,
-                          //   fontFamily: "Hacen",
-                          //   fontSize: 20,
-                          // ),
+                const SizedBox(height: 20.0),
+                DropdownButton<String>(
+                  value: _chosenValue,
+                  items: days.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(
+                        value,
+                        style: const TextStyle(
+                          color: AppColors.secondary,
+                          //fontWeight: FontWeight.bold,
                         ),
                       ),
                     );
+                  }).toList(),
+                  hint: const Text(
+                    "Choose day",
+                    // style: TextStyle(
+                    //   color: AppColors.secondary,
+                    //   //fontWeight: FontWeight.bold,
+                    // ),
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                      _chosenValue = value;
+                    });
                   },
                 ),
-              ),
-            ]),
+                const SizedBox(height: 20.0),
+                TextFormField(
+                  // style: const TextStyle(
+                  //   fontFamily: "Hacen",
+                  //   fontSize: 18,
+                  // ),
+                  style: const TextStyle(
+                    color: AppColors.secondary,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                  controller: _timeController,
+                  onTap: timePicker,
+
+                  onSaved: (val) => _timeController.text = val!,
+                  decoration: const InputDecoration(
+                    hintText: "Choose time",
+                  ),
+                ),
+                const SizedBox(height: 20.0),
+                Text(
+                  'Write down important things:',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                const SizedBox(height: 20.0),
+                Expanded(
+                  child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    itemCount: 4,
+                    itemBuilder: (context, i) {
+                      return Card(
+                        child: ListTile(
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              IconButton(
+                                icon: const Icon(
+                                  Icons.delete,
+                                  color: AppColors.secondary,
+                                ),
+                                onPressed: () {},
+                              ),
+                              IconButton(
+                                icon: const Icon(
+                                  Icons.create,
+                                  color: AppColors.secondary,
+                                ),
+                                onPressed: () {},
+                              ),
+                            ],
+                          ),
+                          title: const Text(
+                            '.................',
+                            // style: TextStyle(
+                            //   color: Theme.of(this.context).primaryColor,
+                            //   fontFamily: "Hacen",
+                            //   fontSize: 20,
+                            // ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ]),
+        ),
       ),
     );
   }
@@ -172,8 +170,9 @@ class _FamilyDayScreenState extends State<FamilyDayScreen> {
           return Theme(
             data: Theme.of(context).copyWith(
               colorScheme: ColorScheme.light(
-                  primary:
-                      Theme.of(context).accentColor, // header background color
+                  primary: Theme.of(context)
+                      .colorScheme
+                      .secondary, // header background color
                   onPrimary: Colors.black, // header text color
                   onSurface: Colors.black // body text color
                   ),

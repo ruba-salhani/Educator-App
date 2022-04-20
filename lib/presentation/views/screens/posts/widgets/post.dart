@@ -4,7 +4,7 @@ import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class Post extends StatefulWidget {
-  Post({
+  const Post({
     Key? key,
     this.image,
     this.name,

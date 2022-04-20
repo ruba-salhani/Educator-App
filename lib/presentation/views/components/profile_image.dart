@@ -48,12 +48,7 @@ class _ProfileImageState extends State<ProfileImage> {
                     fit: BoxFit.fitHeight,
                   ),
                 )
-              : Container(
-                  child: Icon(Icons.camera_alt_outlined),
-                )
-
-          //backgroundImage: AssetImage('assets/images/person2.png'),
-          ),
+              : Icon(Icons.camera_alt_outlined)),
       onTap: () {
         showDialog(
           context: context,

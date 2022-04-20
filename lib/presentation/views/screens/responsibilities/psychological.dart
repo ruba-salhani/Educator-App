@@ -5,9 +5,12 @@ class Psychological extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Responsibilities of education'),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Responsibilities of education'),
+        ),
       ),
     );
   }

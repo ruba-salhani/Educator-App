@@ -21,23 +21,23 @@ class ElevateDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     result(noVal, sometimesVal, yesVal);
-    return CustomDialog(
-      firstButtonChild: "Ok",
-      firstButtonOnpressd: () {
-        Navigator.of(context).pop();
-      },
-      secondButtonChild: "Retest",
-      secondButtonOnpressd: () {
-        Navigator.of(context).pop();
-      },
-      content: _result,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: CustomDialog(
+        firstButtonChild: "Ok",
+        firstButtonOnpressd: () {
+          Navigator.of(context).pop();
+        },
+        secondButtonChild: "Retest",
+        secondButtonOnpressd: () {
+          Navigator.of(context).pop();
+        },
+        content: _result,
+      ),
     );
   }
 
   result(noVal, sometimesVal, yesVal) async {
-    print(noVal);
-    print(sometimesVal);
-    print(yesVal);
     for (bool i in noVal) {
       if (i == true) {
         noCount++;
@@ -56,17 +56,17 @@ class ElevateDialog extends StatelessWidget {
     count = noCount + sometimesCount + yesCount;
     print(count);
     if (count < 20) {
-      screen ? _result = "راجع نفسك" : _result = "";
-
-      //print("راجع نفسك");
+      screen ? _result = "راجع نفسك" : _result = "اتق الله ولا تضيع الأمانة";
     }
     if (count >= 20 && count <= 35) {
-      screen ? _result = "اهتم بنفسك أكثر" : _result = "";
-      //print("اهتم بنفسك أكثر");
+      screen
+          ? _result = "اهتم بنفسك أكثر"
+          : _result = "ابنك يحتاج لاهتمام أكثر";
     }
     if (count > 35) {
-      screen ? _result = "أنت مرب ممتاز فهنبئا لك" : _result = "";
-      //print("أنت مرب ممتاز فهنبئا لك");
+      screen
+          ? _result = "أنت مرب ممتاز فهنبئا لك"
+          : _result = "بارك الله لك في ابنك";
     }
     count = 0;
     print(_result);

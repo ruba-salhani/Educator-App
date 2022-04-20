@@ -1,6 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
-import 'package:educator/presentation/theme/app_theme.dart';
 import 'package:educator/presentation/views/screens/behaviors/children_screen.dart';
 import 'package:educator/presentation/views/screens/family_day/family_day_screen.dart';
 import 'package:educator/presentation/views/screens/home/home_screen.dart';
@@ -9,7 +8,7 @@ import 'package:educator/presentation/views/screens/posts/posts_screen.dart';
 import 'package:flutter/material.dart';
 
 class CustomCurvedNavigationBar extends StatefulWidget {
-  CustomCurvedNavigationBar({Key? key}) : super(key: key);
+  const CustomCurvedNavigationBar({Key? key}) : super(key: key);
 
   @override
   State<CustomCurvedNavigationBar> createState() =>
@@ -19,13 +18,13 @@ class CustomCurvedNavigationBar extends StatefulWidget {
 class _CustomCurvedNavigationBarState extends State<CustomCurvedNavigationBar> {
   int index = 2;
 
-  GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
+  final GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   final screens = [
-    PostsScreen(),
-    PhoneUsageSeystemScreen(),
-    HomeScreen(),
-    FamilyDayScreen(),
-    ChildrenScreen(),
+    const PostsScreen(),
+    const PhoneUsageSeystemScreen(),
+    const HomeScreen(),
+    const FamilyDayScreen(),
+    const ChildrenScreen(),
   ];
   final itemes = const <Widget>[
     Icon(Icons.description_outlined, size: 30),

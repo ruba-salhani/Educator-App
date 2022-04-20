@@ -1,6 +1,7 @@
 import 'package:educator/presentation/views/components/components.dart';
 import 'package:educator/presentation/views/screens/home/drawer/drawer_item.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DrawerBuilder extends StatefulWidget {
   const DrawerBuilder({Key? key}) : super(key: key);
@@ -29,12 +30,6 @@ class _DrawerBuilderState extends State<DrawerBuilder> {
                 const SizedBox(
                   height: 30.0,
                 ),
-                // const Divider(
-                //     //color: Color(0xff514BC3),
-                //     ),
-                // const SizedBox(
-                //   height: 20.0,
-                //),
                 DrawerItem(
                   icon: Icons.person,
                   text: 'Ruba Salhani',
@@ -51,14 +46,6 @@ class _DrawerBuilderState extends State<DrawerBuilder> {
                 const SizedBox(
                   height: 20.0,
                 ),
-                // const Divider(
-                //   indent: 50,
-                //   endIndent: 50,
-                //   //color: Color(0xff514BC3),
-                // ),
-                // const SizedBox(
-                //   height: 10.0,
-                // ),
                 DrawerItem(
                   icon: Icons.language_outlined,
                   text: 'Language',
@@ -83,8 +70,19 @@ class _DrawerBuilderState extends State<DrawerBuilder> {
                 DrawerItem(
                   icon: Icons.phone_enabled_outlined,
                   text: 'Contact Us',
-                  ontap: () {
-                    //context.pushRoute(const NotificationsScreen());
+                  ontap: () async {
+                    final Uri _emailuri = Uri(
+                        scheme: 'mailto',
+                        path: 'ruba.salhani@gmail.com',
+                        queryParameters: (<String, String>{
+                          'subject': 'Educator_App'
+                        }));
+
+                    if (await canLaunch(_emailuri.toString())) {
+                      await launch(_emailuri.toString());
+                    } else {
+                      throw 'could not launch $_emailuri.toString()';
+                    }
                   },
                 ),
                 const SizedBox(

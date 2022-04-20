@@ -8,77 +8,80 @@ class DemandsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Demands of growth'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(30.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  context.pushRoute(const EarlyChildhood());
-                },
-                child: const Text('Two weeks -> 4 years'),
-                style: ElevatedButton.styleFrom(
-                  primary: AppColors.secondary,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Demands of growth'),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    context.pushRoute(const EarlyChildhood());
+                  },
+                  child: const Text('Two weeks -> 4 years'),
+                  style: ElevatedButton.styleFrom(
+                    primary: AppColors.secondary,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {
-                  context.pushRoute(const Childhood());
-                },
-                child: const Text('(5 -> 12) years'),
-                style: ElevatedButton.styleFrom(
-                  primary: AppColors.secondary,
+                const SizedBox(height: 20.0),
+                ElevatedButton(
+                  onPressed: () {
+                    context.pushRoute(const Childhood());
+                  },
+                  child: const Text('(5 -> 12) years'),
+                  style: ElevatedButton.styleFrom(
+                    primary: AppColors.secondary,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {
-                  context.pushRoute(const Adolescence());
-                },
-                child: const Text('(13 -> 21) years'),
-                style: ElevatedButton.styleFrom(
-                  primary: AppColors.secondary,
+                const SizedBox(height: 20.0),
+                ElevatedButton(
+                  onPressed: () {
+                    context.pushRoute(const Adolescence());
+                  },
+                  child: const Text('(13 -> 21) years'),
+                  style: ElevatedButton.styleFrom(
+                    primary: AppColors.secondary,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {
-                  context.pushRoute(const Majority());
-                },
-                child: const Text('(22 -> 40) years'),
-                style: ElevatedButton.styleFrom(
-                  primary: AppColors.secondary,
+                const SizedBox(height: 20.0),
+                ElevatedButton(
+                  onPressed: () {
+                    context.pushRoute(const Majority());
+                  },
+                  child: const Text('(22 -> 40) years'),
+                  style: ElevatedButton.styleFrom(
+                    primary: AppColors.secondary,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {
-                  context.pushRoute(const CenterOfAge());
-                },
-                child: const Text('(41 -> 60) years'),
-                style: ElevatedButton.styleFrom(
-                  primary: AppColors.secondary,
+                const SizedBox(height: 20.0),
+                ElevatedButton(
+                  onPressed: () {
+                    context.pushRoute(const CenterOfAge());
+                  },
+                  child: const Text('(41 -> 60) years'),
+                  style: ElevatedButton.styleFrom(
+                    primary: AppColors.secondary,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {
-                  context.pushRoute(const Aging());
-                },
-                child: const Text('Over 60 years'),
-                style: ElevatedButton.styleFrom(
-                  primary: AppColors.secondary,
+                const SizedBox(height: 20.0),
+                ElevatedButton(
+                  onPressed: () {
+                    context.pushRoute(const Aging());
+                  },
+                  child: const Text('Over 60 years'),
+                  style: ElevatedButton.styleFrom(
+                    primary: AppColors.secondary,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

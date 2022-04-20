@@ -49,9 +49,6 @@ class _TimerState extends State<Timer> {
         Row(
           //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            // const SizedBox(
-            //   width: 10,
-            // ),
             _button(title: "Start", onPressed: () => _controller.start()),
             const SizedBox(
               width: 2,
@@ -67,9 +64,6 @@ class _TimerState extends State<Timer> {
             _button(
                 title: "Restart",
                 onPressed: () => _controller.restart(duration: widget.timer)),
-            // const SizedBox(
-            //   width: 10,
-            // ),
           ],
         ),
       ],

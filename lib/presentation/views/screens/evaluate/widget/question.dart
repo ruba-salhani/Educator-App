@@ -11,7 +11,7 @@ class Question extends StatefulWidget {
     this.yVal,
     this.question,
   }) : super(key: key);
-  //final bool? no;
+
   void Function(bool?)? noOnchange;
   void Function(bool?)? sometimesOnchange;
   void Function(bool?)? yesOnchange;
@@ -31,6 +31,10 @@ class _QuestionState extends State<Question> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Text(widget.question!, textAlign: TextAlign.right),
+            ),
             Row(
               children: [
                 Column(
@@ -60,10 +64,6 @@ class _QuestionState extends State<Question> {
                   ],
                 ),
               ],
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Text(widget.question!, textAlign: TextAlign.right),
             ),
           ],
         ),

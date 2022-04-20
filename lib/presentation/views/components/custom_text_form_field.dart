@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatefulWidget {
-  CustomTextFormField({
+  const CustomTextFormField({
     this.keyType,
     this.label,
     this.hint,
@@ -32,7 +32,6 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     return TextFormField(
       textInputAction: widget.action,
       keyboardType: widget.keyType,
-
       decoration: InputDecoration(
         labelText: widget.label,
         //labelStyle: TextStyle(fontSize: 14),
@@ -41,13 +40,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       ),
       validator: widget.vald,
       onSaved: widget.onsaved,
-
       obscureText: widget.obscure!,
-      //(val)
-      // {
-      //   widget.formController!.text = val!;
-      //   print(widget.formController!.text);
-      // },
     );
   }
 }
