@@ -14,11 +14,20 @@ class PhoneUsageSeystemScreen extends StatefulWidget {
 }
 
 class _PhoneUsageSeystemScreenState extends State<PhoneUsageSeystemScreen> {
+// Size displaySize(BuildContext context) {
+//   debugPrint('Size = ' + MediaQuery.of(context).size.toString());
+//   return MediaQuery.of(context).size;
+// }
+// double displayWidth(BuildContext context) {
+//   debugPrint('Width = ' + displaySize(context).width.toString());
+//   return displaySize(context).width;
+// }
+
   List<String> ages = [
-    '(0 -> 2) years',
-    '(3 -> 5) years',
-    '(6 -> 12) years',
-    '(13 -> 18) years',
+    'أقل من سنتين',
+    'من 3 إلى 5 سنوات',
+    'من 6 إلى 12 سنة',
+    'من 13 إلى 18 سنة',
   ];
   String? _chosenValue;
   int timer = 0;
@@ -30,7 +39,7 @@ class _PhoneUsageSeystemScreenState extends State<PhoneUsageSeystemScreen> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: CustomAppBar(
-          text: 'Phone usage seystem',
+          text: 'نظام استخدام الأجهزة الذكية',
           icon: Icons.priority_high_outlined,
           onpreased: () {
             context.pushRoute(const RecommendationsScreen());
@@ -42,52 +51,65 @@ class _PhoneUsageSeystemScreenState extends State<PhoneUsageSeystemScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              DropdownButton<String>(
-                value: _chosenValue,
-                items: ages.map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-                hint: const Text(
-                  "Choose age",
-                  // style: TextStyle(
-                  //   color: AppColors.secondary,
-                  //   //fontWeight: FontWeight.bold,
-                  // ),
-                ),
-                onChanged: (String? value) {
-                  setState(() {
-                    _chosenValue = value;
-                    if (_chosenValue == ages[0]) {
-                      timer = 0;
-                      duration = 'Not allowed !';
-                    } else if (_chosenValue == ages[1]) {
-                      timer = 3600;
-                      duration = 'Hour a day (Watching TV only)';
-                    } else if (_chosenValue == ages[2]) {
-                      timer = 7200;
-                      duration = 'Two hours per day (Watching TV only)';
-                    } else if (_chosenValue == ages[3]) {
-                      timer = 7200;
-                      duration = 'Two hours per day (Watching TV or phone)';
-                    }
-                  });
-                  print(timer);
-                  print(duration);
-                },
-              ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'The time allowed is: ' + duration,
-                  textAlign: TextAlign.center,
+                padding: const EdgeInsets.only(right: 20),
+                child: DropdownButton<String>(
                   style: const TextStyle(
                     color: AppColors.secondary,
                     fontWeight: FontWeight.bold,
                   ),
+                  underline: const SizedBox.shrink(),
+                  borderRadius: BorderRadius.circular(30),
+                  value: _chosenValue,
+                  items: ages.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      alignment: AlignmentDirectional.bottomCenter,
+                      child: CustomText(
+                        size: false,
+                        text: value,
+                      ),
+                    );
+                  }).toList(),
+                  hint: const CustomText(
+                    size: false,
+                    text: "اختر العمر",
+                    // style: TextStyle(
+                    //   color: AppColors.secondary,
+                    //   //fontWeight: FontWeight.bold,
+                    // ),
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                      _chosenValue = value;
+                      if (_chosenValue == ages[0]) {
+                        timer = 0;
+                        duration = 'غير مسموح !';
+                      } else if (_chosenValue == ages[1]) {
+                        timer = 3600;
+                        duration = 'ساعة باليوم (تلفاز فقط)';
+                      } else if (_chosenValue == ages[2]) {
+                        timer = 7200;
+                        duration = 'ساعتان باليوم (تلفاز فقط)';
+                      } else if (_chosenValue == ages[3]) {
+                        timer = 7200;
+                        duration = 'ساعتان باليوم (تلفاز أو هاتف)';
+                      }
+                    });
+                    print(timer);
+                    print(duration);
+                  },
                 ),
+              ),
+              CustomText(
+                size: false,
+                text: 'الوقت المسموح به: ' + duration,
+                //textAlign: TextAlign.center,
+                // style: TextStyle(
+                //   color: AppColors.secondary,
+                //   fontWeight: FontWeight.bold,
+                //   fontSize: (MediaQuery.of(context).size.width) * 0.04,
+                // ),
               ),
               Timer(timer: timer),
               const SizedBox(

@@ -61,14 +61,15 @@ class FieldDialog extends StatelessWidget {
                 //     print(_formKey);
                 //   }
                 // },
-                child: const Text('Save'),
+                child: const CustomText(size: false, text: 'حفظ'),
               ),
               ElevatedButton(
                   onPressed: () {
                     context.popRoute();
                   },
-                  child: const Text(
-                    'Cancel',
+                  child: const CustomText(
+                    size: false,
+                    text: 'إلغاء',
                   )),
             ],
           ),

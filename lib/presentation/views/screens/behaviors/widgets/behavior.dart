@@ -1,4 +1,5 @@
 import 'package:educator/presentation/theme/app_colors.dart';
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -39,17 +40,19 @@ class _BehaviorState extends State<Behavior> {
               //mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                    //color: Colors.pinkAccent,
-                    //height: Get.height / 10,
-                    width: Get.width / 4,
-                    child: const Center(
-                        child: Text(
-                      'Behavior',
-                      style: TextStyle(
-                        color: AppColors.secondary,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ))),
+                  //color: Colors.pinkAccent,
+                  //height: Get.height / 10,
+                  width: Get.width / 4,
+                  child: const Center(
+                      child: CustomText(
+                    size: false,
+                    text: 'السلوك',
+                    // style: TextStyle(
+                    //   color: AppColors.secondary,
+                    //   fontWeight: FontWeight.bold,
+                    // ),
+                  )),
+                ),
                 SizedBox(
                   //color: Colors.pinkAccent,
                   //height: Get.height / 10,
@@ -104,12 +107,14 @@ class _BehaviorState extends State<Behavior> {
                     //color: Colors.pinkAccent,
                     //height: Get.height / 10,
                     width: Get.width / 4,
-                    child: const Center(child: Text('Starting Date'))),
+                    child: const Center(
+                        child: CustomText(size: false, text: '1/1'))),
                 SizedBox(
                     //color: Colors.pinkAccent,
                     //height: Get.height / 10,
                     width: Get.width / 4,
-                    child: const Center(child: Text('End Date'))),
+                    child: const Center(
+                        child: CustomText(size: false, text: '1/2'))),
               ],
             ),
           ),

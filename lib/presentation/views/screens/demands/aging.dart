@@ -1,3 +1,4 @@
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class Aging extends StatelessWidget {
@@ -9,7 +10,7 @@ class Aging extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Aging'),
+          title: const CustomText(size: true, text: 'مرحلة الشيخوخة'),
         ),
       ),
     );

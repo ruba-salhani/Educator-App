@@ -1,3 +1,4 @@
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class CustomMaterialButton extends StatelessWidget {
@@ -22,14 +23,20 @@ class CustomMaterialButton extends StatelessWidget {
       height: 56,
       child: MaterialButton(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             SizedBox(
               height: 25,
               width: 25,
               child: Image.asset(assetName!),
             ),
-            Text(text!),
+            Text(
+              text!,
+              style: TextStyle(
+                //fontWeight: FontWeight.bold,
+                fontSize: (MediaQuery.of(context).size.width) * 0.042,
+              ),
+            ),
             Opacity(
               opacity: 0.0,
               child: SizedBox(

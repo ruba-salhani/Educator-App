@@ -17,6 +17,7 @@ class ElevateDialog extends StatelessWidget {
   int sometimesCount = 0;
   int yesCount = 0;
   int count = 0;
+  int percent = 0;
   late String _result;
   @override
   Widget build(BuildContext context) {
@@ -24,11 +25,11 @@ class ElevateDialog extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: CustomDialog(
-        firstButtonChild: "Ok",
+        firstButtonChild: "حسنا",
         firstButtonOnpressd: () {
           Navigator.of(context).pop();
         },
-        secondButtonChild: "Retest",
+        secondButtonChild: "اعد الاختبار",
         secondButtonOnpressd: () {
           Navigator.of(context).pop();
         },
@@ -54,21 +55,25 @@ class ElevateDialog extends StatelessWidget {
       }
     }
     count = noCount + sometimesCount + yesCount;
+    percent = (count * 100 / 45).toInt();
     print(count);
     if (count < 20) {
-      screen ? _result = "راجع نفسك" : _result = "اتق الله ولا تضيع الأمانة";
+      screen
+          ? _result = "$percent" " % " "راجع نفسك !!!"
+          : _result = "$percent" " % " "اتق الله ولا تضيع الأمانة";
     }
     if (count >= 20 && count <= 35) {
       screen
-          ? _result = "اهتم بنفسك أكثر"
-          : _result = "ابنك يحتاج لاهتمام أكثر";
+          ? _result = "$percent" " % " "جيد ولكن اهتم بنفسك أكثر"
+          : _result = "$percent" " % " "ابنك يحتاج لاهتمام أكثر";
     }
     if (count > 35) {
       screen
-          ? _result = "أنت مرب ممتاز فهنبئا لك"
-          : _result = "بارك الله لك في ابنك";
+          ? _result = "$percent" " % " "أنت مرب ممتاز فهنبئا لك"
+          : _result = "$percent" " % " "بارك الله لك في ابنك";
     }
     count = 0;
+    print(count);
     print(_result);
     return _result;
   }

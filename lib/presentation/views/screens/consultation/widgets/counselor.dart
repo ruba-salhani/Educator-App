@@ -1,3 +1,4 @@
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class Counselor extends StatelessWidget {
@@ -13,10 +14,10 @@ class Counselor extends StatelessWidget {
       child: Column(
         children: [
           CircleAvatar(
-            radius: 55.0,
+            radius: 50.0,
             backgroundImage: AssetImage(counselorImage!),
           ),
-          Text(counselorName!),
+          CustomText(size: false, text: counselorName!),
         ],
       ),
       onTap: ontap,

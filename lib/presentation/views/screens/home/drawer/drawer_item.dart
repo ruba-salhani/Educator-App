@@ -1,4 +1,5 @@
 import 'package:educator/presentation/theme/app_colors.dart';
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class DrawerItem extends StatelessWidget {
@@ -25,9 +26,9 @@ class DrawerItem extends StatelessWidget {
         child: Icon(icon),
       ),
       iconColor: Colors.white,
-      title: Text(
-        text,
-        style: Theme.of(context).textTheme.labelLarge,
+      title: CustomText(
+        size: false, text: text,
+        //style: Theme.of(context).textTheme.labelLarge,
       ),
       onTap: ontap,
     );

@@ -1,3 +1,4 @@
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class CenterOfAge extends StatelessWidget {
@@ -9,7 +10,7 @@ class CenterOfAge extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Center of age'),
+          title: const CustomText(size: true, text: 'مرحلة وسط العمر'),
         ),
       ),
     );

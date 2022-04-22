@@ -43,9 +43,9 @@ class _SignupScreenState extends State<SignupScreen> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        'Sign Up',
-                        style: Theme.of(context).textTheme.titleLarge,
+                      const CustomText(
+                        size: true, text: 'إنشاء حساب',
+                        //style: Theme.of(context).textTheme.titleLarge,
                       ),
                       const SizedBox(height: 30.0),
                       CustomTextFormField(
@@ -53,11 +53,11 @@ class _SignupScreenState extends State<SignupScreen> {
                         action: TextInputAction.next,
                         obscure: false,
                         suffixicon: const Icon(Icons.person),
-                        label: 'Name',
-                        hint: 'Name',
+                        label: 'الاسم',
+                        hint: 'الاسم',
                         vald: qValidator([
                           const IsRequired(),
-                          const MinLength(4, 'Name is too short'),
+                          const MinLength(4, 'الاسم قصير جدا'),
                           const MaxLength(20),
                         ]),
                         onsaved: (val) => {
@@ -68,8 +68,8 @@ class _SignupScreenState extends State<SignupScreen> {
                       CustomTextFormField(
                         keyType: TextInputType.emailAddress,
                         action: TextInputAction.next,
-                        label: 'Email',
-                        hint: 'Email Address',
+                        label: 'البريد الإلكتروني',
+                        hint: 'عنوان البريد الإلكتروني',
                         obscure: false,
                         suffixicon: const Icon(Icons.email_outlined),
                         vald: qValidator([
@@ -84,12 +84,12 @@ class _SignupScreenState extends State<SignupScreen> {
                       CustomTextFormField(
                         action: TextInputAction.done,
                         keyType: TextInputType.text,
-                        label: 'Password',
-                        hint: 'Password',
+                        label: 'كلمة المرور',
+                        hint: 'كلمة المرور',
                         vald: qValidator([
                           //IsNotEmpty('Rrquired'),
                           const IsRequired(),
-                          const MinLength(8, 'Password is to short'),
+                          const MinLength(6, 'كلمة المرور قصيرة جدا'),
                           const MaxLength(20),
                         ]),
                         onsaved: (val) => {
@@ -99,12 +99,11 @@ class _SignupScreenState extends State<SignupScreen> {
                         suffixicon: IconButton(
                           icon: Icon(
                             _isobscore
-                                ? Icons.visibility
-                                : Icons.visibility_off,
+                                ? Icons.visibility_off
+                                : Icons.visibility,
                           ),
                           onPressed: () {
-                            setState:
-                            (() {
+                            setState(() {
                               _isobscore = !_isobscore;
                             });
                           },
@@ -126,8 +125,9 @@ class _SignupScreenState extends State<SignupScreen> {
                             print(_formKey);
                           }
                         },
-                        child: const Text(
-                          'SIGN UP',
+                        child: const CustomText(
+                          size: false,
+                          text: 'إنشاء حساب',
                         ),
                       ),
                     ],

@@ -42,20 +42,20 @@ class _SigninScreenState extends State<SigninScreen> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          'Welcome',
-                          style: Theme.of(context).textTheme.titleLarge,
+                        const CustomText(
+                          size: true, text: 'مرحبا',
+                          //style: Theme.of(context).textTheme.titleLarge,
                         ),
                         const SizedBox(height: 20.0),
                         CustomTextFormField(
                           action: TextInputAction.next,
                           keyType: TextInputType.emailAddress,
-                          label: 'Email',
-                          hint: 'Email Address',
+                          label: 'البريد الإلكتروني',
+                          hint: 'عنوان البريد الإلكتروني',
                           obscure: false,
                           suffixicon: const Icon(Icons.email_outlined),
                           vald: qValidator([
-                            const IsEmail(),
+                            const IsEmail('غير صالح'),
                             //MaxLength(50),
                           ]),
                           onsaved: (val) => {
@@ -66,12 +66,12 @@ class _SigninScreenState extends State<SigninScreen> {
                         CustomTextFormField(
                           action: TextInputAction.done,
                           keyType: TextInputType.text,
-                          label: 'Password',
-                          hint: 'Password',
+                          label: 'كلمة المرور',
+                          hint: 'كلمة المرور',
                           vald: qValidator([
                             //IsNotEmpty('Rrquired'),
                             const IsRequired(),
-                            const MinLength(8, 'Password is to short'),
+                            const MinLength(6, 'كلمة المرور قصيرة جدا'),
                             const MaxLength(20),
                           ]),
                           onsaved: (val) => {
@@ -81,8 +81,8 @@ class _SigninScreenState extends State<SigninScreen> {
                           suffixicon: IconButton(
                             icon: Icon(
                               _isobscore
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
                             ),
                             onPressed: () {
                               setState(() {
@@ -94,9 +94,9 @@ class _SigninScreenState extends State<SigninScreen> {
                         const SizedBox(height: 20.0),
                         TextButton(
                           onPressed: () {},
-                          child: const Text(
-                            'Forget Password?',
-                            textAlign: TextAlign.start,
+                          child: const CustomText(
+                            size: false, text: 'هل نسيت كلمة المرور؟',
+                            //textAlign: TextAlign.start,
                           ),
                         ),
                         const SizedBox(height: 20.0),
@@ -114,15 +114,18 @@ class _SigninScreenState extends State<SigninScreen> {
                               print(_formKey);
                             }
                           },
-                          child: const Text(
-                            'SIGN IN',
+                          child: const CustomText(
+                            size: false,
+                            text: 'تسجيل الدخول',
                           ),
                         ),
                         const SizedBox(height: 20.0),
-                        Text(
-                          '-OR-',
-                          style: Theme.of(context).textTheme.titleLarge,
-                          textAlign: TextAlign.center,
+                        const Center(
+                          child: CustomText(
+                            size: true, text: '-أو-',
+                            //style: Theme.of(context).textTheme.titleLarge,
+                            //textAlign: TextAlign.center,
+                          ),
                         ),
                         const SizedBox(height: 20.0),
                         CustomMaterialButton(
@@ -130,14 +133,15 @@ class _SigninScreenState extends State<SigninScreen> {
                           borderColor: Colors.grey,
                           color: Colors.white,
                           onpressed: () {},
-                          text: 'Sign In with Google',
+                          text: 'تسجيل باستخدام حساب غوغل',
                           txtColor: Colors.black,
                         ),
                         const SizedBox(height: 20.0),
                         Row(
                           children: [
-                            const Text(
-                              'Dont have an account?',
+                            const CustomText(
+                              size: false,
+                              text: 'ليس لديك حساب؟',
                             ),
                             const SizedBox(height: 20.0),
                             TextButton(
@@ -146,8 +150,8 @@ class _SigninScreenState extends State<SigninScreen> {
                                   SignupScreen(),
                                 );
                               },
-                              child: const Text(
-                                'SIGN UP',
+                              child: const CustomText(
+                                size: false, text: 'إنشاء حساب',
 
                                 //textAlign: TextAlign.start,
                               ),

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:educator/presentation/router/app_router.gr.dart';
 import 'package:educator/presentation/theme/app_colors.dart';
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class DemandsScreen extends StatelessWidget {
@@ -12,7 +13,7 @@ class DemandsScreen extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Demands of growth'),
+          title: const CustomText(size: true, text: 'مطالب النمو'),
         ),
         body: Padding(
           padding: const EdgeInsets.all(30.0),
@@ -25,7 +26,8 @@ class DemandsScreen extends StatelessWidget {
                   onPressed: () {
                     context.pushRoute(const EarlyChildhood());
                   },
-                  child: const Text('Two weeks -> 4 years'),
+                  child: const CustomText(
+                      size: false, text: 'من أسبوعين إلى 5 سنوات'),
                   style: ElevatedButton.styleFrom(
                     primary: AppColors.secondary,
                   ),
@@ -35,7 +37,7 @@ class DemandsScreen extends StatelessWidget {
                   onPressed: () {
                     context.pushRoute(const Childhood());
                   },
-                  child: const Text('(5 -> 12) years'),
+                  child: const CustomText(size: false, text: 'من 5 ال 12 سنة'),
                   style: ElevatedButton.styleFrom(
                     primary: AppColors.secondary,
                   ),
@@ -45,7 +47,8 @@ class DemandsScreen extends StatelessWidget {
                   onPressed: () {
                     context.pushRoute(const Adolescence());
                   },
-                  child: const Text('(13 -> 21) years'),
+                  child:
+                      const CustomText(size: false, text: 'من 13 إلى 21 سنة'),
                   style: ElevatedButton.styleFrom(
                     primary: AppColors.secondary,
                   ),
@@ -55,7 +58,8 @@ class DemandsScreen extends StatelessWidget {
                   onPressed: () {
                     context.pushRoute(const Majority());
                   },
-                  child: const Text('(22 -> 40) years'),
+                  child:
+                      const CustomText(size: false, text: 'من 22 إلى 40 سنة'),
                   style: ElevatedButton.styleFrom(
                     primary: AppColors.secondary,
                   ),
@@ -65,7 +69,8 @@ class DemandsScreen extends StatelessWidget {
                   onPressed: () {
                     context.pushRoute(const CenterOfAge());
                   },
-                  child: const Text('(41 -> 60) years'),
+                  child:
+                      const CustomText(size: false, text: 'من 41 إلى 60 سنة'),
                   style: ElevatedButton.styleFrom(
                     primary: AppColors.secondary,
                   ),
@@ -75,7 +80,8 @@ class DemandsScreen extends StatelessWidget {
                   onPressed: () {
                     context.pushRoute(const Aging());
                   },
-                  child: const Text('Over 60 years'),
+                  child:
+                      const CustomText(size: false, text: 'من 60 إلى الممات'),
                   style: ElevatedButton.styleFrom(
                     primary: AppColors.secondary,
                   ),

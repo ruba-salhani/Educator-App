@@ -1,3 +1,4 @@
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class CustomListTile extends StatelessWidget {
@@ -16,8 +17,8 @@ class CustomListTile extends StatelessWidget {
           radius: 30.0,
           backgroundImage: AssetImage(image!),
         ),
-        title: Text(name!),
-        subtitle: Text(message!),
+        title: CustomText(size: false, text: name!),
+        subtitle: CustomText(size: false, text: message!),
       ),
       onTap: ontap,
     );

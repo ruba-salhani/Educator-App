@@ -1,3 +1,4 @@
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class CustomDialog extends StatelessWidget {
@@ -29,19 +30,23 @@ class CustomDialog extends StatelessWidget {
             children: [
               ElevatedButton(
                   onPressed: firstButtonOnpressd,
-                  child: Text(
+                  child: CustomText(
+                      size: false,
+                      text:
                     firstButtonChild,
                   )),
               ElevatedButton(
                   onPressed: secondButtonOnpressd,
-                  child: Text(
-                    secondButtonChild,
+                  child: CustomText(
+                    size: false,
+                    text: secondButtonChild,
                   )),
             ],
           ),
         ],
-        content: Text(
-          content,
+        content: CustomText(
+          size: false,
+          text: content,
           //style: Theme.of(context).textTheme.headline4,
         ),
       ),

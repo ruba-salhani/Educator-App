@@ -76,7 +76,7 @@ class _EvaluatedOfYourSelfScreenState extends State<EvaluatedOfYourSelfScreen> {
     "هل عندك القدرة على احتواء \n الاّخرين؟",
     "هل تعرف خصائص المرحلة \n السنية لطفلك؟",
     "هل تستخدم أسلوب \n الثواب والعقاب؟",
-    "هل تعرف مشكلات الطفل النفسية \n وطرق حلها؟",
+    "هل تعرف مشكلات الطفل \n النفسية وطرق حلها؟",
     "هل لك هدف من التربية؟",
     "هل أنت لين في غير ضعف؛ \n شديد في غير عنف؟",
     "هل أنت قدوة في \n دراستك ومظهرك وعبادتك؟",
@@ -88,7 +88,7 @@ class _EvaluatedOfYourSelfScreenState extends State<EvaluatedOfYourSelfScreen> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-            title: const Text('Evaluate of yourself'),
+            title: const CustomText(size: true, text: 'كيف تقيّم نفسك؟'),
             backgroundColor: AppColors.secondary),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -142,7 +142,7 @@ class _EvaluatedOfYourSelfScreenState extends State<EvaluatedOfYourSelfScreen> {
                     textAlign: TextAlign.right),
               ),
               ElevatedButton(
-                child: const Text("النتيجة"),
+                child: const CustomText(size: false, text: "النتيجة"),
                 style: ElevatedButton.styleFrom(
                   primary: AppColors.secondary,
                 ),

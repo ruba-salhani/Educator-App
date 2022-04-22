@@ -32,8 +32,19 @@ class _DrawerBuilderState extends State<DrawerBuilder> {
                 ),
                 DrawerItem(
                   icon: Icons.person,
-                  text: 'Ruba Salhani',
-                  ontap: () {},
+                  text: 'ربا صالحاني',
+                  ontap: () {
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return FieldDialog(
+                            icon: Icons.person,
+                            label: 'الاسم',
+                            hint: "ادخل الاسم الجديد",
+                            firstButtonOnpressd: () {},
+                          );
+                        });
+                  },
                 ),
                 const SizedBox(
                   height: 20.0,
@@ -41,20 +52,31 @@ class _DrawerBuilderState extends State<DrawerBuilder> {
                 DrawerItem(
                   icon: Icons.email_outlined,
                   text: 'Ruba.salhani@gmail.com',
-                  ontap: () {},
+                  ontap: () {
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return FieldDialog(
+                            icon: Icons.email_outlined,
+                            label: 'الحساب',
+                            hint: "ادخل الحساب الجديد",
+                            firstButtonOnpressd: () {},
+                          );
+                        });
+                  },
                 ),
                 const SizedBox(
                   height: 20.0,
                 ),
                 DrawerItem(
                   icon: Icons.language_outlined,
-                  text: 'Language',
+                  text: 'اللغة',
                   ontap: () {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
                         return CustomDialog(
-                          content: "Choose the language:",
+                          content: "اختر اللغة",
                           firstButtonChild: "العربية",
                           firstButtonOnpressd: () {},
                           secondButtonChild: "English",
@@ -69,7 +91,7 @@ class _DrawerBuilderState extends State<DrawerBuilder> {
                 ),
                 DrawerItem(
                   icon: Icons.phone_enabled_outlined,
-                  text: 'Contact Us',
+                  text: 'تواصل معنا',
                   ontap: () async {
                     final Uri _emailuri = Uri(
                         scheme: 'mailto',
@@ -90,19 +112,19 @@ class _DrawerBuilderState extends State<DrawerBuilder> {
                 ),
                 DrawerItem(
                   icon: Icons.logout_outlined,
-                  text: 'Log Out',
+                  text: 'تسجيل الخروج',
                   ontap: () {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
                         return CustomDialog(
                           //title: "Log out",
-                          content: "Are you sure you want to log out?",
-                          firstButtonChild: "Cancel",
+                          content: "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+                          firstButtonChild: "لا",
                           firstButtonOnpressd: () {
                             Navigator.of(context).pop();
                           },
-                          secondButtonChild: "Log out",
+                          secondButtonChild: "نعم",
                           secondButtonOnpressd: () {},
                         );
                       },

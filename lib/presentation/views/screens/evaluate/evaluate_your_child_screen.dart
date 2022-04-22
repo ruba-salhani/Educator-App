@@ -1,4 +1,5 @@
 import 'package:educator/presentation/theme/app_colors.dart';
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:educator/presentation/views/screens/evaluate/widget/elevate_dialog.dart';
 import 'package:educator/presentation/views/screens/evaluate/widget/question.dart';
 import 'package:flutter/material.dart';
@@ -86,7 +87,7 @@ class _EvaluateYourChildScreenState extends State<EvaluateYourChildScreen> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-            title: const Text('Evaluate your child'),
+            title: const CustomText(size: true, text: 'كيف تقيّم ابنك؟'),
             backgroundColor: AppColors.secondary),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -140,7 +141,7 @@ class _EvaluateYourChildScreenState extends State<EvaluateYourChildScreen> {
                     textAlign: TextAlign.right),
               ),
               ElevatedButton(
-                child: const Text("النتيجة"),
+                child: const CustomText(size: false, text: "النتيجة"),
                 style: ElevatedButton.styleFrom(
                   primary: AppColors.secondary,
                 ),

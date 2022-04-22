@@ -17,13 +17,13 @@ class _FamilyDayScreenState extends State<FamilyDayScreen> {
   final TimeOfDay _time = TimeOfDay.now();
   final TextEditingController _timeController = TextEditingController();
   List<String> days = [
-    'Sat',
-    'Sun',
-    'Mon',
-    'Tues',
-    'Wed',
-    'Thurs',
-    'Fri',
+    'السبت',
+    'الأحد',
+    'الإثنين',
+    'الثلاثاء',
+    'الأربعاء',
+    'الخميس',
+    'الجمعة',
   ];
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class _FamilyDayScreenState extends State<FamilyDayScreen> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: CustomAppBar(
-          text: 'Family day',
+          text: 'يوم العائلة',
           icon: Icons.priority_high_outlined,
           onpreased: () {
             context.pushRoute(SigninScreen());
@@ -46,8 +46,8 @@ class _FamilyDayScreenState extends State<FamilyDayScreen> {
                 builder: (BuildContext context) {
                   return FieldDialog(
                     icon: Icons.note_add_outlined,
-                    label: 'Note',
-                    hint: 'Write your note',
+                    label: 'ملاحظة',
+                    hint: 'ادخل ملاحظة',
                     firstButtonOnpressd: () {},
                   );
                 });
@@ -55,30 +55,37 @@ class _FamilyDayScreenState extends State<FamilyDayScreen> {
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(crossAxisAlignment: CrossAxisAlignment.stretch,
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start,
               //mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  'Schedule a weekly meeting in which the family gathers:',
-                  style: Theme.of(context).textTheme.titleMedium,
+                const CustomText(
+                  size: false, text: 'تحديد موعد جلسة أسبوعية للعائلة:',
+                  //style: Theme.of(context).textTheme.titleMedium,
                 ),
                 const SizedBox(height: 20.0),
                 DropdownButton<String>(
+                  borderRadius: BorderRadius.circular(30),
+                  style: const TextStyle(
+                    color: AppColors.secondary,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  underline: const SizedBox.shrink(),
                   value: _chosenValue,
                   items: days.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
-                      child: Text(
-                        value,
-                        style: const TextStyle(
-                          color: AppColors.secondary,
-                          //fontWeight: FontWeight.bold,
-                        ),
+                      alignment: AlignmentDirectional.bottomCenter,
+                      child: CustomText(
+                        size: false, text: value,
+                        // style: const TextStyle(
+                        //   color: AppColors.secondary,
+                        //   //fontWeight: FontWeight.bold,
+                        // ),
                       ),
                     );
                   }).toList(),
-                  hint: const Text(
-                    "Choose day",
+                  hint: const CustomText(
+                    size: false, text: "اختر اليوم",
                     // style: TextStyle(
                     //   color: AppColors.secondary,
                     //   //fontWeight: FontWeight.bold,
@@ -98,27 +105,27 @@ class _FamilyDayScreenState extends State<FamilyDayScreen> {
                   // ),
                   style: const TextStyle(
                     color: AppColors.secondary,
-                    //fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.bold,
                   ),
                   controller: _timeController,
                   onTap: timePicker,
 
                   onSaved: (val) => _timeController.text = val!,
                   decoration: const InputDecoration(
-                    hintText: "Choose time",
+                    hintText: "اختر الوقت",
                   ),
                 ),
                 const SizedBox(height: 20.0),
-                Text(
-                  'Write down important things:',
-                  style: Theme.of(context).textTheme.titleMedium,
+                const CustomText(
+                  size: false, text: 'دوّن الأمور المهمة:',
+                  //style: Theme.of(context).textTheme.titleMedium,
                 ),
                 const SizedBox(height: 20.0),
                 Expanded(
                   child: ListView.builder(
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
-                    itemCount: 4,
+                    itemCount: 10,
                     itemBuilder: (context, i) {
                       return Card(
                         child: ListTile(
@@ -142,8 +149,8 @@ class _FamilyDayScreenState extends State<FamilyDayScreen> {
                               ),
                             ],
                           ),
-                          title: const Text(
-                            '.................',
+                          title: const CustomText(
+                            size: false, text: '.................',
                             // style: TextStyle(
                             //   color: Theme.of(this.context).primaryColor,
                             //   fontFamily: "Hacen",

@@ -1,4 +1,5 @@
 import 'package:educator/presentation/theme/app_colors.dart';
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class ReactionsScreen extends StatelessWidget {
@@ -11,8 +12,8 @@ class ReactionsScreen extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-            title: const Text(
-              'People who reacted',
+            title: const CustomText(
+              size: true, text: 'People who reacted',
               //style:  TextStyle(color: AppColors.primary),
             ),
             backgroundColor: AppColors.secondary
@@ -28,7 +29,7 @@ class ReactionsScreen extends StatelessWidget {
                   radius: 30.0,
                   backgroundImage: AssetImage(image),
                 ),
-                title: Text(name),
+                title: CustomText(size: false, text: name),
               );
             },
             separatorBuilder: (context, index) => const SizedBox(height: 20.0),

@@ -6,5 +6,5 @@ export 'custom_appbar.dart';
 export 'custom_list_tile.dart';
 export 'custom_dialog.dart';
 export 'profile_image.dart';
-
+export 'custom_text.dart';
 export 'field_dialog.dart';

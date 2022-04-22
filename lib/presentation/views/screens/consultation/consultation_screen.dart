@@ -13,7 +13,8 @@ class ConsultationScreen extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        appBar: AppBar(title: const Text('request consultation')),
+        appBar:
+            AppBar(title: const CustomText(size: false, text: 'اطلب استشارة')),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -21,7 +22,8 @@ class ConsultationScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Start contacting a counselor'),
+              const CustomText(
+                  size: false, text: 'ابدأ بمراسلة أحد المستشارين'),
               const SizedBox(height: 20.0),
               SizedBox(
                 height: 150,
@@ -34,7 +36,7 @@ class ConsultationScreen extends StatelessWidget {
                     //margin: EdgeInsets.all(10),
                     child: Counselor(
                       counselorImage: 'assets/images/1.jpg',
-                      counselorName: 'Counselor Name',
+                      counselorName: 'اسم المستشار',
                       ontap: () {
                         context.pushRoute(
                             MessagingScreen(counselorName: 'Counselor Name'));
@@ -51,11 +53,11 @@ class ConsultationScreen extends StatelessWidget {
                   itemBuilder: (context, i) {
                     return CustomListTile(
                       image: 'assets/images/1.jpg',
-                      name: 'Counselor Name',
-                      message: 'hello',
+                      name: 'اسم المستشار',
+                      message: 'مرحبا',
                       ontap: () {
                         context.pushRoute(
-                            MessagingScreen(counselorName: 'Counselor Name'));
+                            MessagingScreen(counselorName: 'اسم المستشار'));
                       },
                     );
                   },

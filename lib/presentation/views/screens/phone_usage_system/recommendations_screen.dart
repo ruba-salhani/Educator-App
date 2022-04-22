@@ -1,5 +1,7 @@
 import 'package:educator/presentation/theme/app_colors.dart';
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class RecommendationsScreen extends StatelessWidget {
   const RecommendationsScreen({Key? key}) : super(key: key);
@@ -10,8 +12,8 @@ class RecommendationsScreen extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-            title: const Text(
-              'Recommendations',
+            title: const CustomText(
+              size: true, text: 'Recommendations',
               //style:  TextStyle(color: AppColors.primary),
             ),
             backgroundColor: AppColors.secondary
@@ -21,13 +23,15 @@ class RecommendationsScreen extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(30),
           child: SingleChildScrollView(
-            child: Container(
-              height: 400,
-              width: 400,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/recommendations.jpg'),
-                  fit: BoxFit.cover,
+            child: Center(
+              child: Container(
+                height: Get.height * 0.5,
+                width: Get.width,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/recommendations.jpg'),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),

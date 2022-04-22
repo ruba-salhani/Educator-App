@@ -1,3 +1,4 @@
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class Question extends StatefulWidget {
@@ -33,7 +34,10 @@ class _QuestionState extends State<Question> {
           children: [
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Text(widget.question!, textAlign: TextAlign.right),
+              child: Text(
+                widget.question!,
+                textAlign: TextAlign.right,
+              ),
             ),
             Row(
               children: [

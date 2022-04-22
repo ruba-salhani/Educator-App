@@ -41,9 +41,9 @@ class _BehaviorDialogState extends State<BehaviorDialog> {
   ];
   String? _chosenValue;
   final _formKey = GlobalKey<FormState>();
-  String? _behavior;
-  String? _startingDate;
-  String? _endDate;
+
+  String? startingDate;
+  String? endDate;
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -59,6 +59,11 @@ class _BehaviorDialogState extends State<BehaviorDialog> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   DropdownButton<String>(
+                    style: const TextStyle(
+                      color: AppColors.primary,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    underline: const SizedBox.shrink(),
                     borderRadius: BorderRadius.circular(30),
                     value: _chosenValue,
                     items:
@@ -66,18 +71,18 @@ class _BehaviorDialogState extends State<BehaviorDialog> {
                       return DropdownMenuItem<String>(
                         value: value,
                         alignment: AlignmentDirectional.bottomCenter,
-                        child: Text(
-                          value,
-                          style: const TextStyle(
-                            color: AppColors.primary,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: TextAlign.center,
+                        child: CustomText(
+                          size: false, text: value,
+                          //   style: const TextStyle(
+                          //     color: AppColors.primary,
+                          //     fontWeight: FontWeight.bold,
+                          //   ),
+                          //   textAlign: TextAlign.center,
                         ),
                       );
                     }).toList(),
-                    hint: const Text(
-                      "Choose behavior",
+                    hint: const CustomText(
+                      size: false, text: "اختر السلوك الذي تريد متابعته",
                       // style: TextStyle(
                       //   color: AppColors.secondary,
                       //   //fontWeight: FontWeight.bold,
@@ -100,7 +105,7 @@ class _BehaviorDialogState extends State<BehaviorDialog> {
                       const IsRequired(),
                     ]),
                     onsaved: (val) => {
-                      _startingDate = val,
+                      startingDate = val,
                     },
                   ),
                   CustomTextFormField(
@@ -108,13 +113,13 @@ class _BehaviorDialogState extends State<BehaviorDialog> {
                     action: TextInputAction.done,
                     obscure: false,
                     suffixicon: const Icon(Icons.today_outlined),
-                    label: 'End Date',
-                    hint: 'End Date',
+                    label: 'تاريخ البدء',
+                    hint: 'تاريخ الانتهاء',
                     vald: qValidator([
                       const IsRequired(),
                     ]),
                     onsaved: (val) => {
-                      _endDate = val,
+                      endDate = val,
                     },
                   ),
                 ],
@@ -138,14 +143,15 @@ class _BehaviorDialogState extends State<BehaviorDialog> {
 
                   }
                 },
-                child: const Text('Save'),
+                child: const CustomText(size: false, text: 'حفظ'),
               ),
               ElevatedButton(
                   onPressed: () {
                     context.popRoute();
                   },
-                  child: const Text(
-                    'Cancel',
+                  child: const CustomText(
+                    size: false,
+                    text: 'إلغاء',
                   )),
             ],
           ),

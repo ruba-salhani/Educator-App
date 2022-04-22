@@ -1,3 +1,4 @@
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class TipsScreen extends StatelessWidget {
@@ -9,7 +10,7 @@ class TipsScreen extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Tips for you'),
+          title: const CustomText(size: true, text: 'نصائح لك'),
         ),
       ),
     );

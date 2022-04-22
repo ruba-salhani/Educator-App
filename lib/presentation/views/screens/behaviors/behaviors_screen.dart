@@ -33,7 +33,7 @@ class BehaviorsScreen extends StatelessWidget {
               children: const [
                 Icon(Icons.add),
                 SizedBox(width: 10),
-                Text('Add behavior')
+                CustomText(size: false, text: 'أضف سلوك')
               ],
             ),
             onPressed: () {
@@ -53,7 +53,7 @@ class BehaviorsScreen extends StatelessWidget {
                 child: ListView.builder(
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
-                  itemCount: 10,
+                  itemCount: 4,
                   itemBuilder: (context, i) {
                     return const Behavior();
                   },

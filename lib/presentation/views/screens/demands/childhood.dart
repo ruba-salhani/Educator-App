@@ -1,3 +1,4 @@
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class Childhood extends StatelessWidget {
@@ -9,7 +10,8 @@ class Childhood extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Childhood'),
+          title: const CustomText(
+              size: true, text: 'مرحلتي الطفولة الوسطى والمتأخرة'),
         ),
       ),
     );

@@ -1,3 +1,5 @@
+import 'package:educator/presentation/theme/app_colors.dart';
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class Mental extends StatelessWidget {
@@ -9,7 +11,8 @@ class Mental extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Responsibilities of education'),
+          backgroundColor: AppColors.secondary,
+          title: const CustomText(size: true, text: 'مسؤولية التربية العقلية'),
         ),
       ),
     );

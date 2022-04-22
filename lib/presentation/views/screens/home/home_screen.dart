@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: CustomAppBar(
-          text: 'Home',
+          text: 'الرئيسية',
           icon: Icons.question_answer_outlined,
           onpreased: () {
             context.pushRoute(
@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {
                       context.pushRoute(const EvaluatedOfYourSelfScreen());
                     },
-                    child: const Text('Evaluate of yourself'),
+                    child: const CustomText(size: true, text: 'قيّم نفسك'),
                     style: ElevatedButton.styleFrom(
                       primary: AppColors.secondary,
                     ),
@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {
                       context.pushRoute(const EvaluateYourChildScreen());
                     },
-                    child: const Text('Evaluate your child'),
+                    child: const CustomText(size: true, text: 'قيّم ابنك'),
                     style: ElevatedButton.styleFrom(
                       primary: AppColors.secondary,
                     ),
@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {
                       context.pushRoute(const TipsScreen());
                     },
-                    child: const Text('Tips for you'),
+                    child: const CustomText(size: true, text: 'نصائح لك'),
                     style: ElevatedButton.styleFrom(
                       primary: AppColors.secondary,
                     ),
@@ -64,7 +64,8 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {
                       context.pushRoute(const ResponsibilitiesScreen());
                     },
-                    child: const Text('Responsibilities of education'),
+                    child:
+                        const CustomText(size: true, text: 'مسؤوليات التربية'),
                     style: ElevatedButton.styleFrom(
                       primary: AppColors.secondary,
                     ),
@@ -74,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {
                       context.pushRoute(const DemandsScreen());
                     },
-                    child: const Text('Demands of growth'),
+                    child: const CustomText(size: true, text: 'مطالب النمو'),
                     style: ElevatedButton.styleFrom(
                       primary: AppColors.secondary,
                     ),

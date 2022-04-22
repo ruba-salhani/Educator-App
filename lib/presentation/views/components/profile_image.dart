@@ -48,19 +48,19 @@ class _ProfileImageState extends State<ProfileImage> {
                     fit: BoxFit.fitHeight,
                   ),
                 )
-              : Icon(Icons.camera_alt_outlined)),
+              : const Icon(Icons.camera_alt_outlined)),
       onTap: () {
         showDialog(
           context: context,
           builder: (BuildContext context) {
             return CustomDialog(
-              content: "From where do you want to take the photo?",
-              firstButtonChild: "Gallery",
+              content: "تعيين الصورة",
+              firstButtonChild: "المعرض",
               firstButtonOnpressd: () {
                 pickImageFromeGallery();
                 Navigator.of(context).pop();
               },
-              secondButtonChild: "Camera",
+              secondButtonChild: "الكاميرا",
               secondButtonOnpressd: () {
                 pickImageFromeCamera();
                 Navigator.of(context).pop();

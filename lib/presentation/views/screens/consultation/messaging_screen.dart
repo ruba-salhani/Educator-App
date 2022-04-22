@@ -14,8 +14,8 @@ class MessagingScreen extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-            title: Text(
-              counselorName,
+            title: CustomText(
+              size: true, text: counselorName,
               //style:  TextStyle(color: AppColors.primary),
             ),
             backgroundColor: AppColors.secondary
@@ -27,13 +27,13 @@ class MessagingScreen extends StatelessWidget {
           child: ListView(children: const <Widget>[
             CustomListTile(
               image: 'assets/images/1.jpg',
-              name: 'Counselor Name',
-              message: 'hello',
+              name: 'اسم المستشار',
+              message: 'مرحبا',
             ),
             CustomListTile(
               image: 'assets/images/1.jpg',
-              name: 'Educator Name',
-              message: 'hello',
+              name: 'اسم المربي',
+              message: 'مرحبا',
             ),
           ]),
         ),
@@ -47,7 +47,7 @@ class MessagingScreen extends StatelessWidget {
                 ),
               ),
               //labelText: 'Enter Name Here',
-              hintText: 'Write a message',
+              hintText: 'مراسلة',
             ),
             //autofocus: false,
           ),

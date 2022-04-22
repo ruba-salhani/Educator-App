@@ -40,7 +40,7 @@ class _PostState extends State<Post> {
         ),
         Padding(
           padding: const EdgeInsets.all(30.0),
-          child: Text(widget.post!),
+          child: CustomText(size: false, text: widget.post!),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 30, right: 30),
@@ -48,14 +48,14 @@ class _PostState extends State<Post> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               InkWell(
-                child: Text('${widget.likesNumber!}' ' likes'),
+                child: Text('${widget.likesNumber!}' ' إعجاب'),
                 onTap: () {
                   context.pushRoute(const ReactionsScreen());
                   // do something
                 },
               ),
               InkWell(
-                child: Text('${widget.commentsNumber!}' ' comments'),
+                child: Text('${widget.commentsNumber!}' ' تعليق'),
                 onTap: () {
                   context.pushRoute(CommentsScreen());
                   // do something
@@ -73,7 +73,7 @@ class _PostState extends State<Post> {
                 child: Row(
                   children: const [
                     Icon(Icons.thumb_up_alt_outlined),
-                    Text(' Like'),
+                    CustomText(size: false, text: ' إعجاب'),
                   ],
                 ),
                 onPressed: widget.likeOnpressed,
@@ -84,7 +84,7 @@ class _PostState extends State<Post> {
                 child: Row(
                   children: const [
                     Icon(Icons.mode_comment_outlined),
-                    Text(' Comment'),
+                    CustomText(size: false, text: ' تعليق'),
                   ],
                 ),
                 onPressed: widget.commentOnpressed,

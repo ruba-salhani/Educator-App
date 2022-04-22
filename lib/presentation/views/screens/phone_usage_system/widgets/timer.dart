@@ -1,5 +1,6 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:educator/presentation/theme/app_colors.dart';
+import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class Timer extends StatefulWidget {
@@ -49,21 +50,23 @@ class _TimerState extends State<Timer> {
         Row(
           //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _button(title: "Start", onPressed: () => _controller.start()),
-            const SizedBox(
-              width: 2,
-            ),
-            _button(title: "Pause", onPressed: () => _controller.pause()),
-            const SizedBox(
-              width: 2,
-            ),
-            _button(title: "Resume", onPressed: () => _controller.resume()),
-            const SizedBox(
-              width: 2,
-            ),
+            //_button(title: "Start", onPressed: () => _controller.start()),
+            // const SizedBox(
+            //   width: 2,
+            // ),
             _button(
-                title: "Restart",
+                title: "بدء",
                 onPressed: () => _controller.restart(duration: widget.timer)),
+
+            const SizedBox(
+              width: 2,
+            ),
+            _button(title: "ايقاف مؤقت", onPressed: () => _controller.pause()),
+            const SizedBox(
+              width: 2,
+            ),
+
+            _button(title: "استئناف", onPressed: () => _controller.resume()),
           ],
         ),
       ],
@@ -74,8 +77,9 @@ class _TimerState extends State<Timer> {
 Widget _button({required String title, VoidCallback? onPressed}) {
   return Expanded(
       child: ElevatedButton(
-    child: Text(
-      title,
+    child: CustomText(
+      size: false,
+      text: title,
     ),
     style: ElevatedButton.styleFrom(
       primary: AppColors.secondary,

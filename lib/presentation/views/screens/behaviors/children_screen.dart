@@ -7,14 +7,14 @@ import 'package:flutter/material.dart';
 
 class ChildrenScreen extends StatelessWidget {
   const ChildrenScreen({Key? key}) : super(key: key);
-  final String _childName = 'child name';
+  final String _childName = 'اسم الطفل';
   @override
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
           appBar: CustomAppBar(
-            text: 'Children',
+            text: 'الأبناء',
             icon: Icons.priority_high_outlined,
             onpreased: () {},
           ),
@@ -30,7 +30,7 @@ class ChildrenScreen extends StatelessWidget {
                 children: const [
                   Icon(Icons.add_reaction_outlined),
                   SizedBox(width: 10),
-                  Text('Add child')
+                  CustomText(size: false, text: 'أضف ابن')
                 ],
               ),
               onPressed: () {
@@ -39,8 +39,8 @@ class ChildrenScreen extends StatelessWidget {
                     builder: (BuildContext context) {
                       return FieldDialog(
                         icon: Icons.add_reaction_outlined,
-                        label: 'Child',
-                        hint: "Enter your child's name",
+                        label: 'الابن',
+                        hint: "ادخل اسم الابن",
                         firstButtonOnpressd: () {},
                       );
                     });
@@ -65,8 +65,8 @@ class ChildrenScreen extends StatelessWidget {
                             const ProfileImage(),
                             const SizedBox(height: 10),
                             Container(
-                              child: Text(_childName),
-                              color: Colors.grey[200],
+                              child: CustomText(size: false, text: _childName),
+                              //color: Colors.grey[200],
                             ),
                           ],
                         ),

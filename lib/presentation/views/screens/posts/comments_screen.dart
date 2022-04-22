@@ -3,7 +3,7 @@ import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
 
 class CommentsScreen extends StatefulWidget {
-  CommentsScreen({Key? key}) : super(key: key);
+  const CommentsScreen({Key? key}) : super(key: key);
 
   @override
   State<CommentsScreen> createState() => _CommentsScreenState();
@@ -16,8 +16,8 @@ class _CommentsScreenState extends State<CommentsScreen> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-            title: const Text(
-              'Comments',
+            title: const CustomText(
+              size: true, text: 'التعليقات',
               //style:  TextStyle(color: AppColors.primary),
             ),
             backgroundColor: AppColors.secondary
@@ -30,8 +30,8 @@ class _CommentsScreenState extends State<CommentsScreen> {
             itemBuilder: (context, index) {
               return CustomListTile(
                 image: 'assets/images/1.jpg',
-                name: 'name',
-                message: 'comment',
+                name: 'الاسم',
+                message: 'التعليق',
                 ontap: () {},
               );
             },
@@ -49,7 +49,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
                 ),
               ),
               //labelText: 'Enter Name Here',
-              hintText: 'Write a comment',
+              hintText: 'اكتب تعليق',
             ),
             //autofocus: false,
           ),
