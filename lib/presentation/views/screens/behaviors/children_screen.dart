@@ -16,7 +16,9 @@ class ChildrenScreen extends StatelessWidget {
           appBar: CustomAppBar(
             text: 'الأبناء',
             icon: Icons.priority_high_outlined,
-            onpreased: () {},
+            onpreased: () {
+              context.pushRoute(const BehaviorDescription());
+            },
           ),
           bottomNavigationBar: Padding(
             padding: const EdgeInsets.all(40.0),

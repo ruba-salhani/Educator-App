@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:educator/presentation/views/screens/behaviors/behavior_description.dart';
 import 'package:educator/presentation/views/screens/behaviors/children_screen.dart';
 import 'package:educator/presentation/views/screens/consultation/consultation_screen.dart';
 import 'package:educator/presentation/views/screens/consultation/messaging_screen.dart';
@@ -13,6 +14,7 @@ import 'package:educator/presentation/views/screens/demands/early_childhood.dart
 import 'package:educator/presentation/views/screens/demands/majority.dart';
 import 'package:educator/presentation/views/screens/evaluate/evaluate_your_child_screen.dart';
 import 'package:educator/presentation/views/screens/evaluate/evaluated_of_yourself_screen.dart';
+import 'package:educator/presentation/views/screens/family_day/family_day_description.dart';
 import 'package:educator/presentation/views/screens/family_day/family_day_screen.dart';
 import 'package:educator/presentation/views/screens/home/home_screen.dart';
 import 'package:educator/presentation/views/screens/phone_usage_system/phone_usage_system_screen.dart';
@@ -35,8 +37,8 @@ import 'package:educator/presentation/views/screens/tips_screen/tips_screen.dart
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: SigninScreen),
-    AutoRoute(page: CustomCurvedNavigationBar, initial: true),
+    AutoRoute(page: SigninScreen, initial: true),
+    AutoRoute(page: CustomCurvedNavigationBar),
     AutoRoute(page: SignupScreen),
     AutoRoute(page: BehaviorsScreen),
     AutoRoute(page: FamilyDayScreen),
@@ -66,6 +68,8 @@ import 'package:educator/presentation/views/screens/tips_screen/tips_screen.dart
     AutoRoute(page: CommentsScreen),
     AutoRoute(page: RecommendationsScreen),
     AutoRoute(page: ChildrenScreen),
+    AutoRoute(page: FamilyDayDescription),
+    AutoRoute(page: BehaviorDescription)
   ],
 )
 class $AppRouter {}

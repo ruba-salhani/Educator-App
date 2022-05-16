@@ -10,9 +10,10 @@
 //
 // ignore_for_file: type=lint
 
-import 'package:auto_route/auto_route.dart' as _i32;
-import 'package:flutter/material.dart' as _i33;
+import 'package:auto_route/auto_route.dart' as _i34;
+import 'package:flutter/material.dart' as _i35;
 
+import '../views/screens/behaviors/behavior_description.dart' as _i33;
 import '../views/screens/behaviors/behaviors_screen.dart' as _i4;
 import '../views/screens/behaviors/children_screen.dart' as _i31;
 import '../views/screens/consultation/consultation_screen.dart' as _i26;
@@ -27,6 +28,7 @@ import '../views/screens/demands/early_childhood.dart' as _i18;
 import '../views/screens/demands/majority.dart' as _i21;
 import '../views/screens/evaluate/evaluate_your_child_screen.dart' as _i9;
 import '../views/screens/evaluate/evaluated_of_yourself_screen.dart' as _i24;
+import '../views/screens/family_day/family_day_description.dart' as _i32;
 import '../views/screens/family_day/family_day_screen.dart' as _i5;
 import '../views/screens/phone_usage_system/phone_usage_system_screen.dart'
     as _i6;
@@ -47,261 +49,230 @@ import '../views/screens/signin/signin_screen.dart' as _i1;
 import '../views/screens/signup/signup_screen.dart' as _i3;
 import '../views/screens/tips_screen/tips_screen.dart' as _i25;
 
-class AppRouter extends _i32.RootStackRouter {
-  AppRouter([_i33.GlobalKey<_i33.NavigatorState>? navigatorKey])
+class AppRouter extends _i34.RootStackRouter {
+  AppRouter([_i35.GlobalKey<_i35.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i32.PageFactory> pagesMap = {
+  final Map<String, _i34.PageFactory> pagesMap = {
     SigninScreen.name: (routeData) {
-      final args = routeData.argsAs<SigninScreenArgs>(
-          orElse: () => const SigninScreenArgs());
-      return _i32.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i1.SigninScreen(key: args.key));
+      return _i34.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.SigninScreen());
     },
     CustomCurvedNavigationBar.name: (routeData) {
-      final args = routeData.argsAs<CustomCurvedNavigationBarArgs>(
-          orElse: () => const CustomCurvedNavigationBarArgs());
-      return _i32.MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: _i2.CustomCurvedNavigationBar(key: args.key));
+      return _i34.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i2.CustomCurvedNavigationBar());
     },
     SignupScreen.name: (routeData) {
-      final args = routeData.argsAs<SignupScreenArgs>(
-          orElse: () => const SignupScreenArgs());
-      return _i32.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i3.SignupScreen(key: args.key));
+      return _i34.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i3.SignupScreen());
     },
     BehaviorsScreen.name: (routeData) {
       final args = routeData.argsAs<BehaviorsScreenArgs>();
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData,
           child: _i4.BehaviorsScreen(key: args.key, childName: args.childName));
     },
     FamilyDayScreen.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i5.FamilyDayScreen());
     },
     PhoneUsageSeystemScreen.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i6.PhoneUsageSeystemScreen());
     },
     PostsScreen.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i7.PostsScreen());
     },
     DemandsScreen.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i8.DemandsScreen());
     },
     EvaluateYourChildScreen.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i9.EvaluateYourChildScreen());
     },
     ResponsibilitiesScreen.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i10.ResponsibilitiesScreen());
     },
     Faith.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i11.Faith());
     },
     Ethics.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i12.Ethics());
     },
     Physical.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i13.Physical());
     },
     Mental.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i14.Mental());
     },
     Sexual.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i15.Sexual());
     },
     Psychological.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i16.Psychological());
     },
     Social.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i17.Social());
     },
     EarlyChildhood.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i18.EarlyChildhood());
+      return _i34.MaterialPageX<dynamic>(
+          routeData: routeData, child: _i18.EarlyChildhood());
     },
     Childhood.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i19.Childhood());
     },
     Adolescence.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i20.Adolescence());
     },
     Majority.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i21.Majority());
     },
     CenterOfAge.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i22.CenterOfAge());
     },
     Aging.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i23.Aging());
     },
     EvaluatedOfYourSelfScreen.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i24.EvaluatedOfYourSelfScreen());
     },
     TipsScreen.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i25.TipsScreen());
     },
     ConsultationScreen.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i26.ConsultationScreen());
     },
     MessagingScreen.name: (routeData) {
       final args = routeData.argsAs<MessagingScreenArgs>();
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData,
           child: _i27.MessagingScreen(
               key: args.key, counselorName: args.counselorName));
     },
     ReactionsScreen.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i28.ReactionsScreen());
     },
     CommentsScreen.name: (routeData) {
-      final args = routeData.argsAs<CommentsScreenArgs>(
-          orElse: () => const CommentsScreenArgs());
-      return _i32.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i29.CommentsScreen(key: args.key));
+      return _i34.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i29.CommentsScreen());
     },
     RecommendationsScreen.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
+      return _i34.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i30.RecommendationsScreen());
     },
     ChildrenScreen.name: (routeData) {
-      return _i32.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i31.ChildrenScreen());
+      return _i34.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i31.ChildrenScreen());
+    },
+    FamilyDayDescription.name: (routeData) {
+      final args = routeData.argsAs<FamilyDayDescriptionArgs>(
+          orElse: () => const FamilyDayDescriptionArgs());
+      return _i34.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: _i32.FamilyDayDescription(key: args.key));
+    },
+    BehaviorDescription.name: (routeData) {
+      return _i34.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i33.BehaviorDescription());
     }
   };
 
   @override
-  List<_i32.RouteConfig> get routes => [
-        _i32.RouteConfig(SigninScreen.name, path: '/signin-screen'),
-        _i32.RouteConfig(CustomCurvedNavigationBar.name, path: '/'),
-        _i32.RouteConfig(SignupScreen.name, path: '/signup-screen'),
-        _i32.RouteConfig(BehaviorsScreen.name, path: '/behaviors-screen'),
-        _i32.RouteConfig(FamilyDayScreen.name, path: '/family-day-screen'),
-        _i32.RouteConfig(PhoneUsageSeystemScreen.name,
+  List<_i34.RouteConfig> get routes => [
+        _i34.RouteConfig(SigninScreen.name, path: '/'),
+        _i34.RouteConfig(CustomCurvedNavigationBar.name,
+            path: '/custom-curved-navigation-bar'),
+        _i34.RouteConfig(SignupScreen.name, path: '/signup-screen'),
+        _i34.RouteConfig(BehaviorsScreen.name, path: '/behaviors-screen'),
+        _i34.RouteConfig(FamilyDayScreen.name, path: '/family-day-screen'),
+        _i34.RouteConfig(PhoneUsageSeystemScreen.name,
             path: '/phone-usage-seystem-screen'),
-        _i32.RouteConfig(PostsScreen.name, path: '/posts-screen'),
-        _i32.RouteConfig(DemandsScreen.name, path: '/demands-screen'),
-        _i32.RouteConfig(EvaluateYourChildScreen.name,
+        _i34.RouteConfig(PostsScreen.name, path: '/posts-screen'),
+        _i34.RouteConfig(DemandsScreen.name, path: '/demands-screen'),
+        _i34.RouteConfig(EvaluateYourChildScreen.name,
             path: '/evaluate-your-child-screen'),
-        _i32.RouteConfig(ResponsibilitiesScreen.name,
+        _i34.RouteConfig(ResponsibilitiesScreen.name,
             path: '/responsibilities-screen'),
-        _i32.RouteConfig(Faith.name, path: '/Faith'),
-        _i32.RouteConfig(Ethics.name, path: '/Ethics'),
-        _i32.RouteConfig(Physical.name, path: '/Physical'),
-        _i32.RouteConfig(Mental.name, path: '/Mental'),
-        _i32.RouteConfig(Sexual.name, path: '/Sexual'),
-        _i32.RouteConfig(Psychological.name, path: '/Psychological'),
-        _i32.RouteConfig(Social.name, path: '/Social'),
-        _i32.RouteConfig(EarlyChildhood.name, path: '/early-childhood'),
-        _i32.RouteConfig(Childhood.name, path: '/Childhood'),
-        _i32.RouteConfig(Adolescence.name, path: '/Adolescence'),
-        _i32.RouteConfig(Majority.name, path: '/Majority'),
-        _i32.RouteConfig(CenterOfAge.name, path: '/center-of-age'),
-        _i32.RouteConfig(Aging.name, path: '/Aging'),
-        _i32.RouteConfig(EvaluatedOfYourSelfScreen.name,
+        _i34.RouteConfig(Faith.name, path: '/Faith'),
+        _i34.RouteConfig(Ethics.name, path: '/Ethics'),
+        _i34.RouteConfig(Physical.name, path: '/Physical'),
+        _i34.RouteConfig(Mental.name, path: '/Mental'),
+        _i34.RouteConfig(Sexual.name, path: '/Sexual'),
+        _i34.RouteConfig(Psychological.name, path: '/Psychological'),
+        _i34.RouteConfig(Social.name, path: '/Social'),
+        _i34.RouteConfig(EarlyChildhood.name, path: '/early-childhood'),
+        _i34.RouteConfig(Childhood.name, path: '/Childhood'),
+        _i34.RouteConfig(Adolescence.name, path: '/Adolescence'),
+        _i34.RouteConfig(Majority.name, path: '/Majority'),
+        _i34.RouteConfig(CenterOfAge.name, path: '/center-of-age'),
+        _i34.RouteConfig(Aging.name, path: '/Aging'),
+        _i34.RouteConfig(EvaluatedOfYourSelfScreen.name,
             path: '/evaluated-of-your-self-screen'),
-        _i32.RouteConfig(TipsScreen.name, path: '/tips-screen'),
-        _i32.RouteConfig(ConsultationScreen.name, path: '/consultation-screen'),
-        _i32.RouteConfig(MessagingScreen.name, path: '/messaging-screen'),
-        _i32.RouteConfig(ReactionsScreen.name, path: '/reactions-screen'),
-        _i32.RouteConfig(CommentsScreen.name, path: '/comments-screen'),
-        _i32.RouteConfig(RecommendationsScreen.name,
+        _i34.RouteConfig(TipsScreen.name, path: '/tips-screen'),
+        _i34.RouteConfig(ConsultationScreen.name, path: '/consultation-screen'),
+        _i34.RouteConfig(MessagingScreen.name, path: '/messaging-screen'),
+        _i34.RouteConfig(ReactionsScreen.name, path: '/reactions-screen'),
+        _i34.RouteConfig(CommentsScreen.name, path: '/comments-screen'),
+        _i34.RouteConfig(RecommendationsScreen.name,
             path: '/recommendations-screen'),
-        _i32.RouteConfig(ChildrenScreen.name, path: '/children-screen')
+        _i34.RouteConfig(ChildrenScreen.name, path: '/children-screen'),
+        _i34.RouteConfig(FamilyDayDescription.name,
+            path: '/family-day-description'),
+        _i34.RouteConfig(BehaviorDescription.name,
+            path: '/behavior-description')
       ];
 }
 
 /// generated route for
 /// [_i1.SigninScreen]
-class SigninScreen extends _i32.PageRouteInfo<SigninScreenArgs> {
-  SigninScreen({_i33.Key? key})
-      : super(SigninScreen.name,
-            path: '/signin-screen', args: SigninScreenArgs(key: key));
+class SigninScreen extends _i34.PageRouteInfo<void> {
+  const SigninScreen() : super(SigninScreen.name, path: '/');
 
   static const String name = 'SigninScreen';
 }
 
-class SigninScreenArgs {
-  const SigninScreenArgs({this.key});
-
-  final _i33.Key? key;
-
-  @override
-  String toString() {
-    return 'SigninScreenArgs{key: $key}';
-  }
-}
-
 /// generated route for
 /// [_i2.CustomCurvedNavigationBar]
-class CustomCurvedNavigationBar
-    extends _i32.PageRouteInfo<CustomCurvedNavigationBarArgs> {
-  CustomCurvedNavigationBar({_i33.Key? key})
+class CustomCurvedNavigationBar extends _i34.PageRouteInfo<void> {
+  const CustomCurvedNavigationBar()
       : super(CustomCurvedNavigationBar.name,
-            path: '/', args: CustomCurvedNavigationBarArgs(key: key));
+            path: '/custom-curved-navigation-bar');
 
   static const String name = 'CustomCurvedNavigationBar';
 }
 
-class CustomCurvedNavigationBarArgs {
-  const CustomCurvedNavigationBarArgs({this.key});
-
-  final _i33.Key? key;
-
-  @override
-  String toString() {
-    return 'CustomCurvedNavigationBarArgs{key: $key}';
-  }
-}
-
 /// generated route for
 /// [_i3.SignupScreen]
-class SignupScreen extends _i32.PageRouteInfo<SignupScreenArgs> {
-  SignupScreen({_i33.Key? key})
-      : super(SignupScreen.name,
-            path: '/signup-screen', args: SignupScreenArgs(key: key));
+class SignupScreen extends _i34.PageRouteInfo<void> {
+  const SignupScreen() : super(SignupScreen.name, path: '/signup-screen');
 
   static const String name = 'SignupScreen';
 }
 
-class SignupScreenArgs {
-  const SignupScreenArgs({this.key});
-
-  final _i33.Key? key;
-
-  @override
-  String toString() {
-    return 'SignupScreenArgs{key: $key}';
-  }
-}
-
 /// generated route for
 /// [_i4.BehaviorsScreen]
-class BehaviorsScreen extends _i32.PageRouteInfo<BehaviorsScreenArgs> {
-  BehaviorsScreen({_i33.Key? key, required String childName})
+class BehaviorsScreen extends _i34.PageRouteInfo<BehaviorsScreenArgs> {
+  BehaviorsScreen({_i35.Key? key, required String childName})
       : super(BehaviorsScreen.name,
             path: '/behaviors-screen',
             args: BehaviorsScreenArgs(key: key, childName: childName));
@@ -312,7 +283,7 @@ class BehaviorsScreen extends _i32.PageRouteInfo<BehaviorsScreenArgs> {
 class BehaviorsScreenArgs {
   const BehaviorsScreenArgs({this.key, required this.childName});
 
-  final _i33.Key? key;
+  final _i35.Key? key;
 
   final String childName;
 
@@ -324,7 +295,7 @@ class BehaviorsScreenArgs {
 
 /// generated route for
 /// [_i5.FamilyDayScreen]
-class FamilyDayScreen extends _i32.PageRouteInfo<void> {
+class FamilyDayScreen extends _i34.PageRouteInfo<void> {
   const FamilyDayScreen()
       : super(FamilyDayScreen.name, path: '/family-day-screen');
 
@@ -333,7 +304,7 @@ class FamilyDayScreen extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.PhoneUsageSeystemScreen]
-class PhoneUsageSeystemScreen extends _i32.PageRouteInfo<void> {
+class PhoneUsageSeystemScreen extends _i34.PageRouteInfo<void> {
   const PhoneUsageSeystemScreen()
       : super(PhoneUsageSeystemScreen.name,
             path: '/phone-usage-seystem-screen');
@@ -343,7 +314,7 @@ class PhoneUsageSeystemScreen extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i7.PostsScreen]
-class PostsScreen extends _i32.PageRouteInfo<void> {
+class PostsScreen extends _i34.PageRouteInfo<void> {
   const PostsScreen() : super(PostsScreen.name, path: '/posts-screen');
 
   static const String name = 'PostsScreen';
@@ -351,7 +322,7 @@ class PostsScreen extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i8.DemandsScreen]
-class DemandsScreen extends _i32.PageRouteInfo<void> {
+class DemandsScreen extends _i34.PageRouteInfo<void> {
   const DemandsScreen() : super(DemandsScreen.name, path: '/demands-screen');
 
   static const String name = 'DemandsScreen';
@@ -359,7 +330,7 @@ class DemandsScreen extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i9.EvaluateYourChildScreen]
-class EvaluateYourChildScreen extends _i32.PageRouteInfo<void> {
+class EvaluateYourChildScreen extends _i34.PageRouteInfo<void> {
   const EvaluateYourChildScreen()
       : super(EvaluateYourChildScreen.name,
             path: '/evaluate-your-child-screen');
@@ -369,7 +340,7 @@ class EvaluateYourChildScreen extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i10.ResponsibilitiesScreen]
-class ResponsibilitiesScreen extends _i32.PageRouteInfo<void> {
+class ResponsibilitiesScreen extends _i34.PageRouteInfo<void> {
   const ResponsibilitiesScreen()
       : super(ResponsibilitiesScreen.name, path: '/responsibilities-screen');
 
@@ -378,7 +349,7 @@ class ResponsibilitiesScreen extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i11.Faith]
-class Faith extends _i32.PageRouteInfo<void> {
+class Faith extends _i34.PageRouteInfo<void> {
   const Faith() : super(Faith.name, path: '/Faith');
 
   static const String name = 'Faith';
@@ -386,7 +357,7 @@ class Faith extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i12.Ethics]
-class Ethics extends _i32.PageRouteInfo<void> {
+class Ethics extends _i34.PageRouteInfo<void> {
   const Ethics() : super(Ethics.name, path: '/Ethics');
 
   static const String name = 'Ethics';
@@ -394,7 +365,7 @@ class Ethics extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i13.Physical]
-class Physical extends _i32.PageRouteInfo<void> {
+class Physical extends _i34.PageRouteInfo<void> {
   const Physical() : super(Physical.name, path: '/Physical');
 
   static const String name = 'Physical';
@@ -402,7 +373,7 @@ class Physical extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i14.Mental]
-class Mental extends _i32.PageRouteInfo<void> {
+class Mental extends _i34.PageRouteInfo<void> {
   const Mental() : super(Mental.name, path: '/Mental');
 
   static const String name = 'Mental';
@@ -410,7 +381,7 @@ class Mental extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i15.Sexual]
-class Sexual extends _i32.PageRouteInfo<void> {
+class Sexual extends _i34.PageRouteInfo<void> {
   const Sexual() : super(Sexual.name, path: '/Sexual');
 
   static const String name = 'Sexual';
@@ -418,7 +389,7 @@ class Sexual extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i16.Psychological]
-class Psychological extends _i32.PageRouteInfo<void> {
+class Psychological extends _i34.PageRouteInfo<void> {
   const Psychological() : super(Psychological.name, path: '/Psychological');
 
   static const String name = 'Psychological';
@@ -426,7 +397,7 @@ class Psychological extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i17.Social]
-class Social extends _i32.PageRouteInfo<void> {
+class Social extends _i34.PageRouteInfo<void> {
   const Social() : super(Social.name, path: '/Social');
 
   static const String name = 'Social';
@@ -434,7 +405,7 @@ class Social extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i18.EarlyChildhood]
-class EarlyChildhood extends _i32.PageRouteInfo<void> {
+class EarlyChildhood extends _i34.PageRouteInfo<void> {
   const EarlyChildhood() : super(EarlyChildhood.name, path: '/early-childhood');
 
   static const String name = 'EarlyChildhood';
@@ -442,7 +413,7 @@ class EarlyChildhood extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i19.Childhood]
-class Childhood extends _i32.PageRouteInfo<void> {
+class Childhood extends _i34.PageRouteInfo<void> {
   const Childhood() : super(Childhood.name, path: '/Childhood');
 
   static const String name = 'Childhood';
@@ -450,7 +421,7 @@ class Childhood extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i20.Adolescence]
-class Adolescence extends _i32.PageRouteInfo<void> {
+class Adolescence extends _i34.PageRouteInfo<void> {
   const Adolescence() : super(Adolescence.name, path: '/Adolescence');
 
   static const String name = 'Adolescence';
@@ -458,7 +429,7 @@ class Adolescence extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i21.Majority]
-class Majority extends _i32.PageRouteInfo<void> {
+class Majority extends _i34.PageRouteInfo<void> {
   const Majority() : super(Majority.name, path: '/Majority');
 
   static const String name = 'Majority';
@@ -466,7 +437,7 @@ class Majority extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i22.CenterOfAge]
-class CenterOfAge extends _i32.PageRouteInfo<void> {
+class CenterOfAge extends _i34.PageRouteInfo<void> {
   const CenterOfAge() : super(CenterOfAge.name, path: '/center-of-age');
 
   static const String name = 'CenterOfAge';
@@ -474,7 +445,7 @@ class CenterOfAge extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i23.Aging]
-class Aging extends _i32.PageRouteInfo<void> {
+class Aging extends _i34.PageRouteInfo<void> {
   const Aging() : super(Aging.name, path: '/Aging');
 
   static const String name = 'Aging';
@@ -482,7 +453,7 @@ class Aging extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i24.EvaluatedOfYourSelfScreen]
-class EvaluatedOfYourSelfScreen extends _i32.PageRouteInfo<void> {
+class EvaluatedOfYourSelfScreen extends _i34.PageRouteInfo<void> {
   const EvaluatedOfYourSelfScreen()
       : super(EvaluatedOfYourSelfScreen.name,
             path: '/evaluated-of-your-self-screen');
@@ -492,7 +463,7 @@ class EvaluatedOfYourSelfScreen extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i25.TipsScreen]
-class TipsScreen extends _i32.PageRouteInfo<void> {
+class TipsScreen extends _i34.PageRouteInfo<void> {
   const TipsScreen() : super(TipsScreen.name, path: '/tips-screen');
 
   static const String name = 'TipsScreen';
@@ -500,7 +471,7 @@ class TipsScreen extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i26.ConsultationScreen]
-class ConsultationScreen extends _i32.PageRouteInfo<void> {
+class ConsultationScreen extends _i34.PageRouteInfo<void> {
   const ConsultationScreen()
       : super(ConsultationScreen.name, path: '/consultation-screen');
 
@@ -509,8 +480,8 @@ class ConsultationScreen extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i27.MessagingScreen]
-class MessagingScreen extends _i32.PageRouteInfo<MessagingScreenArgs> {
-  MessagingScreen({_i33.Key? key, required String counselorName})
+class MessagingScreen extends _i34.PageRouteInfo<MessagingScreenArgs> {
+  MessagingScreen({_i35.Key? key, required String counselorName})
       : super(MessagingScreen.name,
             path: '/messaging-screen',
             args: MessagingScreenArgs(key: key, counselorName: counselorName));
@@ -521,7 +492,7 @@ class MessagingScreen extends _i32.PageRouteInfo<MessagingScreenArgs> {
 class MessagingScreenArgs {
   const MessagingScreenArgs({this.key, required this.counselorName});
 
-  final _i33.Key? key;
+  final _i35.Key? key;
 
   final String counselorName;
 
@@ -533,7 +504,7 @@ class MessagingScreenArgs {
 
 /// generated route for
 /// [_i28.ReactionsScreen]
-class ReactionsScreen extends _i32.PageRouteInfo<void> {
+class ReactionsScreen extends _i34.PageRouteInfo<void> {
   const ReactionsScreen()
       : super(ReactionsScreen.name, path: '/reactions-screen');
 
@@ -542,28 +513,15 @@ class ReactionsScreen extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i29.CommentsScreen]
-class CommentsScreen extends _i32.PageRouteInfo<CommentsScreenArgs> {
-  CommentsScreen({_i33.Key? key})
-      : super(CommentsScreen.name,
-            path: '/comments-screen', args: CommentsScreenArgs(key: key));
+class CommentsScreen extends _i34.PageRouteInfo<void> {
+  const CommentsScreen() : super(CommentsScreen.name, path: '/comments-screen');
 
   static const String name = 'CommentsScreen';
 }
 
-class CommentsScreenArgs {
-  const CommentsScreenArgs({this.key});
-
-  final _i33.Key? key;
-
-  @override
-  String toString() {
-    return 'CommentsScreenArgs{key: $key}';
-  }
-}
-
 /// generated route for
 /// [_i30.RecommendationsScreen]
-class RecommendationsScreen extends _i32.PageRouteInfo<void> {
+class RecommendationsScreen extends _i34.PageRouteInfo<void> {
   const RecommendationsScreen()
       : super(RecommendationsScreen.name, path: '/recommendations-screen');
 
@@ -572,8 +530,40 @@ class RecommendationsScreen extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i31.ChildrenScreen]
-class ChildrenScreen extends _i32.PageRouteInfo<void> {
+class ChildrenScreen extends _i34.PageRouteInfo<void> {
   const ChildrenScreen() : super(ChildrenScreen.name, path: '/children-screen');
 
   static const String name = 'ChildrenScreen';
+}
+
+/// generated route for
+/// [_i32.FamilyDayDescription]
+class FamilyDayDescription
+    extends _i34.PageRouteInfo<FamilyDayDescriptionArgs> {
+  FamilyDayDescription({_i35.Key? key})
+      : super(FamilyDayDescription.name,
+            path: '/family-day-description',
+            args: FamilyDayDescriptionArgs(key: key));
+
+  static const String name = 'FamilyDayDescription';
+}
+
+class FamilyDayDescriptionArgs {
+  const FamilyDayDescriptionArgs({this.key});
+
+  final _i35.Key? key;
+
+  @override
+  String toString() {
+    return 'FamilyDayDescriptionArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [_i33.BehaviorDescription]
+class BehaviorDescription extends _i34.PageRouteInfo<void> {
+  const BehaviorDescription()
+      : super(BehaviorDescription.name, path: '/behavior-description');
+
+  static const String name = 'BehaviorDescription';
 }

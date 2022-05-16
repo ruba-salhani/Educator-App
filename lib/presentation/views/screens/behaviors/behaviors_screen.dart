@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:educator/presentation/router/app_router.gr.dart';
 import 'package:educator/presentation/theme/app_colors.dart';
 import 'package:educator/presentation/views/components/components.dart';
 import 'package:educator/presentation/views/screens/behaviors/widgets/behavior.dart';
@@ -19,7 +21,9 @@ class BehaviorsScreen extends StatelessWidget {
         appBar: CustomAppBar(
           text: childName,
           icon: Icons.priority_high_outlined,
-          onpreased: () {},
+          onpreased: () {
+            context.pushRoute(const BehaviorDescription());
+          },
         ),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.all(20.0),

@@ -16,6 +16,7 @@ class CustomText extends StatelessWidget {
             ? (MediaQuery.of(context).size.width) * 0.05
             : (MediaQuery.of(context).size.width) * 0.045,
       ),
+      //textAlign: TextAlign.center,
     );
   }
 }

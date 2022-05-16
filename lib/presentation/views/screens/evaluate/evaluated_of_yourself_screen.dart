@@ -134,12 +134,13 @@ class _EvaluatedOfYourSelfScreenState extends State<EvaluatedOfYourSelfScreen> {
               const Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Text(
-                    "'ملاحظة: هذا الاختبار من كتاب كيف تربي أبناءك لأحمد الطيار'",
-                    style: TextStyle(
-                      color: Colors.grey,
-                      //fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.right),
+                  "'ملاحظة: هذا الاختبار من كتاب كيف تربي أبناءك لأحمد الطيار'",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.right,
+                ),
               ),
               ElevatedButton(
                 child: const CustomText(size: false, text: "النتيجة"),

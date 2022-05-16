@@ -34,7 +34,7 @@ class _FamilyDayScreenState extends State<FamilyDayScreen> {
           text: 'يوم العائلة',
           icon: Icons.priority_high_outlined,
           onpreased: () {
-            context.pushRoute(SigninScreen());
+            context.pushRoute(FamilyDayDescription());
           },
         ),
         floatingActionButton: FloatingActionButton(

@@ -56,7 +56,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         label: 'الاسم',
                         hint: 'الاسم',
                         vald: qValidator([
-                          const IsRequired(),
+                          const IsRequired('مطلوب'),
                           const MinLength(4, 'الاسم قصير جدا'),
                           const MaxLength(20),
                         ]),
@@ -73,7 +73,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         obscure: false,
                         suffixicon: const Icon(Icons.email_outlined),
                         vald: qValidator([
-                          const IsEmail(),
+                          const IsEmail('غير صالح'),
                           //MaxLength(50),
                         ]),
                         onsaved: (val) => {
@@ -88,7 +88,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         hint: 'كلمة المرور',
                         vald: qValidator([
                           //IsNotEmpty('Rrquired'),
-                          const IsRequired(),
+                          const IsRequired('مطلوب'),
                           const MinLength(6, 'كلمة المرور قصيرة جدا'),
                           const MaxLength(20),
                         ]),

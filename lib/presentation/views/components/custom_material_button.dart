@@ -26,8 +26,8 @@ class CustomMaterialButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             SizedBox(
-              height: 25,
-              width: 25,
+              height: (MediaQuery.of(context).size.height) * 0.06,
+              width: (MediaQuery.of(context).size.width) * 0.06,
               child: Image.asset(assetName!),
             ),
             Text(
@@ -37,14 +37,14 @@ class CustomMaterialButton extends StatelessWidget {
                 fontSize: (MediaQuery.of(context).size.width) * 0.042,
               ),
             ),
-            Opacity(
-              opacity: 0.0,
-              child: SizedBox(
-                height: 25,
-                width: 25,
-                child: Image.asset(assetName!),
-              ),
-            ),
+            // Opacity(
+            //   opacity: 0.0,
+            //   child: SizedBox(
+            //     height: (MediaQuery.of(context).size.height) * 0.06,
+            //     width: (MediaQuery.of(context).size.width) * 0.06,
+            //     child: Image.asset(assetName!),
+            //   ),
+            // ),
           ],
         ),
         color: color,

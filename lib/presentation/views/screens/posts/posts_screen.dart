@@ -28,7 +28,7 @@ class PostsScreen extends StatelessWidget {
                 commentsNumber: 10,
                 likeOnpressed: () {},
                 commentOnpressed: () {
-                  context.pushRoute(CommentsScreen());
+                  context.pushRoute(const CommentsScreen());
                 },
               );
             },
