@@ -1,8 +1,14 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:educator/dependency_injection.dart';
+import 'package:educator/domain/repositories/notes_repository.dart';
+import 'package:educator/presentation/cubit/note/note_cubit.dart';
 import 'package:educator/presentation/theme/app_colors.dart';
 import 'package:educator/presentation/views/components/components.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:queen_validators/queen_validators.dart';
 import '../../../router/app_router.gr.dart';
 
 class FamilyDayScreen extends StatefulWidget {
@@ -25,6 +31,9 @@ class _FamilyDayScreenState extends State<FamilyDayScreen> {
     'الخميس',
     'الجمعة',
   ];
+  final _formKey = GlobalKey<FormState>();
+
+  String? _note;
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -44,11 +53,26 @@ class _FamilyDayScreenState extends State<FamilyDayScreen> {
             showDialog(
                 context: context,
                 builder: (BuildContext context) {
-                  return FieldDialog(
-                    icon: Icons.note_add_outlined,
-                    label: 'ملاحظة',
-                    hint: 'ادخل ملاحظة',
-                    firstButtonOnpressd: () {},
+                  return Form(
+                    key: _formKey,
+                    child: FieldDialog(
+                      icon: Icons.note_add_outlined,
+                      label: 'ملاحظة',
+                      hint: 'ادخل ملاحظة',
+                      vald: qValidator([
+                        const IsRequired('مطلوب'),
+                      ]),
+                      onsaved: (val) {
+                        _note = val;
+                      },
+                      firstButtonOnpressd: () {
+                        if (_formKey.currentState!.validate()) {
+                          _formKey.currentState!.save();
+                          context.read<NoteCubit>().saveNote(_note!);
+                          context.popRoute();
+                        }
+                      },
+                    ),
                   );
                 });
           },
@@ -121,49 +145,60 @@ class _FamilyDayScreenState extends State<FamilyDayScreen> {
                   //style: Theme.of(context).textTheme.titleMedium,
                 ),
                 const SizedBox(height: 20.0),
-                Expanded(
-                  child: ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    shrinkWrap: true,
-                    itemCount: 10,
-                    itemBuilder: (context, i) {
-                      return Card(
-                        child: ListTile(
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              IconButton(
-                                icon: const Icon(
-                                  Icons.delete,
-                                  color: AppColors.secondary,
-                                ),
-                                onPressed: () {},
-                              ),
-                              IconButton(
-                                icon: const Icon(
-                                  Icons.create,
-                                  color: AppColors.secondary,
-                                ),
-                                onPressed: () {},
-                              ),
-                            ],
-                          ),
-                          title: const CustomText(
-                            size: false, text: '.................',
-                            // style: TextStyle(
-                            //   color: Theme.of(this.context).primaryColor,
-                            //   fontFamily: "Hacen",
-                            //   fontSize: 20,
-                            // ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                // Expanded(
+                //   child: BlocBuilder<NoteCubit, NoteState>(
+                //     builder: (BuildContext context, state) {
+                //       if (state is GetNotesState) {
+                //         return ListView.builder(
+                //           scrollDirection: Axis.vertical,
+                //           shrinkWrap: true,
+                //           itemCount: state.notes.length,
+                //           itemBuilder: (context, index) {
+                //             return Card(
+                //               child: ListTile(
+                //                 trailing: Row(
+                //                   mainAxisSize: MainAxisSize.min,
+                //                   mainAxisAlignment: MainAxisAlignment.end,
+                //                   children: [
+                //                     IconButton(
+                //                       icon: const Icon(
+                //                         Icons.delete,
+                //                         color: AppColors.secondary,
+                //                       ),
+                //                       onPressed: () {},
+                //                     ),
+                //                     IconButton(
+                //                       icon: const Icon(
+                //                         Icons.create,
+                //                         color: AppColors.secondary,
+                //                       ),
+                //                       onPressed: () {},
+                //                     ),
+                //                   ],
+                //                 ),
+                //                 title: CustomText(
+                //                   size: false,
+                //                   text: state.notes[index].note!,
+                //                   // style: TextStyle(
+                //                   //   color: Theme.of(this.context).primaryColor,
+                //                   //   fontFamily: "Hacen",
+                //                   //   fontSize: 20,
+                //                   // ),
+                //                 ),
+                //               ),
+                //             );
+                //           },
+                //         );
+                //       } else {
+                //         return const NoElementsWidget();
+                //       }
+                //     },
+                //   ),
+                // ),
               ]),
         ),
+
+        //}
       ),
     );
   }

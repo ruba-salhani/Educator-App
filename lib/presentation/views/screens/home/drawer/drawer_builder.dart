@@ -1,6 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:educator/presentation/views/components/components.dart';
 import 'package:educator/presentation/views/screens/home/drawer/drawer_item.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:queen_validators/queen_validators.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DrawerBuilder extends StatefulWidget {
@@ -11,6 +14,8 @@ class DrawerBuilder extends StatefulWidget {
 }
 
 class _DrawerBuilderState extends State<DrawerBuilder> {
+  final _formKey = GlobalKey<FormState>();
+  String? _note;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -37,11 +42,36 @@ class _DrawerBuilderState extends State<DrawerBuilder> {
                     showDialog(
                         context: context,
                         builder: (BuildContext context) {
-                          return FieldDialog(
-                            icon: Icons.person,
-                            label: 'الاسم',
-                            hint: "ادخل الاسم الجديد",
-                            firstButtonOnpressd: () {},
+                          return Form(
+                            key: _formKey,
+                            child: FieldDialog(
+                              icon: Icons.person,
+                              label: 'الاسم',
+                              hint: "ادخل الاسم الجديد",
+                              vald: qValidator([
+                                const IsRequired('مطلوب'),
+                                const MinLength(4, 'الاسم قصير جدا'),
+                                const MaxLength(20),
+                              ]),
+                              onsaved: (val) {
+                                _note = val;
+                                //print(_note);
+                              },
+                              firstButtonOnpressd: () {
+                                if (_formKey.currentState!.validate()) {
+                                  _formKey.currentState!.save();
+                                  //context.popRoute();
+                                  //context.read<AuthCubit>().signUp(_image, _username!, _password!, _type!);
+
+                                  if (kDebugMode) {
+                                    print(_note);
+                                  }
+
+                                  print(_formKey);
+                                  context.popRoute();
+                                }
+                              },
+                            ),
                           );
                         });
                   },
@@ -56,11 +86,35 @@ class _DrawerBuilderState extends State<DrawerBuilder> {
                     showDialog(
                         context: context,
                         builder: (BuildContext context) {
-                          return FieldDialog(
-                            icon: Icons.email_outlined,
-                            label: 'الحساب',
-                            hint: "ادخل الحساب الجديد",
-                            firstButtonOnpressd: () {},
+                          return Form(
+                            key: _formKey,
+                            child: FieldDialog(
+                              icon: Icons.email_outlined,
+                              label: 'الحساب',
+                              hint: "ادخل الحساب الجديد",
+                              vald: qValidator([
+                                const IsEmail('غير صالح'),
+                                //MaxLength(50),
+                              ]),
+                              onsaved: (val) {
+                                _note = val;
+                                //print(_note);
+                              },
+                              firstButtonOnpressd: () {
+                                if (_formKey.currentState!.validate()) {
+                                  _formKey.currentState!.save();
+                                  //context.popRoute();
+                                  //context.read<AuthCubit>().signUp(_image, _username!, _password!, _type!);
+
+                                  if (kDebugMode) {
+                                    print(_note);
+                                  }
+
+                                  print(_formKey);
+                                  context.popRoute();
+                                }
+                              },
+                            ),
                           );
                         });
                   },

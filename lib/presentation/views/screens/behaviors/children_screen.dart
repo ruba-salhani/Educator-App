@@ -2,12 +2,16 @@ import 'package:auto_route/auto_route.dart';
 import 'package:educator/presentation/router/app_router.gr.dart';
 import 'package:educator/presentation/theme/app_colors.dart';
 import 'package:educator/presentation/views/components/components.dart';
+import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
+import 'package:queen_validators/queen_validators.dart';
 
 class ChildrenScreen extends StatelessWidget {
-  const ChildrenScreen({Key? key}) : super(key: key);
+  ChildrenScreen({Key? key}) : super(key: key);
   final String _childName = 'اسم الطفل';
+  final _formKey = GlobalKey<FormState>();
+  String? _child;
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -39,11 +43,34 @@ class ChildrenScreen extends StatelessWidget {
                 showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return FieldDialog(
-                        icon: Icons.add_reaction_outlined,
-                        label: 'الابن',
-                        hint: "ادخل اسم الابن",
-                        firstButtonOnpressd: () {},
+                      return Form(
+                        key: _formKey,
+                        child: FieldDialog(
+                          icon: Icons.add_reaction_outlined,
+                          label: 'الابن',
+                          hint: "ادخل اسم الابن",
+                          vald: qValidator([
+                            const IsRequired('مطلوب'),
+                          ]),
+                          onsaved: (val) {
+                            _child = val;
+                            //print(_note);
+                          },
+                          firstButtonOnpressd: () {
+                            if (_formKey.currentState!.validate()) {
+                              _formKey.currentState!.save();
+                              //context.popRoute();
+                              //context.read<AuthCubit>().signUp(_image, _username!, _password!, _type!);
+
+                              if (kDebugMode) {
+                                print(_child);
+                              }
+
+                              print(_formKey);
+                              context.popRoute();
+                            }
+                          },
+                        ),
                       );
                     });
               },

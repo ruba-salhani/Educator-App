@@ -24,7 +24,9 @@ dependencies:
   menu_button: ^1.4.2+1
   queen_validators: ^0.2.3
   url_launcher: ^6.0.20
-
+  path:
+  path_provider:
+  sqflite:
 dev_dependencies:
   auto_route_generator: null
   build_runner: null

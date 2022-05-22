@@ -108,11 +108,11 @@ class _SigninScreenState extends State<SigninScreen> {
                             _formKey.currentState!.save();
                             if (_formKey.currentState!.validate()) {
                               //context.read<AuthCubit>().login(_username!, _password!);
-                              context
-                                  .pushRoute(const CustomCurvedNavigationBar());
                               print(_password);
                               print(_email);
                               print(_formKey);
+                              context
+                                  .pushRoute(const CustomCurvedNavigationBar());
                             }
                           },
                           child: const CustomText(

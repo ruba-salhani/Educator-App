@@ -182,7 +182,7 @@ class AppRouter extends _i34.RootStackRouter {
     },
     ChildrenScreen.name: (routeData) {
       return _i34.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i31.ChildrenScreen());
+          routeData: routeData, child: _i31.ChildrenScreen());
     },
     FamilyDayDescription.name: (routeData) {
       final args = routeData.argsAs<FamilyDayDescriptionArgs>(

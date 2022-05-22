@@ -1,4 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:educator/dependency_injection.dart';
+import 'package:educator/presentation/cubit/note/note_cubit.dart';
 
 import 'package:educator/presentation/views/screens/behaviors/children_screen.dart';
 import 'package:educator/presentation/views/screens/family_day/family_day_screen.dart';
@@ -6,6 +8,7 @@ import 'package:educator/presentation/views/screens/home/home_screen.dart';
 import 'package:educator/presentation/views/screens/phone_usage_system/phone_usage_system_screen.dart';
 import 'package:educator/presentation/views/screens/posts/posts_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomCurvedNavigationBar extends StatefulWidget {
   const CustomCurvedNavigationBar({Key? key}) : super(key: key);
@@ -23,8 +26,9 @@ class _CustomCurvedNavigationBarState extends State<CustomCurvedNavigationBar> {
     const PostsScreen(),
     const PhoneUsageSeystemScreen(),
     const HomeScreen(),
-    const FamilyDayScreen(),
-    const ChildrenScreen(),
+    BlocProvider<NoteCubit>(
+        create: (_) => getIt<NoteCubit>(), child: const FamilyDayScreen()),
+    ChildrenScreen(),
   ];
   final itemes = const <Widget>[
     Icon(Icons.description_outlined, size: 30),
