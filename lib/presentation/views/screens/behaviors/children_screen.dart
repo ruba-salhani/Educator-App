@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:educator/domain/entities/child.dart';
 import 'package:educator/presentation/cubit/child_cubit/child_cubit.dart';
 import 'package:educator/presentation/router/app_router.gr.dart';
 import 'package:educator/presentation/theme/app_colors.dart';
@@ -14,6 +15,7 @@ class ChildrenScreen extends StatelessWidget {
   final String _childName = 'اسم الطفل';
   final _formKey = GlobalKey<FormState>();
   String? _child;
+  //Child? child;
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -65,7 +67,11 @@ class ChildrenScreen extends StatelessWidget {
                             context.read<ChildCubit>().saveChild(_child!);
                             // } else {
                             //   context.read<NoteCubit>().updateNote(note!.id!, _note!);
-                            // }
+                            // // }
+                            // context.pushRoute(BehaviorsScreen(
+                            //   childName: _child!,
+                            //   child: child!,
+                            // ));
                             context.popRoute();
                           }
                         },

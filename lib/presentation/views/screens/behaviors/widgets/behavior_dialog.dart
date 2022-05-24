@@ -141,9 +141,8 @@ class _BehaviorDialogState extends State<BehaviorDialog> {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
                     // if (note == null) {
-                    context
-                        .read<BehaviorCubit>()
-                        .saveBehavior( _chosenValue!);
+                    context.read<BehaviorCubit>().saveBehavior(_chosenValue!,
+                        widget.child.id!, startingDate!, endDate!);
                     // } else {
                     //   context.read<NoteCubit>().updateNote(note!.id!, _note!);
                     // }

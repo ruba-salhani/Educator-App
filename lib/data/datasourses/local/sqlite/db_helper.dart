@@ -22,6 +22,10 @@ class DBHelper {
   static const String behaviorId = 'id';
   static const String foreignKey = 'foreignKey';
   static const String behavior = 'behavior';
+  static const String trueCounter = 'trueCounter';
+  static const String falseCounter = 'falseCounter';
+  static const String startingDate = 'startingDate';
+  static const String endDate = 'endDate';
   static const String behaviorTable = 'behaviorTable';
   Future<Database> get dbEducator async {
     if (_db != null) {
@@ -45,7 +49,7 @@ class DBHelper {
     await db.execute(
         "CREATE TABLE $childTable ($childId INTEGER PRIMARY KEY AUTOINCREMENT, $child TEXT)");
     await db.execute(
-        "CREATE TABLE $behaviorTable ($behaviorId INTEGER PRIMARY KEY AUTOINCREMENT, $behavior TEXT, $foreignKey INTEGER NOT NULL, FOREIGN KEY ($foreignKey) REFERENCES $childTable ($childId))");
+        "CREATE TABLE $behaviorTable ($behaviorId INTEGER PRIMARY KEY AUTOINCREMENT, $behavior TEXT, $trueCounter INTEGER, $falseCounter INTEGER, $startingDate TEXT, $endDate TEXT, $foreignKey INTEGER NOT NULL, FOREIGN KEY ($foreignKey) REFERENCES $childTable ($childId))");
     //, FOREIGN KEY ($child_id) REFERENCES $childTable ($childId)
   }
 

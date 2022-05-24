@@ -69,7 +69,11 @@ class BehaviorsScreen extends StatelessWidget {
                       shrinkWrap: true,
                       itemCount: state.behviors.length,
                       itemBuilder: (context, i) {
-                        return const Behavior();
+                        if (child.id == state.behviors[i].foreignKey) {
+                          return Behavior(behavior: state.behviors[i]);
+                        } else {
+                          return const SizedBox(width: 0.0, height: 0.0);
+                        }
                       },
                     );
                   } else {

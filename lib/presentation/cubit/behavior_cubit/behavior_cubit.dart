@@ -24,9 +24,16 @@ class BehaviorCubit extends Cubit<BehaviorState> {
     }
   }
 
-  void saveBehavior(String behavior) async {
-    BehaviorModel newBehavior =
-        BehaviorModel(behavior: behavior, foreignKey: 1);
+  void saveBehavior(String behavior, int foreignKey, String startingDate,
+      String endDate) async {
+    BehaviorModel newBehavior = BehaviorModel(
+      behavior: behavior,
+      foreignKey: foreignKey,
+      // trueCounter: trueCounter,
+      // falseCounter: falseCounter,
+      startingDate: startingDate,
+      endDate: endDate,
+    );
     _behaviorsRepository.saveBehavior(newBehavior);
     getBehaviors();
     //emit(SaveNoteState());
