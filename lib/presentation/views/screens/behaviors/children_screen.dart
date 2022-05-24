@@ -61,14 +61,11 @@ class ChildrenScreen extends StatelessWidget {
                         firstButtonOnpressd: () {
                           if (_formKey.currentState!.validate()) {
                             _formKey.currentState!.save();
-                            //context.popRoute();
-                            //context.read<AuthCubit>().signUp(_image, _username!, _password!, _type!);
-
-                            if (kDebugMode) {
-                              print(_child);
-                            }
-
-                            print(_formKey);
+                            // if (note == null) {
+                            context.read<ChildCubit>().saveChild(_child!);
+                            // } else {
+                            //   context.read<NoteCubit>().updateNote(note!.id!, _note!);
+                            // }
                             context.popRoute();
                           }
                         },
@@ -78,48 +75,49 @@ class ChildrenScreen extends StatelessWidget {
             },
           ),
         ),
-        // body: Padding(
-        //   padding: const EdgeInsets.all(16.0),
-        //   child: BlocBuilder<ChildCubit, ChildState>(
-        //       builder: (BuildContext context, state) {
-        //     if (state is GetChildrenState) {
-        //       return GridView.count(
-        //         crossAxisCount: 2,
-        //         //padding: EdgeInsets.all(8.0),
-        //         children: List.generate(
-        //           state.children.length,
-        //           (index) {
-        //             //print('_buildGridView $index');
-        //             return GestureDetector(
-        //               child: Card(
-        //                 child: Padding(
-        //                   padding: const EdgeInsets.all(4.0),
-        //                   child: Column(
-        //                     children: [
-        //                       const ProfileImage(),
-        //                       const SizedBox(height: 10),
-        //                       Container(
-        //                         child:
-        //                             CustomText(size: false, text: _childName),
-        //                         //color: Colors.grey[200],
-        //                       ),
-        //                     ],
-        //                   ),
-        //                 ),
-        //               ),
-        //               onTap: () {
-        //                 context
-        //                     .pushRoute(BehaviorsScreen(childName: _childName));
-        //               },
-        //             );
-        //           },
-        //         ),
-        //       );
-        //     } else {
-        //       return const NoElementsWidget();
-        //     }
-        //   }),
-        // ),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: BlocBuilder<ChildCubit, ChildState>(
+              builder: (BuildContext context, state) {
+            if (state is GetChildrenState) {
+              return GridView.count(
+                crossAxisCount: 2,
+                //padding: EdgeInsets.all(8.0),
+                children: List.generate(
+                  state.children.length,
+                  (index) {
+                    //print('_buildGridView $index');
+                    return GestureDetector(
+                      child: Card(
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Column(
+                            children: [
+                              const ProfileImage(),
+                              const SizedBox(height: 10),
+                              Container(
+                                child: CustomText(
+                                    size: false,
+                                    text: state.children[index].child!),
+                                //color: Colors.grey[200],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      onTap: () {
+                        context
+                            .pushRoute(BehaviorsScreen(childName: _childName));
+                      },
+                    );
+                  },
+                ),
+              );
+            } else {
+              return const NoElementsWidget();
+            }
+          }),
+        ),
       ),
     );
   }

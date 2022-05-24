@@ -14,9 +14,9 @@ class DBHelper {
   static const String noteId = 'id';
   static const String note = 'note';
   static const String noteTable = 'noteTable';
-  // static const String childId = 'childId';
-  // static const String child = 'child';
-  // static const String childTable = 'childTable';
+  static const String childId = 'id';
+  static const String child = 'child';
+  static const String childTable = 'childTable';
   Future<Database> get dbEducator async {
     if (_db != null) {
       return _db!;
@@ -36,8 +36,8 @@ class DBHelper {
   _onCreate(Database db, int version) async {
     await db.execute(
         "CREATE TABLE $noteTable ($noteId INTEGER PRIMARY KEY AUTOINCREMENT, $note TEXT)");
-    // await db.execute(
-    //     "CREATE TABLE $childTable ($childId INTEGER PRIMARY KEY AUTOINCREMENT, $child TEXT)");
+    await db.execute(
+        "CREATE TABLE $childTable ($childId INTEGER PRIMARY KEY AUTOINCREMENT, $child TEXT)");
   }
 
   Future<List<Note>> getNotes() async {
@@ -71,36 +71,36 @@ class DBHelper {
         where: '$noteId = ?', whereArgs: [note.id]);
   }
 
-  // Future<List<Child>> getChildren() async {
-  //   var dbEduc = await dbEducator;
-  //   List<Map<String, dynamic>> maps = await dbEduc.query(childTable);
+  Future<List<Child>> getChildren() async {
+    var dbEduc = await dbEducator;
+    List<Map<String, dynamic>> maps = await dbEduc.query(childTable);
 
-  //   List<ChildModel> children = [];
-  //   if (maps.isNotEmpty) {
-  //     for (int i = 0; i < maps.length; i++) {
-  //       children.add(ChildModel.fromMap(maps[i]));
-  //     }
-  //   }
-  //   return children;
-  // }
+    List<ChildModel> children = [];
+    if (maps.isNotEmpty) {
+      for (int i = 0; i < maps.length; i++) {
+        children.add(ChildModel.fromMap(maps[i]));
+      }
+    }
+    return children;
+  }
 
-  // Future saveChild(ChildModel child) async {
-  //   var dbEduc = await dbEducator;
-  //   child.id = await dbEduc.insert(childTable, child.toMap());
-  //   return child;
-  // }
+  Future saveChild(ChildModel child) async {
+    var dbEduc = await dbEducator;
+    child.id = await dbEduc.insert(childTable, child.toMap());
+    return child;
+  }
 
-  // Future<int> deleteChild(int id) async {
-  //   var dbEduc = await dbEducator;
-  //   return await dbEduc
-  //       .delete(childTable, where: '$childId = ?', whereArgs: [id]);
-  // }
+  Future<int> deleteChild(int id) async {
+    var dbEduc = await dbEducator;
+    return await dbEduc
+        .delete(childTable, where: '$childId = ?', whereArgs: [id]);
+  }
 
-  // Future<int> updateChild(ChildModel child) async {
-  //   var dbEduc = await dbEducator;
-  //   return await dbEduc.update(childTable, child.toMap(),
-  //       where: '$childId = ?', whereArgs: [child.id]);
-  // }
+  Future<int> updateChild(ChildModel child) async {
+    var dbEduc = await dbEducator;
+    return await dbEduc.update(childTable, child.toMap(),
+        where: '$childId = ?', whereArgs: [child.id]);
+  }
 
   Future close() async {
     var dbEduc = await dbEducator;

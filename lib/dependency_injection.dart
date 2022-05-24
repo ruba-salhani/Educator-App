@@ -17,7 +17,7 @@ void setup() {
   getIt.registerLazySingleton<NotesRepository>(
       () => NotesRepositoryImpl(getIt()));
   getIt.registerFactory(() => NoteCubit(getIt()));
-  // getIt.registerLazySingleton<ChildrenRepository>(
-  //     () => ChildrenRepositoryImpl(getIt()));
-  // getIt.registerFactory(() => ChildCubit(getIt()));
+  getIt.registerLazySingleton<ChildrenRepository>(
+      () => ChildrenRepositoryImpl(getIt()));
+  getIt.registerFactory(() => ChildCubit(getIt()));
 }

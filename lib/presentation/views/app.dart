@@ -17,9 +17,9 @@ class App extends StatelessWidget {
         BlocProvider<NoteCubit>(
           create: (_) => getIt<NoteCubit>(),
         ),
-        // BlocProvider<ChildCubit>(
-        //   create: (_) => getIt<ChildCubit>(),
-        // ),
+        BlocProvider<ChildCubit>(
+          create: (_) => getIt<ChildCubit>(),
+        ),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
