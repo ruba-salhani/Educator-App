@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'dart:io' as io;
+import 'package:educator/data/models/behavior_model.dart';
 import 'package:educator/data/models/note_model.dart';
 import 'package:educator/domain/entities/note.dart';
 import 'package:educator/data/models/child_model.dart';
 import 'package:educator/domain/entities/child.dart';
+import 'package:educator/presentation/views/screens/behaviors/widgets/behavior.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
@@ -17,6 +19,10 @@ class DBHelper {
   static const String childId = 'id';
   static const String child = 'child';
   static const String childTable = 'childTable';
+  static const String behaviorId = 'id';
+  static const String foreignKey = 'foreignKey';
+  static const String behavior = 'behavior';
+  static const String behaviorTable = 'behaviorTable';
   Future<Database> get dbEducator async {
     if (_db != null) {
       return _db!;
@@ -38,6 +44,9 @@ class DBHelper {
         "CREATE TABLE $noteTable ($noteId INTEGER PRIMARY KEY AUTOINCREMENT, $note TEXT)");
     await db.execute(
         "CREATE TABLE $childTable ($childId INTEGER PRIMARY KEY AUTOINCREMENT, $child TEXT)");
+    await db.execute(
+        "CREATE TABLE $behaviorTable ($behaviorId INTEGER PRIMARY KEY AUTOINCREMENT, $behavior TEXT, $foreignKey INTEGER NOT NULL, FOREIGN KEY ($foreignKey) REFERENCES $childTable ($childId))");
+    //, FOREIGN KEY ($child_id) REFERENCES $childTable ($childId)
   }
 
   Future<List<Note>> getNotes() async {
@@ -100,6 +109,37 @@ class DBHelper {
     var dbEduc = await dbEducator;
     return await dbEduc.update(childTable, child.toMap(),
         where: '$childId = ?', whereArgs: [child.id]);
+  }
+
+  Future<List<BehaviorModel>> getBehaviors() async {
+    var dbEduc = await dbEducator;
+    List<Map<String, dynamic>> maps = await dbEduc.query(behaviorTable);
+
+    List<BehaviorModel> behaviors = [];
+    if (maps.isNotEmpty) {
+      for (int i = 0; i < maps.length; i++) {
+        behaviors.add(BehaviorModel.fromMap(maps[i]));
+      }
+    }
+    return behaviors;
+  }
+
+  Future saveBehavior(BehaviorModel behavior) async {
+    var dbEduc = await dbEducator;
+    behavior.id = await dbEduc.insert(behaviorTable, behavior.toMap());
+    return behavior;
+  }
+
+  Future<int> deleteBehavior(int id) async {
+    var dbEduc = await dbEducator;
+    return await dbEduc
+        .delete(behaviorTable, where: '$behaviorId = ?', whereArgs: [id]);
+  }
+
+  Future<int> updateBehavior(BehaviorModel behavior) async {
+    var dbEduc = await dbEducator;
+    return await dbEduc.update(behaviorTable, behavior.toMap(),
+        where: '$behaviorId = ?', whereArgs: [behavior.id]);
   }
 
   Future close() async {

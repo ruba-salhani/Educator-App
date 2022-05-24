@@ -1,4 +1,5 @@
 import 'package:educator/dependency_injection.dart';
+import 'package:educator/presentation/cubit/behavior_cubit/behavior_cubit.dart';
 import 'package:educator/presentation/cubit/child_cubit/child_cubit.dart';
 import 'package:educator/presentation/cubit/note_cubit/note_cubit.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,9 @@ class App extends StatelessWidget {
         ),
         BlocProvider<ChildCubit>(
           create: (_) => getIt<ChildCubit>(),
+        ),
+        BlocProvider<BehaviorCubit>(
+          create: (_) => getIt<BehaviorCubit>(),
         ),
       ],
       child: MaterialApp.router(

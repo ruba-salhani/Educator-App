@@ -1,8 +1,11 @@
 import 'package:educator/data/datasourses/local/sqlite/db_helper.dart';
+import 'package:educator/data/repositories/behaviors_repository_impl.dart';
 import 'package:educator/data/repositories/child_repository_impl.dart';
 import 'package:educator/data/repositories/nots_repository_impl.dart';
+import 'package:educator/domain/repositories/behavior_repository.dart';
 import 'package:educator/domain/repositories/child_repository.dart';
 import 'package:educator/domain/repositories/notes_repository.dart';
+import 'package:educator/presentation/cubit/behavior_cubit/behavior_cubit.dart';
 import 'package:educator/presentation/cubit/child_cubit/child_cubit.dart';
 import 'package:educator/presentation/cubit/note_cubit/note_cubit.dart';
 import 'package:get_it/get_it.dart';
@@ -20,4 +23,7 @@ void setup() {
   getIt.registerLazySingleton<ChildrenRepository>(
       () => ChildrenRepositoryImpl(getIt()));
   getIt.registerFactory(() => ChildCubit(getIt()));
+  getIt.registerLazySingleton<BehaviorsRepository>(
+      () => BehaviorsRepositoryImpl(getIt()));
+  getIt.registerFactory(() => BehaviorCubit(getIt()));
 }

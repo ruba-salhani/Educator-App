@@ -106,8 +106,11 @@ class ChildrenScreen extends StatelessWidget {
                         ),
                       ),
                       onTap: () {
-                        context
-                            .pushRoute(BehaviorsScreen(childName: _childName));
+                        context.pushRoute(
+                          BehaviorsScreen(
+                              childName: state.children[index].child!,
+                              child: state.children[index]),
+                        );
                       },
                     );
                   },

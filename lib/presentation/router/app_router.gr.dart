@@ -13,6 +13,7 @@
 import 'package:auto_route/auto_route.dart' as _i34;
 import 'package:flutter/material.dart' as _i35;
 
+import '../../domain/entities/child.dart' as _i36;
 import '../views/screens/behaviors/behavior_description.dart' as _i33;
 import '../views/screens/behaviors/behaviors_screen.dart' as _i4;
 import '../views/screens/behaviors/children_screen.dart' as _i31;
@@ -71,7 +72,8 @@ class AppRouter extends _i34.RootStackRouter {
       final args = routeData.argsAs<BehaviorsScreenArgs>();
       return _i34.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i4.BehaviorsScreen(key: args.key, childName: args.childName));
+          child: _i4.BehaviorsScreen(
+              key: args.key, child: args.child, childName: args.childName));
     },
     FamilyDayScreen.name: (routeData) {
       return _i34.MaterialPageX<dynamic>(
@@ -126,8 +128,10 @@ class AppRouter extends _i34.RootStackRouter {
           routeData: routeData, child: const _i17.Social());
     },
     EarlyChildhood.name: (routeData) {
+      final args = routeData.argsAs<EarlyChildhoodArgs>(
+          orElse: () => const EarlyChildhoodArgs());
       return _i34.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i18.EarlyChildhood());
+          routeData: routeData, child: _i18.EarlyChildhood(key: args.key));
     },
     Childhood.name: (routeData) {
       return _i34.MaterialPageX<dynamic>(
@@ -181,8 +185,10 @@ class AppRouter extends _i34.RootStackRouter {
           routeData: routeData, child: const _i30.RecommendationsScreen());
     },
     ChildrenScreen.name: (routeData) {
+      final args = routeData.argsAs<ChildrenScreenArgs>(
+          orElse: () => const ChildrenScreenArgs());
       return _i34.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i31.ChildrenScreen());
+          routeData: routeData, child: _i31.ChildrenScreen(key: args.key));
     },
     FamilyDayDescription.name: (routeData) {
       final args = routeData.argsAs<FamilyDayDescriptionArgs>(
@@ -272,24 +278,29 @@ class SignupScreen extends _i34.PageRouteInfo<void> {
 /// generated route for
 /// [_i4.BehaviorsScreen]
 class BehaviorsScreen extends _i34.PageRouteInfo<BehaviorsScreenArgs> {
-  BehaviorsScreen({_i35.Key? key, required String childName})
+  BehaviorsScreen(
+      {_i35.Key? key, required _i36.Child child, required String childName})
       : super(BehaviorsScreen.name,
             path: '/behaviors-screen',
-            args: BehaviorsScreenArgs(key: key, childName: childName));
+            args: BehaviorsScreenArgs(
+                key: key, child: child, childName: childName));
 
   static const String name = 'BehaviorsScreen';
 }
 
 class BehaviorsScreenArgs {
-  const BehaviorsScreenArgs({this.key, required this.childName});
+  const BehaviorsScreenArgs(
+      {this.key, required this.child, required this.childName});
 
   final _i35.Key? key;
+
+  final _i36.Child child;
 
   final String childName;
 
   @override
   String toString() {
-    return 'BehaviorsScreenArgs{key: $key, childName: $childName}';
+    return 'BehaviorsScreenArgs{key: $key, child: $child, childName: $childName}';
   }
 }
 
@@ -405,10 +416,23 @@ class Social extends _i34.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i18.EarlyChildhood]
-class EarlyChildhood extends _i34.PageRouteInfo<void> {
-  const EarlyChildhood() : super(EarlyChildhood.name, path: '/early-childhood');
+class EarlyChildhood extends _i34.PageRouteInfo<EarlyChildhoodArgs> {
+  EarlyChildhood({_i35.Key? key})
+      : super(EarlyChildhood.name,
+            path: '/early-childhood', args: EarlyChildhoodArgs(key: key));
 
   static const String name = 'EarlyChildhood';
+}
+
+class EarlyChildhoodArgs {
+  const EarlyChildhoodArgs({this.key});
+
+  final _i35.Key? key;
+
+  @override
+  String toString() {
+    return 'EarlyChildhoodArgs{key: $key}';
+  }
 }
 
 /// generated route for
@@ -530,10 +554,23 @@ class RecommendationsScreen extends _i34.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i31.ChildrenScreen]
-class ChildrenScreen extends _i34.PageRouteInfo<void> {
-  const ChildrenScreen() : super(ChildrenScreen.name, path: '/children-screen');
+class ChildrenScreen extends _i34.PageRouteInfo<ChildrenScreenArgs> {
+  ChildrenScreen({_i35.Key? key})
+      : super(ChildrenScreen.name,
+            path: '/children-screen', args: ChildrenScreenArgs(key: key));
 
   static const String name = 'ChildrenScreen';
+}
+
+class ChildrenScreenArgs {
+  const ChildrenScreenArgs({this.key});
+
+  final _i35.Key? key;
+
+  @override
+  String toString() {
+    return 'ChildrenScreenArgs{key: $key}';
+  }
 }
 
 /// generated route for

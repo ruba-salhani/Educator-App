@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:educator/domain/entities/child.dart';
+import 'package:educator/presentation/cubit/behavior_cubit/behavior_cubit.dart';
 import 'package:educator/presentation/router/app_router.gr.dart';
 import 'package:educator/presentation/theme/app_colors.dart';
 import 'package:educator/presentation/views/components/components.dart';
@@ -6,13 +8,16 @@ import 'package:educator/presentation/views/screens/behaviors/widgets/behavior.d
 import 'package:educator/presentation/views/screens/behaviors/widgets/behavior_dialog.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BehaviorsScreen extends StatelessWidget {
-  const BehaviorsScreen({
+  BehaviorsScreen({
     Key? key,
+    required this.child,
     required this.childName,
   }) : super(key: key);
   final String childName;
+  final Child child;
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -44,7 +49,9 @@ class BehaviorsScreen extends StatelessWidget {
               showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return const BehaviorDialog();
+                    return BehaviorDialog(
+                      child: child,
+                    );
                   });
             },
           ),
@@ -54,14 +61,21 @@ class BehaviorsScreen extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                child: ListView.builder(
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  itemCount: 4,
-                  itemBuilder: (context, i) {
-                    return const Behavior();
-                  },
-                ),
+                child: BlocBuilder<BehaviorCubit, BehaviorState>(
+                    builder: (BuildContext context, state) {
+                  if (state is GetBehaviorsState) {
+                    return ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      itemCount: state.behviors.length,
+                      itemBuilder: (context, i) {
+                        return const Behavior();
+                      },
+                    );
+                  } else {
+                    return const NoElementsWidget();
+                  }
+                }),
               ),
             ],
           ),

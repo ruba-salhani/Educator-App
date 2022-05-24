@@ -1,13 +1,16 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:educator/domain/entities/child.dart';
+import 'package:educator/presentation/cubit/behavior_cubit/behavior_cubit.dart';
 import 'package:educator/presentation/theme/app_colors.dart';
 import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:queen_validators/queen_validators.dart';
 
 class BehaviorDialog extends StatefulWidget {
-  const BehaviorDialog({Key? key}) : super(key: key);
-
+  const BehaviorDialog({Key? key, required this.child}) : super(key: key);
+  final Child child;
   @override
   State<BehaviorDialog> createState() => _BehaviorDialogState();
 }
@@ -44,6 +47,8 @@ class _BehaviorDialogState extends State<BehaviorDialog> {
 
   String? startingDate;
   String? endDate;
+
+  //get child => child;
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -99,8 +104,8 @@ class _BehaviorDialogState extends State<BehaviorDialog> {
                     action: TextInputAction.next,
                     obscure: false,
                     suffixicon: const Icon(Icons.today_outlined),
-                    label: 'Starting Date',
-                    hint: 'Starting Date',
+                    label: 'تاريخ البدء',
+                    hint: 'تاريخ البدء',
                     vald: qValidator([
                       const IsRequired(),
                     ]),
@@ -113,7 +118,7 @@ class _BehaviorDialogState extends State<BehaviorDialog> {
                     action: TextInputAction.done,
                     obscure: false,
                     suffixicon: const Icon(Icons.today_outlined),
-                    label: 'تاريخ البدء',
+                    label: 'تاريخ الانتهاء',
                     hint: 'تاريخ الانتهاء',
                     vald: qValidator([
                       const IsRequired(),
@@ -133,14 +138,16 @@ class _BehaviorDialogState extends State<BehaviorDialog> {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  if (FocusScope.of(context).hasFocus) {
-                    FocusScope.of(context).unfocus();
-                  }
-                  _formKey.currentState!.save();
                   if (_formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
+                    // if (note == null) {
+                    context
+                        .read<BehaviorCubit>()
+                        .saveBehavior( _chosenValue!);
+                    // } else {
+                    //   context.read<NoteCubit>().updateNote(note!.id!, _note!);
+                    // }
                     context.popRoute();
-                    //context.read<AuthCubit>().signUp(_image, _username!, _password!, _type!);
-
                   }
                 },
                 child: const CustomText(size: false, text: 'حفظ'),

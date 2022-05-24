@@ -24,7 +24,7 @@ class DemandsScreen extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    context.pushRoute(const EarlyChildhood());
+                    context.pushRoute(EarlyChildhood());
                   },
                   child: const CustomText(
                       size: false, text: 'من أسبوعين إلى 5 سنوات'),
