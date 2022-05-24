@@ -11,6 +11,8 @@ class NoteCubit extends Cubit<NoteState> {
   NoteCubit(this._notesRepository) : super(NoteInitial()) {
     getNotes();
   }
+
+  List<Note> get notes => [];
   Future<void> getNotes() async {
     final List<Note> notes = await _notesRepository.readNotes();
 
@@ -24,6 +26,20 @@ class NoteCubit extends Cubit<NoteState> {
   void saveNote(String note) async {
     NoteModel newNote = NoteModel(note: note);
     _notesRepository.saveNote(newNote);
-    emit(SaveNoteState());
+    getNotes();
+    //emit(SaveNoteState());
+    //emit(GetNotesState(notes));
+  }
+
+  void deleteNote(int id) async {
+    //NoteModel newNote = NoteModel(note: note);
+    _notesRepository.deleteNote(id);
+    getNotes();
+  }
+
+  void updateNote(int id, String note) async {
+    NoteModel newNote = NoteModel(id: id, note: note);
+    _notesRepository.updateNote(newNote);
+    getNotes();
   }
 }

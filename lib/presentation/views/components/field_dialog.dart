@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class FieldDialog extends StatelessWidget {
   FieldDialog({
     Key? key,
+    this.initialValue,
     required this.firstButtonOnpressd,
     this.vald,
     this.onsaved,
@@ -16,6 +17,7 @@ class FieldDialog extends StatelessWidget {
   final String? Function(String?)? vald;
   final void Function(String?)? onsaved;
   String hint;
+  String? initialValue;
   String label;
   IconData icon;
 
@@ -28,6 +30,7 @@ class FieldDialog extends StatelessWidget {
       child: AlertDialog(
         elevation: 30,
         content: CustomTextFormField(
+          initialValue: initialValue,
           keyType: TextInputType.text,
           action: TextInputAction.done,
           obscure: false,

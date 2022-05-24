@@ -1,17 +1,16 @@
 import 'package:equatable/equatable.dart';
 
-class Note extends Equatable {
+class Child extends Equatable {
   //final int userId;
   int? id;
-  String? note;
+  String? child;
 
-  Note({
+  Child({
     //required this.userId,
     this.id,
-    this.note,
+    this.child,
   });
 
   @override
-  List<Object?> get props => [id, note];
-
+  List<Object?> get props => [id, child];
 }

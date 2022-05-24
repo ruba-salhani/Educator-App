@@ -16,6 +16,16 @@ class NotesRepositoryImpl implements NotesRepository {
 
   @override
   Future saveNote(NoteModel note) async {
-    return await _dbHelper.save(note);
+    return await _dbHelper.saveNote(note);
+  }
+
+  @override
+  Future deleteNote(int id) async {
+    return await _dbHelper.deleteNote(id);
+  }
+
+  @override
+  Future updateNote(NoteModel note) async {
+    return await _dbHelper.updateNote(note);
   }
 }

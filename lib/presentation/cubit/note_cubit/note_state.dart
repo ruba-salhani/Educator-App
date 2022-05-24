@@ -3,7 +3,7 @@ part of 'note_cubit.dart';
 abstract class NoteState extends Equatable {
   const NoteState();
 
-  get notes => null;
+  //get notes => null;
 }
 
 class NoteInitial extends NoteState {
@@ -23,7 +23,7 @@ class EmptyState extends NoteState {
   List<Object> get props => [];
 }
 
-class SaveNoteState extends NoteState {
-  @override
-  List<Object> get props => [];
-}
+// class SaveNoteState extends NoteState {
+//   @override
+//   List<Object> get props => [];
+// }
