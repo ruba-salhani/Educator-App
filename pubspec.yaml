@@ -27,6 +27,8 @@ dependencies:
   path:
   path_provider:
   sqflite:
+  circular_menu:
+  shared_preferences: ^2.0.15
 dev_dependencies:
   auto_route_generator: null
   build_runner: null

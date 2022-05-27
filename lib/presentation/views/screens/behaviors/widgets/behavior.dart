@@ -1,7 +1,9 @@
 import 'package:educator/data/models/behavior_model.dart';
+import 'package:educator/presentation/cubit/behavior_cubit/behavior_cubit.dart';
 import 'package:educator/presentation/theme/app_colors.dart';
 import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 class Behavior extends StatefulWidget {
@@ -32,7 +34,7 @@ class _BehaviorState extends State<Behavior> {
   Widget build(BuildContext context) {
     return SizedBox(
       //color: Colors.white70,
-      height: Get.height / 8,
+      height: Get.height / 7,
       //width: Get.width / 4,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
@@ -41,19 +43,49 @@ class _BehaviorState extends State<Behavior> {
             padding: const EdgeInsets.all(2.0),
             child: Column(
               children: [
-                SizedBox(
-                  //color: Colors.pinkAccent,
-                  //height: Get.height / 10,
-                  //width: Get.width / 4,
-                  child: Center(
-                      child: CustomText(
-                    size: false,
-                    text: widget.behavior.behavior!,
-                    // style: TextStyle(
-                    //   color: AppColors.secondary,
-                    //   fontWeight: FontWeight.bold,
-                    // ),
-                  )),
+                Row(
+                  children: [
+                    SizedBox(
+                      //color: Colors.pinkAccent,
+                      //height: Get.height / 10,
+                      //width: Get.width / 4,
+                      child: Center(
+                          child: CustomText(
+                        size: false,
+                        text: widget.behavior.behavior!,
+                        // style: TextStyle(
+                        //   color: AppColors.secondary,
+                        //   fontWeight: FontWeight.bold,
+                        // ),
+                      )),
+                    ),
+                    IconButton(
+                      icon: const Icon(
+                        Icons.create,
+                        color: AppColors.secondary,
+                      ),
+                      onPressed: () {
+                        // showDialog(
+                        //     context: context,
+                        //     builder: (BuildContext context) {
+                        //       return BehaviorDialog(
+                        //         child: child,
+                        //       );
+                        //     });
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(
+                        Icons.delete,
+                        color: AppColors.secondary,
+                      ),
+                      onPressed: () {
+                        context
+                            .read<BehaviorCubit>()
+                            .deleteBehavior(widget.behavior.id!);
+                      },
+                    ),
+                  ],
                 ),
                 Row(
                   //mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -4,6 +4,7 @@ import 'package:educator/presentation/theme/app_colors.dart';
 import 'package:educator/presentation/views/components/components.dart';
 import 'package:educator/presentation/views/screens/phone_usage_system/widgets/timer.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PhoneUsageSeystemScreen extends StatefulWidget {
   const PhoneUsageSeystemScreen({Key? key}) : super(key: key);
@@ -14,14 +15,11 @@ class PhoneUsageSeystemScreen extends StatefulWidget {
 }
 
 class _PhoneUsageSeystemScreenState extends State<PhoneUsageSeystemScreen> {
-// Size displaySize(BuildContext context) {
-//   debugPrint('Size = ' + MediaQuery.of(context).size.toString());
-//   return MediaQuery.of(context).size;
-// }
-// double displayWidth(BuildContext context) {
-//   debugPrint('Width = ' + displaySize(context).width.toString());
-//   return displaySize(context).width;
-// }
+  SharedPreferences? sharedPreferences;
+  saveValue(String chosenValue) async {
+    sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences!.setString('key', chosenValue);
+  }
 
   List<String> ages = [
     'أقل من سنتين',
@@ -82,6 +80,7 @@ class _PhoneUsageSeystemScreenState extends State<PhoneUsageSeystemScreen> {
                   onChanged: (String? value) {
                     setState(() {
                       _chosenValue = value;
+                      saveValue(_chosenValue!);
                       if (_chosenValue == ages[0]) {
                         timer = 0;
                         duration = 'غير مسموح !';

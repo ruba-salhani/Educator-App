@@ -1,14 +1,17 @@
+import 'dart:io';
+
 import 'package:equatable/equatable.dart';
 
 class Child extends Equatable {
-  //final int userId;
   int? id;
   String? child;
-
+  // String? image;
+  // File? imageFile;
   Child({
-    //required this.userId,
     this.id,
     this.child,
+    // this.image,
+    // this.imageFile,
   });
 
   @override

@@ -4,17 +4,32 @@ import 'package:educator/presentation/cubit/child_cubit/child_cubit.dart';
 import 'package:educator/presentation/router/app_router.gr.dart';
 import 'package:educator/presentation/theme/app_colors.dart';
 import 'package:educator/presentation/views/components/components.dart';
+import 'package:educator/presentation/views/screens/behaviors/widgets/child_dialog.dart';
 import 'package:flutter/foundation.dart';
-
+import 'package:circular_menu/circular_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 import 'package:queen_validators/queen_validators.dart';
 
-class ChildrenScreen extends StatelessWidget {
+class ChildrenScreen extends StatefulWidget {
   ChildrenScreen({Key? key}) : super(key: key);
+
+  @override
+  State<ChildrenScreen> createState() => _ChildrenScreenState();
+}
+
+class _ChildrenScreenState extends State<ChildrenScreen> {
   final String _childName = 'اسم الطفل';
+
   final _formKey = GlobalKey<FormState>();
+
   String? _child;
+
+  String? _colorName;
+
+  Color? _color;
+
   //Child? child;
   @override
   Widget build(BuildContext context) {
@@ -47,42 +62,13 @@ class ChildrenScreen extends StatelessWidget {
               showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return Form(
-                      key: _formKey,
-                      child: FieldDialog(
-                        icon: Icons.add_reaction_outlined,
-                        label: 'الابن',
-                        hint: "ادخل اسم الابن",
-                        vald: qValidator([
-                          const IsRequired('مطلوب'),
-                        ]),
-                        onsaved: (val) {
-                          _child = val;
-                          //print(_note);
-                        },
-                        firstButtonOnpressd: () {
-                          if (_formKey.currentState!.validate()) {
-                            _formKey.currentState!.save();
-                            // if (note == null) {
-                            context.read<ChildCubit>().saveChild(_child!);
-                            // } else {
-                            //   context.read<NoteCubit>().updateNote(note!.id!, _note!);
-                            // // }
-                            // context.pushRoute(BehaviorsScreen(
-                            //   childName: _child!,
-                            //   child: child!,
-                            // ));
-                            context.popRoute();
-                          }
-                        },
-                      ),
-                    );
+                    return ChildDialog();
                   });
             },
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(8.0),
           child: BlocBuilder<ChildCubit, ChildState>(
               builder: (BuildContext context, state) {
             if (state is GetChildrenState) {
@@ -98,14 +84,56 @@ class ChildrenScreen extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(4.0),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const ProfileImage(),
-                              const SizedBox(height: 10),
-                              Container(
-                                child: CustomText(
-                                    size: false,
-                                    text: state.children[index].child!),
-                                //color: Colors.grey[200],
+                              const SizedBox(height: 5),
+                              CustomText(
+                                  size: false,
+                                  text: state.children[index].child!),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  IconButton(
+                                    icon: const Icon(
+                                      Icons.create,
+                                      color: AppColors.secondary,
+                                    ),
+                                    onPressed: () {
+                                      showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return ChildDialog(
+                                              child: state.children[index],
+                                            );
+                                          });
+                                    },
+                                  ),
+                                  IconButton(
+                                    icon: const Icon(
+                                      Icons.arrow_circle_right_outlined,
+                                      color: AppColors.secondary,
+                                    ),
+                                    onPressed: () {
+                                      context.pushRoute(
+                                        BehaviorsScreen(
+                                            childName:
+                                                state.children[index].child!,
+                                            child: state.children[index]),
+                                      );
+                                    },
+                                  ),
+                                  IconButton(
+                                    icon: const Icon(
+                                      Icons.delete,
+                                      color: AppColors.secondary,
+                                    ),
+                                    onPressed: () {
+                                      context.read<ChildCubit>().deleteChild(
+                                          state.children[index].id!);
+                                    },
+                                  ),
+                                ],
                               ),
                             ],
                           ),

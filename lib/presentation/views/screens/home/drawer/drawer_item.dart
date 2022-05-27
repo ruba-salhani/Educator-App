@@ -1,6 +1,7 @@
 import 'package:educator/presentation/theme/app_colors.dart';
 import 'package:educator/presentation/views/components/components.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class DrawerItem extends StatelessWidget {
   const DrawerItem({
@@ -17,8 +18,8 @@ class DrawerItem extends StatelessWidget {
     return ListTile(
       leading: Container(
         alignment: Alignment.center,
-        width: 40,
-        height: 40,
+        height: Get.height / 20,
+        width: Get.width / 10,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: AppColors.secondary,
