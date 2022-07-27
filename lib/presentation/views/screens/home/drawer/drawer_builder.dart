@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:educator/data/datasourses/local/storage.dart';
 
 class DrawerBuilder extends StatefulWidget {
   const DrawerBuilder({Key? key}) : super(key: key);
@@ -15,7 +16,27 @@ class DrawerBuilder extends StatefulWidget {
 
 class _DrawerBuilderState extends State<DrawerBuilder> {
   final _formKey = GlobalKey<FormState>();
+  String username = '', email = '';
   String? _note;
+  final SecureStorage secureStorage = SecureStorage();
+  @override
+  void initState() {
+    super.initState();
+    init();
+  }
+
+  init() async {
+    final usernameValue = await secureStorage.readSecureData('username') ?? '';
+    // final durationValue = await secureStorage.readSecureData('duration') ?? '';
+    final emailValue = await secureStorage.readSecureData('email') ?? '';
+    print(username);
+    print(email);
+    setState(() {
+      username = usernameValue;
+      email = emailValue;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -37,7 +58,7 @@ class _DrawerBuilderState extends State<DrawerBuilder> {
                 ),
                 DrawerItem(
                   icon: Icons.person,
-                  text: 'ربا صالحاني',
+                  text: username,
                   ontap: () {
                     showDialog(
                         context: context,
@@ -81,7 +102,7 @@ class _DrawerBuilderState extends State<DrawerBuilder> {
                 ),
                 DrawerItem(
                   icon: Icons.email_outlined,
-                  text: 'Ruba.salhani@gmail.com',
+                  text: email,
                   ontap: () {
                     showDialog(
                         context: context,

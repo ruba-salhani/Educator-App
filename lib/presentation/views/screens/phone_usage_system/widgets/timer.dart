@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class Timer extends StatefulWidget {
   Timer({Key? key, required this.timer}) : super(key: key);
   int timer;
+
   @override
   State<Timer> createState() => _TimerState();
 }
@@ -18,7 +19,7 @@ class _TimerState extends State<Timer> {
       children: [
         CircularCountDownTimer(
           duration: widget.timer,
-          initialDuration: 0,
+          initialDuration: widget.timer,
           controller: _controller,
           width: MediaQuery.of(context).size.width / 2,
           height: MediaQuery.of(context).size.height / 2,
@@ -56,7 +57,8 @@ class _TimerState extends State<Timer> {
             // ),
             _button(
                 title: "بدء",
-                onPressed: () => _controller.restart(duration: widget.timer)),
+                onPressed: () =>
+                    _controller.restart(duration: widget.timer)),
 
             const SizedBox(
               width: 2,
@@ -77,10 +79,11 @@ class _TimerState extends State<Timer> {
 Widget _button({required String title, VoidCallback? onPressed}) {
   return Expanded(
       child: ElevatedButton(
-    child: CustomText(
-      size: false,
-      text: title,
-    ),
+    child: Text(title),
+    // child: CustomText(
+    //   size: false,
+    //   text: title,
+    // ),
     style: ElevatedButton.styleFrom(
       primary: AppColors.secondary,
     ),

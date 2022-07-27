@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:educator/presentation/views/components/components.dart';
-
+import 'package:educator/data/datasourses/local/storage.dart';
 import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';
 
@@ -13,7 +13,7 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   final _formKey = GlobalKey<FormState>();
-
+  final SecureStorage secureStorage = SecureStorage();
   String? _email;
 
   String? _username;
@@ -123,6 +123,9 @@ class _SignupScreenState extends State<SignupScreen> {
                             print(_password);
                             print(_email);
                             print(_formKey);
+                            secureStorage.writeSecureData(
+                                'username', _username!);
+                            secureStorage.writeSecureData('email', _email!);
                           }
                         },
                         child: const CustomText(
